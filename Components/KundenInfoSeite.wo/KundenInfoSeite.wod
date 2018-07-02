@@ -1,0 +1,37 @@
+css : ERXStyleSheet {
+	filename = "css/bootstrap.css";
+}
+form : WOForm {
+	
+}
+nachname : WOTextField {
+	//value = null;
+}
+vorname : WOTextField {
+	//value = null;
+}
+strasse : WOTextField {
+	//value = null;
+}
+plz : WOTextField {
+	//value = null;
+}
+ort : WOTextField {
+	//value = null;
+}
+telefon : WOTextField {
+	//value = null;
+}
+bemerkungen : WOText {
+	//value = null;
+}
+submit : WOSubmitButton {
+	action = null;
+	value = "submit";
+}
+main : WOHyperlink {
+	action = main;
+}
+confirm : WOHyperlink {
+	action = confirm;
+}

@@ -1,0 +1,10 @@
+Kofnfiguration = Admin konstant welche inhalte in einem artikel möglich sind
+konfiguration schränkt BestellKonfiguration ein
+
+BestellKonfiguration, welche der Kunde konfiguriert.
+
+pro bestellposition ein artikel
+
+bestellposition=artikel, können mehrere inhlate gewählt wedren
+bestellung kann aus mehreren bestellposition bestehen, darum kann eine bestellung aus mehreren artikeln bestehen.
+

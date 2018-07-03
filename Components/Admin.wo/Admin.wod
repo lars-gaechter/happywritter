@@ -1,0 +1,26 @@
+wrapper : Kopf {
+	
+}
+footer : Fuss {
+	
+}
+css : ERXStyleSheet {
+	filename = "css/bootstrap.css";
+}
+
+loginForm : WOForm {
+	
+}
+
+benutzername : WOTextField {
+	value = benutzername;
+}
+
+passwort : WOPasswordField {
+	value = passwort;
+}
+
+anmeldenSubmit : WOSubmitButton {
+	action = anmelden;
+	value = "Anmelden";
+}

@@ -3,8 +3,15 @@
 	
 //}
 
-checkout : WOHyperlink {
-	action = detail;
+//checkout : WOHyperlink {
+//	action = detail;
+//}
+
+adminLogin : WOHyperlink {
+	action = adminLogin;
+}
+startShop : WOHyperlink {
+	action = startShop;
 }
 
 menu : WOImage {
@@ -20,4 +27,11 @@ menu : WOImage {
 
 css : ERXStyleSheet {
 	filename = "css/bootstrap.css";
+}
+
+wrapper : Kopf {
+	
+}
+footer : Fuss {
+	
 }

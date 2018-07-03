@@ -1,3 +1,18 @@
 css : ERXStyleSheet {
 	filename = "css/bootstrap.css";
 }
+wrapper : Kopf {
+	
+}
+footer : Fuss {
+	
+}
+abbrechen : WOHyperlink {
+	action = abbrechen;
+}
+confirm : WOHyperlink {
+	action = confirm;
+}
+zurueck : WOHyperlink {
+	action = zurueck;
+}

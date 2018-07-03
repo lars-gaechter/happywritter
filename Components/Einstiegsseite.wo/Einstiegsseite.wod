@@ -1,0 +1,36 @@
+
+
+menu : WOActiveImage {
+	framework = "app";
+	filename = "img/Menu.jpg";
+	imageMapFile = "img/Menu.map";
+	alt = "Etui oder Holzschachtel";
+	action = etuiBestellen;
+}
+
+//bestellList : WORepetition {
+	//<!--<webobject name = "bestellList"></webobject>>-->
+	
+//}
+
+css : ERXStyleSheet {
+	filename = "css/bootstrap.css";
+}
+
+wrapper : Kopf {
+	
+}
+footer : Fuss {
+	
+}
+
+checkout : WOHyperlink {
+	action = detail;
+}
+
+etui : WOHyperlink {
+	action = etuiBestellen;
+}
+schachtel : WOHyperlink {
+	action = schachtelBestellen;
+}

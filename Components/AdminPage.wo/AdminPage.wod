@@ -1,0 +1,19 @@
+vollername : WOString {
+	value = vollerName;
+}
+angemeldetAls : WOConditional {
+	condition = angemeldet;
+}
+abmelden : WOHyperlink {
+	action = abmelden;
+}
+css : ERXStyleSheet {
+	filename = "css/bootstrap.css";
+}
+
+wrapper : Kopf {
+	
+}
+footer : Fuss {
+	
+}

@@ -1,3 +1,18 @@
 css : ERXStyleSheet {
 	filename = "css/bootstrap.css";
 }
+wrapper : Kopf {
+	
+}
+footer : Fuss {
+	
+}
+artikelName : WOString {
+	value = artikelName;
+}
+artikelIcon : WOImage {
+	filename = artikelIcon;
+}
+preis : WOString {
+	value = preis;
+}

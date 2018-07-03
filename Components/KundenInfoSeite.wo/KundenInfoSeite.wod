@@ -29,9 +29,18 @@ submit : WOSubmitButton {
 	action = null;
 	value = "submit";
 }
-main : WOHyperlink {
-	action = main;
+abbrechen : WOHyperlink {
+	action = abbrechen;
 }
 confirm : WOHyperlink {
 	action = confirm;
+}
+zurueck : WOHyperlink {
+	action = zurueck;
+}
+wrapper : Kopf {
+	
+}
+footer : Fuss {
+	
 }

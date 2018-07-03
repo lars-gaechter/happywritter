@@ -2,7 +2,7 @@
     EOModelVersion = "2.1"; 
     adaptorName = JDBC; 
     connectionDictionary = {
-        URL = "jdbc:mysql://localhost/happywritter"; 
+        URL = "jdbc:mysql://localhost/eomodelhappywritter"; 
         password = 1234; 
         username = root; 
     }; 
@@ -24,6 +24,7 @@
         }, 
         {className = "com.webobjects.eocontrol.EOGenericRecord"; name = Kunde; }
     ); 
+    internalInfo = {"_deletedEntityNamesInObjectStore" = (Kunde); }; 
     userInfo = {
         "_EntityModeler" = {
             activeDatabaseConfigName = Default; 
@@ -31,7 +32,7 @@
                 Default = {
                     adaptorName = JDBC; 
                     connectionDictionary = {
-                        URL = "jdbc:mysql://localhost/happywritter"; 
+                        URL = "jdbc:mysql://localhost/eomodelhappywritter"; 
                         password = 1234; 
                         username = root; 
                     }; 

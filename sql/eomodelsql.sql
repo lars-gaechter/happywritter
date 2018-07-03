@@ -1,6 +1,4 @@
-﻿/* The 'Drop Database' option is unavailable. */;
-
-/* The 'Create Database' option is unavailable. */;
+﻿USE eomodelhappywritter;
 
 DROP TABLE EO_PK_TABLE CASCADE;
 

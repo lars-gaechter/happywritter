@@ -1,0 +1,53 @@
+{
+    attributes = (
+        {
+            className = "java.lang.Number"; 
+            columnName = id; 
+            externalType = INT; 
+            name = id; 
+            precision = 10; 
+            valueType = l; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = name; 
+            externalType = VARCHAR; 
+            name = name; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 45; 
+        }, 
+        {
+            allowsNull = Y; 
+            className = "java.lang.Number"; 
+            columnName = preis; 
+            externalType = INT; 
+            name = preis; 
+            precision = 10; 
+            valueType = l; 
+        }
+    ); 
+    attributesUsedForLocking = (id, name, preis); 
+    className = "com.webobjects.eocontrol.EOGenericRecord"; 
+    classProperties = (bestelltekonfigurations, konfigurations, name, preis); 
+    externalName = inhalt; 
+    fetchSpecificationDictionary = {}; 
+    name = Inhalt; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = Bestelltekonfiguration; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = inhaltId; sourceAttribute = id; }); 
+            name = bestelltekonfigurations; 
+        }, 
+        {
+            destination = Konfiguration; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = inhaltId; sourceAttribute = id; }); 
+            name = konfigurations; 
+        }
+    ); 
+}

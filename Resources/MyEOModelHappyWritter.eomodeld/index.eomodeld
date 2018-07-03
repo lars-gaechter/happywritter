@@ -6,6 +6,24 @@
         password = 1234; 
         username = root; 
     }; 
+    entities = (
+        {className = "com.webobjects.eocontrol.EOGenericRecord"; name = Artikel; }, 
+        {
+            className = "com.webobjects.eocontrol.EOGenericRecord"; 
+            name = Bestellposition; 
+        }, 
+        {
+            className = "com.webobjects.eocontrol.EOGenericRecord"; 
+            name = Bestelltekonfiguration; 
+        }, 
+        {className = "com.webobjects.eocontrol.EOGenericRecord"; name = Bestellung; }, 
+        {className = "com.webobjects.eocontrol.EOGenericRecord"; name = Inhalt; }, 
+        {
+            className = "com.webobjects.eocontrol.EOGenericRecord"; 
+            name = Konfiguration; 
+        }, 
+        {className = "com.webobjects.eocontrol.EOGenericRecord"; name = Kunde; }
+    ); 
     userInfo = {
         "_EntityModeler" = {
             activeDatabaseConfigName = Default; 
@@ -20,6 +38,7 @@
                     prototypeEntityName = EOJDBCMySQLPrototypes; 
                 }; 
             }; 
+            reverseEngineered = Y; 
         }; 
     }; 
 }

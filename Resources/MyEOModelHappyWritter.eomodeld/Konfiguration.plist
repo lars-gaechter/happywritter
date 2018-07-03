@@ -1,0 +1,43 @@
+{
+    attributes = (
+        {
+            className = "java.lang.Number"; 
+            columnName = "Artikel_id"; 
+            externalType = INT; 
+            name = artikelId; 
+            precision = 10; 
+            valueType = l; 
+        }, 
+        {
+            className = "java.lang.Number"; 
+            columnName = "Inhalt_id"; 
+            externalType = INT; 
+            name = inhaltId; 
+            precision = 10; 
+            valueType = l; 
+        }
+    ); 
+    attributesUsedForLocking = (artikelId, inhaltId); 
+    className = "com.webobjects.eocontrol.EOGenericRecord"; 
+    classProperties = (artikel, inhalt); 
+    externalName = konfiguration; 
+    fetchSpecificationDictionary = {}; 
+    name = Konfiguration; 
+    primaryKeyAttributes = (artikelId, inhaltId); 
+    relationships = (
+        {
+            destination = Artikel; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = artikelId; }); 
+            name = artikel; 
+        }, 
+        {
+            destination = Inhalt; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = inhaltId; }); 
+            name = inhalt; 
+        }
+    ); 
+}

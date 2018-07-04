@@ -17,3 +17,25 @@ wrapper : Kopf {
 footer : Fuss {
 	
 }
+artikel : WOSimpleArrayDisplay {
+	list = artikel;
+}
+inhalt : WOSimpleArrayDisplay {
+	list = inhalt;
+}
+konfiguration : WOSimpleArrayDisplay {
+	list = konfiguration;
+}
+kunde : WOSimpleArrayDisplay {
+	list = kunde;
+}
+bestellung : WOSimpleArrayDisplay {
+	list = bestellung;
+}
+bestelltekonfiguration : WOSimpleArrayDisplay {
+	list = bestelltekonfiguration;
+}
+
+bestellposition : WOSimpleArrayDisplay {
+	list = bestellposition;
+}

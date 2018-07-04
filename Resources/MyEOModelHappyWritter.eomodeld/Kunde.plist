@@ -72,7 +72,7 @@
         }
     ); 
     attributesUsedForLocking = (id, kundeseit, nachname, ort, plz, strasse, tel, vorname); 
-    className = "com.webobjects.eocontrol.EOGenericRecord"; 
+    className = "ch.lars.your.app.eoerd.Kunde"; 
     classProperties = (bestellungs, kundeseit, nachname, ort, plz, strasse, tel, vorname); 
     externalName = kunde; 
     fetchSpecificationDictionary = {}; 

@@ -26,7 +26,7 @@
         }
     ); 
     attributesUsedForLocking = (artikelId, bestellungId, id); 
-    className = "com.webobjects.eocontrol.EOGenericRecord"; 
+    className = "ch.lars.your.app.eoerd.Bestellposition"; 
     classProperties = (artikel, bestelltekonfigurations, bestellung); 
     externalName = bestellposition; 
     fetchSpecificationDictionary = {}; 

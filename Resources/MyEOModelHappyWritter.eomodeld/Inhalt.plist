@@ -17,18 +17,10 @@
             valueType = S; 
             width = 45; 
         }, 
-        {
-            allowsNull = Y; 
-            className = "java.lang.Number"; 
-            columnName = preis; 
-            externalType = INT; 
-            name = preis; 
-            precision = 10; 
-            valueType = l; 
-        }
+        {columnName = preis; name = preis; prototypeName = doubleNumber; }
     ); 
     attributesUsedForLocking = (id, name, preis); 
-    className = "com.webobjects.eocontrol.EOGenericRecord"; 
+    className = "ch.lars.your.app.eoerd.Inhalt"; 
     classProperties = (bestelltekonfigurations, konfigurations, name, preis); 
     externalName = inhalt; 
     fetchSpecificationDictionary = {}; 

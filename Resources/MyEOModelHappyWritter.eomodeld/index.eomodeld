@@ -1,41 +1,30 @@
 {
     EOModelVersion = "2.1"; 
     adaptorName = JDBC; 
-    connectionDictionary = {
-        URL = "jdbc:mysql://localhost/eomodelhappywritter"; 
-        password = 1234; 
-        username = root; 
-    }; 
+    connectionDictionary = {URL = "jdbc:mysql://localhost/happywritter"; password = ""; username = root; }; 
     entities = (
-        {className = "com.webobjects.eocontrol.EOGenericRecord"; name = Artikel; }, 
+        {className = "ch.lars.your.app.eoerd.Artikel"; name = Artikel; }, 
         {
-            className = "com.webobjects.eocontrol.EOGenericRecord"; 
+            className = "ch.lars.your.app.eoerd.Bestellposition"; 
             name = Bestellposition; 
         }, 
         {
-            className = "com.webobjects.eocontrol.EOGenericRecord"; 
+            className = "ch.lars.your.app.eoerd.Bestelltekonfiguration"; 
             name = Bestelltekonfiguration; 
         }, 
-        {className = "com.webobjects.eocontrol.EOGenericRecord"; name = Bestellung; }, 
-        {className = "com.webobjects.eocontrol.EOGenericRecord"; name = Inhalt; }, 
-        {
-            className = "com.webobjects.eocontrol.EOGenericRecord"; 
-            name = Konfiguration; 
-        }, 
-        {className = "com.webobjects.eocontrol.EOGenericRecord"; name = Kunde; }
+        {className = "ch.lars.your.app.eoerd.Bestellung"; name = Bestellung; }, 
+        {className = "ch.lars.your.app.eoerd.Inhalt"; name = Inhalt; }, 
+        {className = "ch.lars.your.app.eoerd.Konfiguration"; name = Konfiguration; }, 
+        {className = "ch.lars.your.app.eoerd.Kunde"; name = Kunde; }
     ); 
-    internalInfo = {"_deletedEntityNamesInObjectStore" = (Kunde); }; 
+    internalInfo = {"_deletedEntityNamesInObjectStore" = (Inhalt); }; 
     userInfo = {
         "_EntityModeler" = {
             activeDatabaseConfigName = Default; 
             databaseConfigs = {
                 Default = {
                     adaptorName = JDBC; 
-                    connectionDictionary = {
-                        URL = "jdbc:mysql://localhost/eomodelhappywritter"; 
-                        password = 1234; 
-                        username = root; 
-                    }; 
+                    connectionDictionary = {URL = "jdbc:mysql://localhost/happywritter"; password = ""; username = root; }; 
                     prototypeEntityName = EOJDBCMySQLPrototypes; 
                 }; 
             }; 

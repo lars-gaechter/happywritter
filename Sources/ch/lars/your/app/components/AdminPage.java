@@ -1,11 +1,14 @@
 package ch.lars.your.app.components;
 
 import com.webobjects.appserver.WOContext;
+import com.webobjects.foundation.NSArray;
 
 import ch.lars.your.app.Application;
 import ch.lars.your.app.Benutzer;
 import ch.lars.your.app.Session;
 import ch.lars.your.app.components.Main;
+import ch.lars.your.app.eoerd.*;
+import ch.lars.your.app.eoerd.Artikel;
 
 import com.webobjects.appserver.WOComponent;
 
@@ -13,6 +16,10 @@ public class AdminPage extends BaseComponent {
 	private Benutzer angemeldeterBenutzer;
 	private Session sitzung;
 	private Application application;
+	private String kunden;
+	private String bestellung;
+	private String bestelltekonfiguration;
+	private String bestellposition;
 
 	/**
 	 * Bei erstellen eines Objektes wird eine neue Session gestartet.
@@ -76,5 +83,93 @@ public class AdminPage extends BaseComponent {
 		return this.context().page();
 		
 	}
+	
+	/**
+	 * fetch all artikel records from table artikel and returns in NSArray
+	 * @return
+	 */
+	public NSArray<ch.lars.your.app.eoerd.Artikel> artikel() {
+		return ch.lars.your.app.eoerd.Artikel.fetchAllArtikels(session().defaultEditingContext());
+	}
+	
+	/**
+	 * fetch all Inhalt records from table Inhalt and returns in NSArray
+	 * @return
+	 */
+	public NSArray<ch.lars.your.app.eoerd.Inhalt> inhalt() {
+		return ch.lars.your.app.eoerd.Inhalt.fetchAllInhalts(session().defaultEditingContext());
+	}
+	/**
+	 * 
+	 * @return
+	 */
+	public NSArray<ch.lars.your.app.eoerd.Konfiguration> konfiguration() {
+		return ch.lars.your.app.eoerd.Konfiguration.fetchAllKonfigurations(session().defaultEditingContext());
+	}
+
+
+	/**
+	 * @return the kunden
+	 */
+	public NSArray<ch.lars.your.app.eoerd.Kunde> kunde() {
+		return ch.lars.your.app.eoerd.Kunde.fetchAllKundes(session().defaultEditingContext());
+	}
+
+
+	/**
+	 * @param kunden the kunden to set
+	 */
+	public void setKunden(String kunden) {
+		this.kunden = kunden;
+	}
+
+
+	/**
+	 * @return the bestellung
+	 */
+	public NSArray<ch.lars.your.app.eoerd.Bestellung> bestellung() {
+		return ch.lars.your.app.eoerd.Bestellung.fetchAllBestellungs(session().defaultEditingContext());
+	}
+
+
+	/**
+	 * @param bestellung the bestellung to set
+	 */
+	public void setBestellung(String bestellung) {
+		this.bestellung = bestellung;
+	}
+
+
+	/**
+	 * @return the bestelltekonfiguration
+	 */
+	public NSArray<ch.lars.your.app.eoerd.Bestelltekonfiguration> bestelltekonfiguration() {
+		return ch.lars.your.app.eoerd.Bestelltekonfiguration.fetchAllBestelltekonfigurations(session().defaultEditingContext());
+	}
+
+
+	/**
+	 * @param bestelltekonfiguration the bestelltekonfiguration to set
+	 */
+	public void setBestelltekonfiguration(String bestelltekonfiguration) {
+		this.bestelltekonfiguration = bestelltekonfiguration;
+	}
+
+
+	/**
+	 * @return the bestellposition
+	 */
+	public NSArray<ch.lars.your.app.eoerd.Bestellposition> bestellposition() {
+		return ch.lars.your.app.eoerd.Bestellposition.fetchAllBestellpositions(session().defaultEditingContext());
+	}
+
+
+	/**
+	 * @param bestellposition the bestellposition to set
+	 */
+	public void setBestellposition(String bestellposition) {
+		this.bestellposition = bestellposition;
+	}
+	
 
 }

@@ -8,12 +8,18 @@
             className = "ch.lars.your.app.eomodel.BestellPosition"; 
             name = BestellPosition; 
         }, 
-        {className = EOGenericRecord; name = BestellteKonfiguration; }, 
+        {
+            className = "ch.lars.your.app.eomodel.BestellteKonfiguration"; 
+            name = BestellteKonfiguration; 
+        }, 
         {className = "ch.lars.your.app.eomodel.Bestellung"; name = Bestellung; }, 
         {className = "ch.lars.your.app.eomodel.Inhalt"; name = Inhalt; }, 
-        {className = EOGenericRecord; name = Konfiguration; }, 
+        {className = "ch.lars.your.app.eomodel.Konfiguration"; name = Konfiguration; }, 
         {className = "ch.lars.your.app.eomodel.Kunde"; name = Kunde; }
     ); 
+    internalInfo = {
+        "_deletedEntityNamesInObjectStore" = (BestellPosition, Inhalt, Konfiguration, Kunde); 
+    }; 
     userInfo = {
         "_EntityModeler" = {
             activeDatabaseConfigName = Default; 

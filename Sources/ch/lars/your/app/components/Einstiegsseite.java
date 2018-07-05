@@ -1,10 +1,12 @@
 package ch.lars.your.app.components;
 
 import com.webobjects.appserver.WOContext;
+import com.webobjects.eocontrol.EOQualifier;
 
 import ch.lars.your.app.Application;
 import ch.lars.your.app.Session;
 import ch.lars.your.app.components.Main;
+import ch.lars.your.app.eomodel.Artikel;
 
 import com.webobjects.appserver.WOActionResults;
 
@@ -31,22 +33,16 @@ public class Einstiegsseite extends BaseComponent {
 
 	public ArtikelSeite getEtuiBestellen() {
 		ArtikelSeite nextPage = pageWithName(ArtikelSeite.class);
-		Artikel etuiBestellen = new Artikel();
-		etuiBestellen.setBezeichnung("Etui");
-		etuiBestellen.setPreis(15.50);
-		etuiBestellen.setIcon("img/Etui.jpg");
-		application.setArtikel(etuiBestellen);
+		Artikel anArtikel= Artikel.fetchArtikel(session().defaultEditingContext(), Artikel.BEZEICHNUNG.eq("Etui"));
+		session().setArtikelArtikelSeite(anArtikel);
 		return nextPage;
 	}
 
 
 	public ArtikelSeite getSchachtelBestellen() {
 		ArtikelSeite nextPage = pageWithName(ArtikelSeite.class);
-		Artikel schachtelBestellen = new Artikel();
-		schachtelBestellen.setBezeichnung("Schachtel");
-		schachtelBestellen.setPreis(33.9);
-		schachtelBestellen.setIcon("img/Holzschachtel.jpg");
-		application.setArtikel(schachtelBestellen);
+		Artikel anArtikel = Artikel.fetchArtikel(session().defaultEditingContext(), Artikel.BEZEICHNUNG.eq("Schachtel"));
+		session().setArtikelArtikelSeite(anArtikel);
 		return nextPage;
 	}
 

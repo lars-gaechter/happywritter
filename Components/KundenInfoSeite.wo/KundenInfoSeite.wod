@@ -4,6 +4,7 @@ css : ERXStyleSheet {
 form : WOForm {
 	
 }
+/*
 nachname : WOTextField {
 	//value = null;
 }
@@ -25,6 +26,7 @@ telefon : WOTextField {
 bemerkungen : WOText {
 	//value = null;
 }
+*/
 submit : WOSubmitButton {
 	action = null;
 	value = "submit";

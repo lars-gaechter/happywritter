@@ -2,14 +2,23 @@ package ch.lars.your.app;
 
 import java.util.Iterator;
 
+import com.webobjects.eocontrol.EOQualifier;
 import com.webobjects.foundation.NSMutableArray;
 import ch.lars.your.app.components.AdminPage;
-import ch.lars.your.app.components.Artikel;
 import er.extensions.appserver.ERXApplication;
 
 public class Application extends ERXApplication {
+	private EOQualifier qualifier = null;
+	private String icon = null;
+	public EOQualifier getQualifier() {
+		return qualifier;
+	}
+
+	public void setQualifier(EOQualifier qualifier) {
+		this.qualifier = qualifier;
+	}
+
 	private NSMutableArray<Benutzer> benutzerListe;
-	private Artikel artikel;
 	public static void main(String[] argv) {
 		ERXApplication.main(argv, Application.class);
 	}
@@ -21,7 +30,8 @@ public class Application extends ERXApplication {
 		setSessionTimeOut(15 * 60);
 		benutzerListe = new NSMutableArray<Benutzer>();
 		/* Standard Admin Benutzer vorerfasst */
-		benutzerListe.add(new Benutzer("admin", "klapp42stuhl"));
+		//klapp42stuhl
+		benutzerListe.add(new Benutzer("admin", "admin"));
 	}
 
 	public AdminPage anmelden(String benutzername, String passwort) {
@@ -40,15 +50,4 @@ public class Application extends ERXApplication {
 
 		return null;
 	}
-
-	public Artikel getArtikel() {
-		return artikel;
-	}
-
-	public void setArtikel(Artikel artikel) {
-		this.artikel = artikel;
-	}
-	
-	
-	
 }

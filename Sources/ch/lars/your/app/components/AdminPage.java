@@ -1,6 +1,7 @@
 package ch.lars.your.app.components;
 
 import com.webobjects.appserver.WOContext;
+import com.webobjects.eocontrol.EOQualifier;
 import com.webobjects.foundation.NSArray;
 
 import ch.lars.your.app.Application;
@@ -8,6 +9,10 @@ import ch.lars.your.app.Benutzer;
 import ch.lars.your.app.Session;
 import ch.lars.your.app.components.Main;
 import ch.lars.your.app.eomodel.*;
+import ch.lars.your.app.eomodel.Inhalt;
+import er.extensions.eof.ERXFetchSpecification;
+import er.extensions.eof.ERXKey;
+import er.extensions.foundation.ERXArrayUtilities.FetchSpecOperator;
 
 import com.webobjects.appserver.WOComponent;
 
@@ -102,8 +107,48 @@ public class AdminPage extends BaseComponent {
 	 * 
 	 * @return
 	 */
-	public NSArray<ch.lars.your.app.eoerd.Konfiguration> konfiguration() {
-		return ch.lars.your.app.eoerd.Konfiguration.fetchAllKonfigurations(session().defaultEditingContext());
+	public NSArray<Konfiguration> konfiguration() {
+		//ch.lars.your.app.eomodel.Artikel.
+		/*
+		ch.lars.your.app.eomodel.Artikel z = new ch.lars.your.app.eomodel.Artikel();
+		ERXKey<ch.lars.your.app.eomodel.Inhalt> test = new ERXKey<ch.lars.your.app.eomodel.Inhalt>("1");
+		EOQualifier qualifier = ch.lars.your.app.eomodel.Artikel.INHALTS.eq(test);
+		System.out.println("estestestest");
+		System.out.println(test);
+		System.out.println("estestestest");
+		System.out.println(z.inhalts(qualifier));
+		System.out.println("estestestest");
+		*/
+		//System.out.println(z.fetchArtikel(session().defaultEditingContext(), Inhalt.ID_KEY));
+		//System.out.println(Konfiguration.id());
+		//return z.inhalts(qualifier);
+		return Konfiguration.fetchAllKonfigurations(session().defaultEditingContext());
+	}
+	
+	public void testArtikelKonfiguration(){
+		/*
+		EOQualifier qualifier = ch.lars.your.app.eomodel.Konfiguration.ARTIKEL_ID.eq(Konfiguration.ARTIKEL_ID);
+		ERXFetchSpecification<Konfiguration> fetSpc = new ERXFetchSpecification<Konfiguration>(Konfiguration.ENTITY_NAME);
+		ERXFetchSpecification<ch.lars.your.app.eomodel.Artikel> fetSpcA = new ERXFetchSpecification<ch.lars.your.app.eomodel.Artikel>(ch.lars.your.app.eomodel.Artikel.ENTITY_NAME);
+		ERXFetchSpecification<Inhalt> fetSpcI = new ERXFetchSpecification<Inhalt>(Inhalt.ENTITY_NAME);
+		session().defaultEditingContext().objectsWithFetchSpecification(fetSpc);
+		session().defaultEditingContext().objectsWithFetchSpecification(fetSpcA);
+		session().defaultEditingContext().objectsWithFetchSpecification(fetSpcI);
+		Konfiguration.fetchSpec();
+		//Konfiguration.fetch
+		System.out.println("tatataatata");
+		System.out.println("tatataatata"+Konfiguration.fetchKonfiguration(session().defaultEditingContext(), qualifier).toLongString()+"tatataatata");
+		//return Konfiguration.objectsWithFetchSpecification(Konfiguration.fetchArtikelByNameandInhaltByName(session().defaultEditingContext(), 1));
+		EOQualifier quali = ch.lars.your.app.eomodel.Konfiguration.ARTIKEL_ID.eq(ch.lars.your.app.eomodel.Artikel.ID);
+		*/
+		
+		//EOQualifier qualifier = ch.lars.your.app.eomodel.Artikel.ID.eq(3);
+		//ERXFetchSpecification<ch.lars.your.app.eomodel.Artikel> fs = new ERXFetchSpecification<ch.lars.your.app.eomodel.Artikel>(ch.lars.your.app.eomodel.Artikel.ENTITY_NAME, qualifier, null);
+		//return Konfiguration.fetchArtikelByNameandInhaltByName(session().defaultEditingContext());
+		//return session().defaultEditingContext().objectsWithFetchSpecification(fs);
+		//EOQualifier qualifier = ch.lars.your.app.eomodel.Inhalt.ID.eq(ch.lars.your.app.eomodel.Artikel.ID);
+		//ERXFetchSpecification<ch.lars.your.app.eomodel.Inhalt> fs = new ERXFetchSpecification<ch.lars.your.app.eomodel.Inhalt>(ch.lars.your.app.eomodel.Artikel.ENTITY_NAME, qualifier, null);
+		//return session().defaultEditingContext().objectsWithFetchSpecification(fs);
 	}
 
 

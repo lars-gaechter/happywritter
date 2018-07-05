@@ -1,5 +1,5 @@
 // DO NOT EDIT.  Make changes to Konfiguration.java instead.
-package ch.lars.your.app.eoerd;
+package ch.lars.your.app.eomodel;
 
 import com.webobjects.eoaccess.*;
 import com.webobjects.eocontrol.*;
@@ -19,16 +19,16 @@ public abstract class _Konfiguration extends  ERXGenericRecord {
   public static final String ENTITY_NAME = "Konfiguration";
 
   // Attribute Keys
+  public static final ERXKey<Integer> ARTIKEL_ID = new ERXKey<Integer>("artikelId", Type.Attribute);
+  public static final ERXKey<Integer> INHALT_ID = new ERXKey<Integer>("inhaltId", Type.Attribute);
 
   // Relationship Keys
-  public static final ERXKey<ch.lars.your.app.eoerd.Artikel> ARTIKEL = new ERXKey<ch.lars.your.app.eoerd.Artikel>("artikel", Type.ToOneRelationship);
-  public static final ERXKey<ch.lars.your.app.eoerd.Inhalt> INHALT = new ERXKey<ch.lars.your.app.eoerd.Inhalt>("inhalt", Type.ToOneRelationship);
 
   // Attributes
+  public static final String ARTIKEL_ID_KEY = ARTIKEL_ID.key();
+  public static final String INHALT_ID_KEY = INHALT_ID.key();
 
   // Relationships
-  public static final String ARTIKEL_KEY = ARTIKEL.key();
-  public static final String INHALT_KEY = INHALT.key();
 
   private static final Logger log = LoggerFactory.getLogger(_Konfiguration.class);
 
@@ -40,55 +40,31 @@ public abstract class _Konfiguration extends  ERXGenericRecord {
     return localInstance;
   }
 
-  public ch.lars.your.app.eoerd.Artikel artikel() {
-    return (ch.lars.your.app.eoerd.Artikel)storedValueForKey(_Konfiguration.ARTIKEL_KEY);
+  public Integer artikelId() {
+    return (Integer) storedValueForKey(_Konfiguration.ARTIKEL_ID_KEY);
   }
 
-  public void setArtikel(ch.lars.your.app.eoerd.Artikel value) {
-    takeStoredValueForKey(value, _Konfiguration.ARTIKEL_KEY);
+  public void setArtikelId(Integer value) {
+    log.debug( "updating artikelId from {} to {}", artikelId(), value);
+    takeStoredValueForKey(value, _Konfiguration.ARTIKEL_ID_KEY);
   }
 
-  public void setArtikelRelationship(ch.lars.your.app.eoerd.Artikel value) {
-    log.debug("updating artikel from {} to {}", artikel(), value);
-    if (er.extensions.eof.ERXGenericRecord.InverseRelationshipUpdater.updateInverseRelationships()) {
-      setArtikel(value);
-    }
-    else if (value == null) {
-      ch.lars.your.app.eoerd.Artikel oldValue = artikel();
-      if (oldValue != null) {
-        removeObjectFromBothSidesOfRelationshipWithKey(oldValue, _Konfiguration.ARTIKEL_KEY);
-      }
-    } else {
-      addObjectToBothSidesOfRelationshipWithKey(value, _Konfiguration.ARTIKEL_KEY);
-    }
+  public Integer inhaltId() {
+    return (Integer) storedValueForKey(_Konfiguration.INHALT_ID_KEY);
   }
 
-  public ch.lars.your.app.eoerd.Inhalt inhalt() {
-    return (ch.lars.your.app.eoerd.Inhalt)storedValueForKey(_Konfiguration.INHALT_KEY);
-  }
-
-  public void setInhalt(ch.lars.your.app.eoerd.Inhalt value) {
-    takeStoredValueForKey(value, _Konfiguration.INHALT_KEY);
-  }
-
-  public void setInhaltRelationship(ch.lars.your.app.eoerd.Inhalt value) {
-    log.debug("updating inhalt from {} to {}", inhalt(), value);
-    if (er.extensions.eof.ERXGenericRecord.InverseRelationshipUpdater.updateInverseRelationships()) {
-      setInhalt(value);
-    }
-    else if (value == null) {
-      ch.lars.your.app.eoerd.Inhalt oldValue = inhalt();
-      if (oldValue != null) {
-        removeObjectFromBothSidesOfRelationshipWithKey(oldValue, _Konfiguration.INHALT_KEY);
-      }
-    } else {
-      addObjectToBothSidesOfRelationshipWithKey(value, _Konfiguration.INHALT_KEY);
-    }
+  public void setInhaltId(Integer value) {
+    log.debug( "updating inhaltId from {} to {}", inhaltId(), value);
+    takeStoredValueForKey(value, _Konfiguration.INHALT_ID_KEY);
   }
 
 
-  public static Konfiguration createKonfiguration(EOEditingContext editingContext) {
+  public static Konfiguration createKonfiguration(EOEditingContext editingContext, Integer artikelId
+, Integer inhaltId
+) {
     Konfiguration eo = (Konfiguration) EOUtilities.createAndInsertInstance(editingContext, _Konfiguration.ENTITY_NAME);
+    eo.setArtikelId(artikelId);
+    eo.setInhaltId(inhaltId);
     return eo;
   }
 

@@ -16,7 +16,7 @@
     ); 
     attributesUsedForLocking = (artikelID, bestellungID, id); 
     className = "ch.lars.your.app.eomodel.BestellPosition"; 
-    classProperties = (artikel, bestellung, inhalts); 
+    classProperties = (artikel, artikelID, bestellung, bestellungID, id, inhalts); 
     externalName = BestellPosition; 
     fetchSpecificationDictionary = {}; 
     name = BestellPosition; 

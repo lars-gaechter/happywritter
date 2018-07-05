@@ -1,4 +1,4 @@
-package ch.lars.your.app.eoerd;
+package ch.lars.your.app.eomodel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -9,7 +9,8 @@
         {allowsNull = N; columnName = inhaltId; name = inhaltId; prototypeName = id; }
     ); 
     attributesUsedForLocking = (artikelId, inhaltId); 
-    className = EOGenericRecord; 
+    className = "ch.lars.your.app.eomodel.Konfiguration"; 
+    classProperties = (artikelId, inhaltId); 
     externalName = Konfiguration; 
     fetchSpecificationDictionary = {}; 
     name = Konfiguration; 

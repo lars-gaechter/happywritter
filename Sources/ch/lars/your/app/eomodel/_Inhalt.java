@@ -19,6 +19,7 @@ public abstract class _Inhalt extends  ERXGenericRecord {
   public static final String ENTITY_NAME = "Inhalt";
 
   // Attribute Keys
+  public static final ERXKey<Integer> ID = new ERXKey<Integer>("id", Type.Attribute);
   public static final ERXKey<String> NAME = new ERXKey<String>("name", Type.Attribute);
   public static final ERXKey<java.math.BigDecimal> PREIS = new ERXKey<java.math.BigDecimal>("preis", Type.Attribute);
 
@@ -27,6 +28,7 @@ public abstract class _Inhalt extends  ERXGenericRecord {
   public static final ERXKey<ch.lars.your.app.eomodel.BestellPosition> BESTELL_POSITIONS = new ERXKey<ch.lars.your.app.eomodel.BestellPosition>("bestellPositions", Type.ToManyRelationship);
 
   // Attributes
+  public static final String ID_KEY = ID.key();
   public static final String NAME_KEY = NAME.key();
   public static final String PREIS_KEY = PREIS.key();
 
@@ -42,6 +44,15 @@ public abstract class _Inhalt extends  ERXGenericRecord {
       throw new IllegalStateException("You attempted to localInstance " + this + ", which has not yet committed.");
     }
     return localInstance;
+  }
+
+  public Integer id() {
+    return (Integer) storedValueForKey(_Inhalt.ID_KEY);
+  }
+
+  public void setId(Integer value) {
+    log.debug( "updating id from {} to {}", id(), value);
+    takeStoredValueForKey(value, _Inhalt.ID_KEY);
   }
 
   public String name() {
@@ -195,10 +206,12 @@ public abstract class _Inhalt extends  ERXGenericRecord {
   }
 
 
-  public static Inhalt createInhalt(EOEditingContext editingContext, String name
+  public static Inhalt createInhalt(EOEditingContext editingContext, Integer id
+, String name
 , java.math.BigDecimal preis
 ) {
     Inhalt eo = (Inhalt) EOUtilities.createAndInsertInstance(editingContext, _Inhalt.ENTITY_NAME);
+    eo.setId(id);
     eo.setName(name);
     eo.setPreis(preis);
     return eo;

@@ -26,6 +26,9 @@ inhalt : WOSimpleArrayDisplay {
 konfiguration : WOSimpleArrayDisplay {
 	list = konfiguration;
 }
+test : WOSimpleArrayDisplay {
+	list = testArtikelKonfiguration;
+}
 kunde : WOSimpleArrayDisplay {
 	list = kunde;
 }

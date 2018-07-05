@@ -4,13 +4,14 @@ import com.webobjects.appserver.WOContext;
 
 import ch.lars.your.app.Application;
 import ch.lars.your.app.Session;
+import ch.lars.your.app.eomodel.Artikel;
+import er.extensions.eof.ERXFetchSpecification;
 
 import com.ibm.icu.math.BigDecimal;
 import com.webobjects.appserver.WOActionResults;
 
 public class ArtikelSeite extends BaseComponent {
 	
-	private Artikel artikel;
 	private Session sitzung;
 	private Application application;
 	private String artikelIcon;
@@ -25,7 +26,7 @@ public class ArtikelSeite extends BaseComponent {
 
 
 	public String getArtikelName() {
-		return application.getArtikel().getBezeichnung();
+		return session().getArtikelArtikelSeite().bezeichnung();
 	}
 	
 
@@ -33,7 +34,7 @@ public class ArtikelSeite extends BaseComponent {
 	 * @return the artikelIcon
 	 */
 	public String artikelIcon() {
-		return application.getArtikel().getIcon();
+		return application.getArtikelIcon();
 	}
 
 
@@ -41,7 +42,8 @@ public class ArtikelSeite extends BaseComponent {
 	 * @return the preis
 	 */
 	public String getPreis() {
-		return application.getArtikel().getPreis().toString();
+		//return application.getArtikel().getPreis().toString();
+		return null;
 	}
 
 

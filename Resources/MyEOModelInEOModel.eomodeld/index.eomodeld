@@ -1,0 +1,17 @@
+{
+    EOModelVersion = "2.1"; 
+    adaptorName = JDBC; 
+    connectionDictionary = {URL = "jdbc:mysql://localhost/happywritter"; username = root; }; 
+    userInfo = {
+        "_EntityModeler" = {
+            activeDatabaseConfigName = ConnectConf; 
+            databaseConfigs = {
+                ConnectConf = {
+                    adaptorName = JDBC; 
+                    connectionDictionary = {URL = "jdbc:mysql://localhost/happywritter"; username = root; }; 
+                    prototypeEntityName = EOJDBCMySQLPrototypes; 
+                }; 
+            }; 
+        }; 
+    }; 
+}

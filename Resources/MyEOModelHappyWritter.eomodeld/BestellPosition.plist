@@ -1,0 +1,51 @@
+{
+    attributes = (
+        {
+            allowsNull = Y; 
+            columnName = artikelID; 
+            name = artikelID; 
+            prototypeName = id; 
+        }, 
+        {
+            allowsNull = N; 
+            columnName = bestellungID; 
+            name = bestellungID; 
+            prototypeName = id; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; }
+    ); 
+    attributesUsedForLocking = (artikelID, bestellungID, id); 
+    className = "ch.lars.your.app.eomodel.BestellPosition"; 
+    classProperties = (artikel, bestellung, inhalts); 
+    externalName = BestellPosition; 
+    fetchSpecificationDictionary = {}; 
+    name = BestellPosition; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = Artikel; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = artikelID; }); 
+            name = artikel; 
+        }, 
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = BestellteKonfiguration; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = bestellPositionId; sourceAttribute = id; }); 
+            name = bestellteKonfigurations; 
+            propagatesPrimaryKey = Y; 
+        }, 
+        {
+            destination = Bestellung; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = bestellungID; }); 
+            name = bestellung; 
+        }, 
+        {definition = "bestellteKonfigurations.inhalt"; name = inhalts; }
+    ); 
+}

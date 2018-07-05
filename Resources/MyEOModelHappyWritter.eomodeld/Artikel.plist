@@ -1,0 +1,33 @@
+{
+    attributes = (
+        {columnName = bezeichnung; name = bezeichnung; prototypeName = varchar50; }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {columnName = preis; name = preis; prototypeName = currencyAmount; }
+    ); 
+    attributesUsedForLocking = (bezeichnung, id, preis); 
+    className = "ch.lars.your.app.eomodel.Artikel"; 
+    classProperties = (bestellPositions, bezeichnung, inhalts, preis); 
+    externalName = Artikel; 
+    fetchSpecificationDictionary = {}; 
+    name = Artikel; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = BestellPosition; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = artikelID; sourceAttribute = id; }); 
+            name = bestellPositions; 
+        }, 
+        {definition = "konfigurations.inhalt"; name = inhalts; }, 
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = Konfiguration; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = artikelId; sourceAttribute = id; }); 
+            name = konfigurations; 
+            propagatesPrimaryKey = Y; 
+        }
+    ); 
+}

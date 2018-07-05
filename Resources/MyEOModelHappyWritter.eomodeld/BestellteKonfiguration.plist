@@ -1,0 +1,35 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = bestellPositionId; 
+            name = bestellPositionId; 
+            prototypeName = id; 
+        }, 
+        {allowsNull = N; columnName = inhaltId; name = inhaltId; prototypeName = id; }
+    ); 
+    attributesUsedForLocking = (bestellPositionId, inhaltId); 
+    className = EOGenericRecord; 
+    externalName = BestellteKonfiguration; 
+    fetchSpecificationDictionary = {}; 
+    name = BestellteKonfiguration; 
+    primaryKeyAttributes = (bestellPositionId, inhaltId); 
+    relationships = (
+        {
+            destination = BestellPosition; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = bestellPositionId; }); 
+            name = bestellPosition; 
+        }, 
+        {
+            destination = Inhalt; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = inhaltId; }); 
+            name = inhalt; 
+        }
+    ); 
+}

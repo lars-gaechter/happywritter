@@ -7,8 +7,7 @@ import ch.lars.your.app.Application;
 import ch.lars.your.app.Benutzer;
 import ch.lars.your.app.Session;
 import ch.lars.your.app.components.Main;
-import ch.lars.your.app.eoerd.*;
-import ch.lars.your.app.eoerd.Artikel;
+import ch.lars.your.app.eomodel.*;
 
 import com.webobjects.appserver.WOComponent;
 
@@ -88,16 +87,16 @@ public class AdminPage extends BaseComponent {
 	 * fetch all artikel records from table artikel and returns in NSArray
 	 * @return
 	 */
-	public NSArray<ch.lars.your.app.eoerd.Artikel> artikel() {
-		return ch.lars.your.app.eoerd.Artikel.fetchAllArtikels(session().defaultEditingContext());
+	public NSArray<ch.lars.your.app.eomodel.Artikel> artikel() {
+		return ch.lars.your.app.eomodel.Artikel.fetchAllArtikels(session().defaultEditingContext());
 	}
 	
 	/**
 	 * fetch all Inhalt records from table Inhalt and returns in NSArray
 	 * @return
 	 */
-	public NSArray<ch.lars.your.app.eoerd.Inhalt> inhalt() {
-		return ch.lars.your.app.eoerd.Inhalt.fetchAllInhalts(session().defaultEditingContext());
+	public NSArray<ch.lars.your.app.eomodel.Inhalt> inhalt() {
+		return ch.lars.your.app.eomodel.Inhalt.fetchAllInhalts(session().defaultEditingContext());
 	}
 	/**
 	 * 
@@ -111,8 +110,8 @@ public class AdminPage extends BaseComponent {
 	/**
 	 * @return the kunden
 	 */
-	public NSArray<ch.lars.your.app.eoerd.Kunde> kunde() {
-		return ch.lars.your.app.eoerd.Kunde.fetchAllKundes(session().defaultEditingContext());
+	public NSArray<Kunde> kunde() {
+		return Kunde.fetchAllKundes(session().defaultEditingContext());
 	}
 
 
@@ -127,8 +126,8 @@ public class AdminPage extends BaseComponent {
 	/**
 	 * @return the bestellung
 	 */
-	public NSArray<ch.lars.your.app.eoerd.Bestellung> bestellung() {
-		return ch.lars.your.app.eoerd.Bestellung.fetchAllBestellungs(session().defaultEditingContext());
+	public NSArray<Bestellung> bestellung() {
+		return Bestellung.fetchAllBestellungs(session().defaultEditingContext());
 	}
 
 
@@ -159,8 +158,8 @@ public class AdminPage extends BaseComponent {
 	/**
 	 * @return the bestellposition
 	 */
-	public NSArray<ch.lars.your.app.eoerd.Bestellposition> bestellposition() {
-		return ch.lars.your.app.eoerd.Bestellposition.fetchAllBestellpositions(session().defaultEditingContext());
+	public NSArray<BestellPosition> bestellposition() {
+		return BestellPosition.fetchAllBestellPositions(session().defaultEditingContext());
 	}
 
 

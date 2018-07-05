@@ -1,0 +1,35 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = artikelId; 
+            name = artikelId; 
+            prototypeName = id; 
+        }, 
+        {allowsNull = N; columnName = inhaltId; name = inhaltId; prototypeName = id; }
+    ); 
+    attributesUsedForLocking = (artikelId, inhaltId); 
+    className = EOGenericRecord; 
+    externalName = Konfiguration; 
+    fetchSpecificationDictionary = {}; 
+    name = Konfiguration; 
+    primaryKeyAttributes = (artikelId, inhaltId); 
+    relationships = (
+        {
+            destination = Artikel; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = artikelId; }); 
+            name = artikel; 
+        }, 
+        {
+            destination = Inhalt; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = inhaltId; }); 
+            name = inhalt; 
+        }
+    ); 
+}

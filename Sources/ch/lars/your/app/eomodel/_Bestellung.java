@@ -172,11 +172,9 @@ public abstract class _Bestellung extends  ERXGenericRecord {
 
 
   public static Bestellung createBestellung(EOEditingContext editingContext, String bemerkungen
-, java.time.LocalDate datum
 , ch.lars.your.app.eomodel.Kunde kunde) {
     Bestellung eo = (Bestellung) EOUtilities.createAndInsertInstance(editingContext, _Bestellung.ENTITY_NAME);
     eo.setBemerkungen(bemerkungen);
-    eo.setDatum(datum);
     eo.setKundeRelationship(kunde);
     return eo;
   }

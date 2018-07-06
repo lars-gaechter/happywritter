@@ -28,6 +28,10 @@ checkout : WOHyperlink {
 	action = detail;
 }
 
+bestelltePositionArtikelMitPreis : WOString {
+	value = "";
+}
+
 //etui : WOHyperlink {
 //	action = etuiBestellen;
 //}

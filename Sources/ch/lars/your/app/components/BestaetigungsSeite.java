@@ -45,15 +45,17 @@ public class BestaetigungsSeite extends BaseComponent {
 		Kunde kunde = new Kunde();
 		Bestellung bestellung = new Bestellung();
 		BestellPosition bestellPosition = new BestellPosition();
-		
 		Artikel artikel = new Artikel();
+		
+		//Artikel artikel = new Artikel();
 		
 		//Set FK from PK Kunde into Bestellung
 		bestellung.addObjectToBothSidesOfRelationshipWithKey(kunde, Bestellung.KUNDE_KEY);
 		
+		
 		//Set FK Artikel and FK Bestellung into BestellPosition
-		bestellPosition.addObjectToBothSidesOfRelationshipWithKey(bestellung, BestellPosition.BESTELLUNG_KEY);
-		bestellPosition.addObjectToBothSidesOfRelationshipWithKey(artikel, BestellPosition.ARTIKEL_KEY);
+		//bestellPosition.addObjectToBothSidesOfRelationshipWithKey(bestellung, BestellPosition.BESTELLUNG_KEY);
+		//bestellPosition.addObjectToBothSidesOfRelationshipWithKey(artikel, BestellPosition.ARTIKEL_KEY);
 		
 		//kunde.setNachname(session().getNachnameNeuerKunde());
 		//System.out.println("kunde nachname"+kunde.nachname()+kunde.primaryKey()+kunde.entityName()+Kunde.ENTITY_NAME+kunde.kundeseit());
@@ -70,12 +72,39 @@ public class BestaetigungsSeite extends BaseComponent {
 		//Bestellung data from session set
 		bestellung.setBemerkungen(session().getBemerkungenNeuerBestellung());
 		
+		bestellPosition.addObjectToBothSidesOfRelationshipWithKey(bestellung, BestellPosition.BESTELLUNG_KEY);
+		bestellPosition.setBestellungID(23123);
+		//bestellPosition.set
+		
+		if(session().getArtikelBezeichnung() == "") {	
+		} else {
+			if(session().getArtikelBezeichnung() == "Etui") {
+				bestellPosition.setArtikelID(1);
+				artikel.setBezeichnung("Etui");
+				artikel.setPreis(null);
+			}else {
+				bestellPosition.setArtikelID(2);
+				artikel.setBezeichnung("Schachtel");
+				artikel.setPreis(null);
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		//Insert object in Database
 		session().defaultEditingContext().insertObject(kunde);
 		session().defaultEditingContext().insertObject(bestellung);
+		session().defaultEditingContext().insertObject(bestellPosition);
 		//Commit
 		session().defaultEditingContext().saveChanges();
 		//System.out.println("was in der session ist = "+session().getNachnameNeuerKunde());
+		
 		
 		DankesSeite nextPage = pageWithName(DankesSeite.class);
 		return nextPage;

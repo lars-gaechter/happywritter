@@ -35,10 +35,38 @@ kunde : WOSimpleArrayDisplay {
 bestellung : WOSimpleArrayDisplay {
 	list = bestellung;
 }
-//bestelltekonfiguration : WOSimpleArrayDisplay {
-//	list = bestelltekonfiguration;
-//}
+bestelltekonfiguration : WOSimpleArrayDisplay {
+	list = bestelltekonfiguration;
+}
 
 bestellposition : WOSimpleArrayDisplay {
 	list = bestellposition;
+}
+form : WOForm {
+	multipleSubmit=true;
+	
+}
+formzwei : WOForm {
+	
+}
+name : WOTextField {
+	value = nameInhalt;
+}
+
+preis : WOTextField {
+	value = preisInhalt;
+}
+erstellen : WOSubmitButton {
+	action = erstelleNeuerInhalt;
+	value = "Erstellen";
+}
+erstellenBeziehung : WOSubmitButton {
+	action = erstelleBeziehungArtikelInhalt;
+	value = "Erstellen";
+}
+artikelBeziehung : WOTextField {
+	value = artikelFuerBeziehung;
+}
+inhaltBeziehung : WOTextField {
+	value = inhaltFuerBeziehung;
 }

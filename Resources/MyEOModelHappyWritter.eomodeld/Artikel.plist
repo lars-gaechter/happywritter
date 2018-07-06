@@ -2,7 +2,12 @@
     attributes = (
         {columnName = bezeichnung; name = bezeichnung; prototypeName = varchar50; }, 
         {allowsNull = N; name = id; prototypeName = id; }, 
-        {columnName = preis; name = preis; prototypeName = currencyAmount; }
+        {
+            allowsNull = Y; 
+            columnName = preis; 
+            name = preis; 
+            prototypeName = currencyAmount; 
+        }
     ); 
     attributesUsedForLocking = (bezeichnung, id, preis); 
     className = "ch.lars.your.app.eomodel.Artikel"; 

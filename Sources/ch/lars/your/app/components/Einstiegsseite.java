@@ -35,6 +35,7 @@ public class Einstiegsseite extends BaseComponent {
 		ArtikelSeite nextPage = pageWithName(ArtikelSeite.class);
 		Artikel anArtikel= Artikel.fetchArtikel(session().defaultEditingContext(), Artikel.BEZEICHNUNG.eq("Etui"));
 		session().setArtikelArtikelSeite(anArtikel);
+		session().setArtikelBezeichnung("Etui");
 		return nextPage;
 	}
 
@@ -43,6 +44,7 @@ public class Einstiegsseite extends BaseComponent {
 		ArtikelSeite nextPage = pageWithName(ArtikelSeite.class);
 		Artikel anArtikel = Artikel.fetchArtikel(session().defaultEditingContext(), Artikel.BEZEICHNUNG.eq("Schachtel"));
 		session().setArtikelArtikelSeite(anArtikel);
+		session().setArtikelBezeichnung("Schachtel");
 		return nextPage;
 	}
 

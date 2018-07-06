@@ -227,12 +227,10 @@ public abstract class _Artikel extends  ERXGenericRecord {
 
   public static Artikel createArtikel(EOEditingContext editingContext, String bezeichnung
 , Integer id
-, java.math.BigDecimal preis
 ) {
     Artikel eo = (Artikel) EOUtilities.createAndInsertInstance(editingContext, _Artikel.ENTITY_NAME);
     eo.setBezeichnung(bezeichnung);
     eo.setId(id);
-    eo.setPreis(preis);
     return eo;
   }
 

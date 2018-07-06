@@ -48,6 +48,7 @@ public class ArtikelSeite extends BaseComponent {
 
 	public Einstiegsseite confirm() {
 		//Speichere Artikel mit allen Inhalten
+		
 		Einstiegsseite nextPage = pageWithName(Einstiegsseite.class);
 		return nextPage;
 	}

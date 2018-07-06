@@ -1,5 +1,8 @@
 package ch.lars.your.app;
 
+import com.ibm.icu.math.BigDecimal;
+import com.webobjects.foundation.NSMutableArray;
+
 import ch.lars.your.app.eomodel.Artikel;
 import ch.lars.your.app.eomodel.Bestellung;
 import ch.lars.your.app.eomodel.Kunde;
@@ -7,7 +10,12 @@ import er.extensions.appserver.ERXSession;
 
 public class Session extends ERXSession {
 	private static final long serialVersionUID = 1L;
+	private NSMutableArray<Bestellung> bestellungen = new NSMutableArray<Bestellung>();
+	private Integer artikelFuerBeziehung = null, inhaltFuerBeziehung = null;
 	private Artikel artikelArtikelSeite = null;
+	private String artikelBezeichnung = "";
+	private String nameVonInhalt = "";
+	private java.math.BigDecimal perisVonInhalt = null;
 	/*
 	private Kunde 	vornameNeuerKunde = null,
 					nachnameNeuerKunde = null, 
@@ -135,6 +143,53 @@ public class Session extends ERXSession {
 	public void setaBestellung(Bestellung aBestellung) {
 		this.aBestellung = aBestellung;
 	}
+	
+	public String getArtikelBezeichnung() {
+		return artikelBezeichnung;
+	}
+
+	public void setArtikelBezeichnung(String artikelBezeichnung) {
+		this.artikelBezeichnung = artikelBezeichnung;
+	}
+
+	public String getNameVonInhalt() {
+		return nameVonInhalt;
+	}
+
+	public void setNameVonInhalt(String nameVonInhalt) {
+		this.nameVonInhalt = nameVonInhalt;
+	}
+
+	public java.math.BigDecimal getPerisVonInhalt() {
+		return perisVonInhalt;
+	}
+
+	public void setPerisVonInhalt(java.math.BigDecimal perisVonInhalt) {
+		this.perisVonInhalt = perisVonInhalt;
+	}
+
+	public Integer getArtikelFuerBeziehung() {
+		return artikelFuerBeziehung;
+	}
+
+	public void setArtikelFuerBeziehung(Integer artikelFuerBeziehung) {
+		this.artikelFuerBeziehung = artikelFuerBeziehung;
+	}
+
+	public Integer getInhaltFuerBeziehung() {
+		return inhaltFuerBeziehung;
+	}
+
+	public void setInhaltFuerBeziehung(Integer inhaltFuerBeziehung) {
+		this.inhaltFuerBeziehung = inhaltFuerBeziehung;
+	}
+	
+	public void addArtikelZuBestellung() {
+		
+	}
+	
+	
+	
 	
 	
 	

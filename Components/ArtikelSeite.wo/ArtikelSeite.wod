@@ -1,7 +1,7 @@
 css : ERXStyleSheet {
 	filename = "css/bootstrap.css";
 }
-wrapper : Kopf {
+header : Kopf {
 	
 }
 footer : Fuss {

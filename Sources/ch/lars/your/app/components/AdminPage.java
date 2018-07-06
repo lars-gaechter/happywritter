@@ -3,16 +3,14 @@ package ch.lars.your.app.components;
 import com.webobjects.appserver.WOContext;
 import com.webobjects.eocontrol.EOQualifier;
 import com.webobjects.foundation.NSArray;
+import java.math.BigDecimal;
 
 import ch.lars.your.app.Application;
 import ch.lars.your.app.Benutzer;
 import ch.lars.your.app.Session;
 import ch.lars.your.app.components.Main;
 import ch.lars.your.app.eomodel.*;
-import ch.lars.your.app.eomodel.Inhalt;
-import er.extensions.eof.ERXFetchSpecification;
-import er.extensions.eof.ERXKey;
-import er.extensions.foundation.ERXArrayUtilities.FetchSpecOperator;
+
 
 import com.webobjects.appserver.WOComponent;
 
@@ -20,10 +18,10 @@ public class AdminPage extends BaseComponent {
 	private Benutzer angemeldeterBenutzer;
 	private Session sitzung;
 	private Application application;
-	private String kunden;
 	private String bestellung;
 	private String bestelltekonfiguration;
 	private String bestellposition;
+	private String kunden;
 
 	/**
 	 * Bei erstellen eines Objektes wird eine neue Session gestartet.
@@ -187,9 +185,9 @@ public class AdminPage extends BaseComponent {
 	/**
 	 * @return the bestelltekonfiguration
 	 */
-	//public NSArray<ch.lars.your.app.eoerd.Bestelltekonfiguration> bestelltekonfiguration() {
-		//return ch.lars.your.app.eoerd.Bestelltekonfiguration.fetchAllBestelltekonfigurations(session().defaultEditingContext());
-	//}
+	public NSArray<BestellteKonfiguration> bestelltekonfiguration() {
+		return BestellteKonfiguration.fetchAllBestellteKonfigurations(session().defaultEditingContext());
+	}
 
 
 	/**
@@ -213,6 +211,126 @@ public class AdminPage extends BaseComponent {
 	 */
 	public void setBestellposition(String bestellposition) {
 		this.bestellposition = bestellposition;
+	}
+
+
+	/**
+	 * @return the preis
+	 */
+	public String preisInhalt() {
+		if(session().getPerisVonInhalt() != null) {
+			return session().getPerisVonInhalt().toString();
+		} else {
+			return "";
+		}
+	}
+
+
+	/**
+	 * @param preis the preis to set
+	 */
+	public void setPreisInhalt(String preis) {
+		BigDecimal apreis = new BigDecimal(preis);
+		session().setPerisVonInhalt(apreis);
+	}
+
+
+	/**
+	 * @return the nameInhalt
+	 */
+	public String nameInhalt() {
+		return session().getNameVonInhalt();
+	}
+
+
+	/**
+	 * @param nameInhalt the nameInhalt to set
+	 */
+	public void setNameInhalt(String nameInhalt) {
+		session().setNameVonInhalt(nameInhalt);
+	}
+
+	/**
+	 * Erstellt einen neuen Inhalt in der Datenbank
+	 */
+	public void erstelleNeuerInhalt() {
+		
+		Inhalt anInahlt = new Inhalt();
+		anInahlt.setName(session().getNameVonInhalt());
+		anInahlt.setPreis(session().getPerisVonInhalt());
+		session().defaultEditingContext().insertObject(anInahlt);
+		session().defaultEditingContext().saveChanges();
+		
+	}
+
+
+	/**
+	 * @return the artikelFuerBeziehung
+	 */
+	public String artikelFuerBeziehung() {
+		if(session().getArtikelFuerBeziehung() != null) {
+			return session().getArtikelFuerBeziehung().toString();
+		} else {
+			return "";
+		}
+	}
+
+
+	/**
+	 * @param artikelFuerBeziehung the artikelFuerBeziehung to set
+	 */
+	public void setArtikelFuerBeziehung(String artikelFuerBeziehung) {
+		Integer anArtikelFuerBeziehung = new Integer(artikelFuerBeziehung);
+		session().setArtikelFuerBeziehung(anArtikelFuerBeziehung);
+	}
+
+
+	/**
+	 * @return the inhaltFuerBeziehung
+	 */
+	public String inhaltFuerBeziehung() {
+		if(session().getInhaltFuerBeziehung() != null) {
+			return session().getInhaltFuerBeziehung().toString();
+		} else {
+			return "";
+		}
+	}
+
+
+	/**
+	 * @param inhaltFuerBeziehung the inhaltFuerBeziehung to set
+	 */
+	public void setInhaltFuerBeziehung(String inhaltFuerBeziehung) {
+		Integer anInhaltFuerBeziehung = new Integer(inhaltFuerBeziehung);
+		session().setArtikelFuerBeziehung(anInhaltFuerBeziehung);
+	}
+
+
+	public void erstelleBeziehungArtikelInhalt() {
+		Inhalt anInahlt = new Inhalt();
+		Artikel anArtikel = new Artikel();
+		Konfiguration aKonfiguration = new Konfiguration();
+		//anInahlt.setId(session().getInhaltFuerBeziehung());
+		//anArtikel.setId(session().getArtikelFuerBeziehung());
+		//session().defaultEditingContext().insertObject(anInahlt);
+		//session().defaultEditingContext().insertObject(anArtikel);
+		//aKonfiguration.addObjectToBothSidesOfRelationshipWithKey(anArtikel, Konfiguration.ARTIKEL_ID_KEY);
+		//aKonfiguration.addObjectToBothSidesOfRelationshipWithKey(anInahlt, Konfiguration.INHALT_ID_KEY);
+		//aKonfiguration.setInhaltId(session().getInhaltFuerBeziehung());
+		//Integer inhalt = new Integer(session().getInhaltFuerBeziehung());
+		//aKonfiguration.setInhaltId(inhalt);
+		//Integer artikel = new Integer(session().getArtikelFuerBeziehung());
+		//aKonfiguration.setArtikelId(artikel);
+		//aKonfiguration.setInhaltId(1);
+		//aKonfiguration.setArtikelId(1);
+		//aKonfiguration.setArtikelId(session().getArtikelFuerBeziehung());
+		Integer artikel = session().getArtikelFuerBeziehung();
+		Integer inhalt = session().getInhaltFuerBeziehung();
+		aKonfiguration.setInhaltId(inhalt);
+		aKonfiguration.setArtikelId(artikel);
+		
+		session().defaultEditingContext().insertObject(aKonfiguration);
+		session().defaultEditingContext().saveChanges();
 	}
 	
 

@@ -1,13 +1,33 @@
 {
     attributes = (
         {allowsNull = N; name = id; prototypeName = id; }, 
-        {columnName = kundeseit; name = kundeseit; prototypeName = date; }, 
-        {columnName = nachname; name = nachname; prototypeName = varchar50; }, 
-        {columnName = ort; name = ort; prototypeName = varchar50; }, 
-        {columnName = plz; name = plz; prototypeName = varchar50; }, 
-        {columnName = strasse; name = strasse; prototypeName = varchar50; }, 
-        {columnName = tel; name = tel; prototypeName = varchar50; }, 
-        {columnName = vorname; name = vorname; prototypeName = varchar50; }
+        {
+            allowsNull = Y; 
+            columnName = kundeseit; 
+            name = kundeseit; 
+            prototypeName = javaLocalDate; 
+        }, 
+        {
+            allowsNull = N; 
+            columnName = nachname; 
+            name = nachname; 
+            prototypeName = varchar50; 
+        }, 
+        {allowsNull = N; columnName = ort; name = ort; prototypeName = varchar50; }, 
+        {allowsNull = N; columnName = plz; name = plz; prototypeName = varchar50; }, 
+        {
+            allowsNull = N; 
+            columnName = strasse; 
+            name = strasse; 
+            prototypeName = varchar50; 
+        }, 
+        {allowsNull = N; columnName = tel; name = tel; prototypeName = varchar50; }, 
+        {
+            allowsNull = N; 
+            columnName = vorname; 
+            name = vorname; 
+            prototypeName = varchar50; 
+        }
     ); 
     attributesUsedForLocking = (id, kundeseit, nachname, ort, plz, strasse, tel, vorname); 
     className = "ch.lars.your.app.eomodel.Kunde"; 

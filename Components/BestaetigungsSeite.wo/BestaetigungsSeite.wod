@@ -7,6 +7,35 @@ wrapper : Kopf {
 footer : Fuss {
 	
 }
+
+vorname : WOString {
+	value = session.vornameNeuerKunde;
+}
+
+
+nachname : WOString {
+	value = nachname;
+}
+
+strasse : WOString {
+	value = session.strasseNeuerKunde;
+}
+plz : WOString {
+	value = session.plzNeuerKunde;
+}
+ort : WOString {
+	value = session.ortNeuerKunde;
+}
+telefon : WOString {
+	value = session.telNeuerKunde;
+}
+bemerkungen : WOString {
+	value = session.bemerkungenNeuerBestellung;
+}
+kundeseit : WOString {
+	value = session.kundeSeitNeuerKunde;
+}
+
 abbrechen : WOHyperlink {
 	action = abbrechen;
 }

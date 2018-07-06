@@ -28,9 +28,9 @@ checkout : WOHyperlink {
 	action = detail;
 }
 
-etui : WOHyperlink {
-	action = etuiBestellen;
-}
-schachtel : WOHyperlink {
-	action = schachtelBestellen;
-}
+//etui : WOHyperlink {
+//	action = etuiBestellen;
+//}
+//schachtel : WOHyperlink {
+//	action = schachtelBestellen;
+//}

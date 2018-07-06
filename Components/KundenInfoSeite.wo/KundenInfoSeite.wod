@@ -4,29 +4,31 @@ css : ERXStyleSheet {
 form : WOForm {
 	
 }
-/*
-nachname : WOTextField {
-	//value = null;
-}
 vorname : WOTextField {
-	//value = null;
+	value = vorname;
+}
+
+nachname : WOTextField {
+	value = nachname;
 }
 strasse : WOTextField {
-	//value = null;
+	value = strasse;
 }
 plz : WOTextField {
-	//value = null;
+	value = plz;
 }
 ort : WOTextField {
-	//value = null;
+	value = ort;
 }
 telefon : WOTextField {
-	//value = null;
+	value = tel;
 }
 bemerkungen : WOText {
-	//value = null;
+	value = bemerkungen;
 }
-*/
+kundeSeit : WOTextField{
+	value = kundeseit;
+}
 submit : WOSubmitButton {
 	action = null;
 	value = "submit";
@@ -34,8 +36,9 @@ submit : WOSubmitButton {
 abbrechen : WOHyperlink {
 	action = abbrechen;
 }
-confirm : WOHyperlink {
+confirm : WOSubmitButton {
 	action = confirm;
+	value = "Save";
 }
 zurueck : WOHyperlink {
 	action = zurueck;

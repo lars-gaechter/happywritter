@@ -20,7 +20,7 @@ public abstract class _Bestellung extends  ERXGenericRecord {
 
   // Attribute Keys
   public static final ERXKey<String> BEMERKUNGEN = new ERXKey<String>("bemerkungen", Type.Attribute);
-  public static final ERXKey<NSTimestamp> DATUM = new ERXKey<NSTimestamp>("datum", Type.Attribute);
+  public static final ERXKey<java.time.LocalDate> DATUM = new ERXKey<java.time.LocalDate>("datum", Type.Attribute);
 
   // Relationship Keys
   public static final ERXKey<ch.lars.your.app.eomodel.BestellPosition> BESTELL_POSITIONS = new ERXKey<ch.lars.your.app.eomodel.BestellPosition>("bestellPositions", Type.ToManyRelationship);
@@ -53,11 +53,11 @@ public abstract class _Bestellung extends  ERXGenericRecord {
     takeStoredValueForKey(value, _Bestellung.BEMERKUNGEN_KEY);
   }
 
-  public NSTimestamp datum() {
-    return (NSTimestamp) storedValueForKey(_Bestellung.DATUM_KEY);
+  public java.time.LocalDate datum() {
+    return (java.time.LocalDate) storedValueForKey(_Bestellung.DATUM_KEY);
   }
 
-  public void setDatum(NSTimestamp value) {
+  public void setDatum(java.time.LocalDate value) {
     log.debug( "updating datum from {} to {}", datum(), value);
     takeStoredValueForKey(value, _Bestellung.DATUM_KEY);
   }
@@ -172,7 +172,7 @@ public abstract class _Bestellung extends  ERXGenericRecord {
 
 
   public static Bestellung createBestellung(EOEditingContext editingContext, String bemerkungen
-, NSTimestamp datum
+, java.time.LocalDate datum
 , ch.lars.your.app.eomodel.Kunde kunde) {
     Bestellung eo = (Bestellung) EOUtilities.createAndInsertInstance(editingContext, _Bestellung.ENTITY_NAME);
     eo.setBemerkungen(bemerkungen);

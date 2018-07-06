@@ -17,9 +17,6 @@
         {className = "ch.lars.your.app.eomodel.Konfiguration"; name = Konfiguration; }, 
         {className = "ch.lars.your.app.eomodel.Kunde"; name = Kunde; }
     ); 
-    internalInfo = {
-        "_deletedEntityNamesInObjectStore" = (BestellPosition, Inhalt, Konfiguration, Kunde); 
-    }; 
     userInfo = {
         "_EntityModeler" = {
             activeDatabaseConfigName = Default; 

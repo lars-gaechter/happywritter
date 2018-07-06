@@ -1,7 +1,12 @@
 {
     attributes = (
         {columnName = bemerkungen; name = bemerkungen; prototypeName = varchar50; }, 
-        {columnName = datum; name = datum; prototypeName = date; }, 
+        {
+            allowsNull = Y; 
+            columnName = datum; 
+            name = datum; 
+            prototypeName = javaLocalDate; 
+        }, 
         {allowsNull = N; name = id; prototypeName = id; }, 
         {allowsNull = N; columnName = kundeID; name = kundeID; prototypeName = id; }
     ); 

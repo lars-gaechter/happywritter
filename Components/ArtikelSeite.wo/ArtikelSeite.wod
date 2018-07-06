@@ -10,9 +10,18 @@ footer : Fuss {
 artikelName : WOString {
 	value = artikelName;
 }
-artikelIcon : WOImage {
-	filename = artikelIcon;
+//artikelIcon : WOImage {
+//	filename = artikelIcon;
+//}
+//preis : WOString {
+//	value = preis;
+//}
+
+
+form : WOForm {
+	
 }
-preis : WOString {
-	value = preis;
+confirm : WOSubmitButton {
+	action = confirm;
+	value = "Save";
 }

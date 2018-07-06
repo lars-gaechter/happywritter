@@ -14,11 +14,11 @@ startShop : WOHyperlink {
 	action = startShop;
 }
 
-menu : WOImage {
-	filename = "img/Menu.jpg";
-	alt = "etuiholzschachtel";
-	action = detail;
-}
+//menu : WOImage {
+	//filename = "img/Menu.jpg";
+	//alt = "etuiholzschachtel";
+	//action = detail;
+//}
 
 //bestellList : WORepetition {
 	//<!--<webobject name = "bestellList"></webobject>>-->

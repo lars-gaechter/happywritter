@@ -9,7 +9,7 @@ import er.extensions.appserver.ERXApplication;
 
 public class Application extends ERXApplication {
 	private EOQualifier qualifier = null;
-	private String icon = null;
+	//private String icon = null;
 	public EOQualifier getQualifier() {
 		return qualifier;
 	}

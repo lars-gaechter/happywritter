@@ -12,15 +12,13 @@ import com.webobjects.appserver.WOActionResults;
 
 public class ArtikelSeite extends BaseComponent {
 	
-	private Session sitzung;
+	//private Session sitzung;
 	private Application application;
-	private String artikelIcon;
-	private String preis;
 	
 	public ArtikelSeite(WOContext context) {
 		super(context);
-		sitzung = (Session) session();
-		application = (Application) Application.application();
+		//sitzung = (Session) session();
+		//application = (Application) Application.application();
 	}
 	
 
@@ -33,9 +31,9 @@ public class ArtikelSeite extends BaseComponent {
 	/**
 	 * @return the artikelIcon
 	 */
-	public String artikelIcon() {
-		return application.getArtikelIcon();
-	}
+	//public String artikelIcon() {
+	//	return application.getArtikelIcon();
+	//}
 
 
 	/**
@@ -44,6 +42,14 @@ public class ArtikelSeite extends BaseComponent {
 	public String getPreis() {
 		//return application.getArtikel().getPreis().toString();
 		return null;
+	}
+
+
+
+	public Einstiegsseite confirm() {
+		//Speichere Artikel mit allen Inhalten
+		Einstiegsseite nextPage = pageWithName(Einstiegsseite.class);
+		return nextPage;
 	}
 
 

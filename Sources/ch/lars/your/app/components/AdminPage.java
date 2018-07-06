@@ -187,9 +187,9 @@ public class AdminPage extends BaseComponent {
 	/**
 	 * @return the bestelltekonfiguration
 	 */
-	public NSArray<ch.lars.your.app.eoerd.Bestelltekonfiguration> bestelltekonfiguration() {
-		return ch.lars.your.app.eoerd.Bestelltekonfiguration.fetchAllBestelltekonfigurations(session().defaultEditingContext());
-	}
+	//public NSArray<ch.lars.your.app.eoerd.Bestelltekonfiguration> bestelltekonfiguration() {
+		//return ch.lars.your.app.eoerd.Bestelltekonfiguration.fetchAllBestelltekonfigurations(session().defaultEditingContext());
+	//}
 
 
 	/**

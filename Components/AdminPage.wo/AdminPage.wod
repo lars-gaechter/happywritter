@@ -26,18 +26,18 @@ inhalt : WOSimpleArrayDisplay {
 konfiguration : WOSimpleArrayDisplay {
 	list = konfiguration;
 }
-test : WOSimpleArrayDisplay {
-	list = testArtikelKonfiguration;
-}
+//test : WOSimpleArrayDisplay {
+//	list = testArtikelKonfiguration;
+//}
 kunde : WOSimpleArrayDisplay {
 	list = kunde;
 }
 bestellung : WOSimpleArrayDisplay {
 	list = bestellung;
 }
-bestelltekonfiguration : WOSimpleArrayDisplay {
-	list = bestelltekonfiguration;
-}
+//bestelltekonfiguration : WOSimpleArrayDisplay {
+//	list = bestelltekonfiguration;
+//}
 
 bestellposition : WOSimpleArrayDisplay {
 	list = bestellposition;

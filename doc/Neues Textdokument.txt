@@ -1,0 +1,23 @@
+Nachname 
+    <webobject name = "nachname" />
+    <br>
+    Vorname 
+    <webobject name = "vorname" />
+    <br>
+        Strasse 
+    <webobject name = "strasse" />
+    <br>
+        PLZ 
+    <webobject name = "plz" />
+    <br>
+        Ort 
+    <webobject name = "ort" />
+    <br>
+            Telefon 
+    <webobject name = "telefon" />
+    <br>
+                Bemerkungen 
+    <webobject name = "bemerkungen" />
+    <br>
+	 <webobject name = "submit" />
+    <br>

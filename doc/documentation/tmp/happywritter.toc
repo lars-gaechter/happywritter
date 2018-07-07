@@ -1,0 +1,8 @@
+\babel@toc {german}{}
+\contentsline {section}{\numberline {1}section}{3}
+\contentsline {subsection}{\numberline {1.1}subsection}{3}
+\contentsline {subsection}{\numberline {1.2}subsection}{3}
+\contentsline {section}{\numberline {2}einleitende Kapitell}{3}
+\contentsline {section}{\numberline {3}Anforderungen und Betriebsanleitung}{3}
+\contentsline {subsection}{\numberline {3.1}Anforderungen}{3}
+\contentsline {subsection}{\numberline {3.2}Betriebsanleitung}{3}

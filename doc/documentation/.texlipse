@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Sat Jul 07 19:26:08 CEST 2018
+markTmpDer=true
+builderNum=2
+outputDir=output
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=happywritter.tex
+outputFile=happywritterdoc.pdf
+langSpell=de
+markDer=true
+srcDir=src

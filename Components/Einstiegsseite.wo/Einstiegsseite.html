@@ -1,24 +1,26 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
-<html>
+<!DOCTYPE html>
+<html lang="de">
 	<head>
 		<title>HappyWritter</title>
 		<webobjects name = "css" />
+		<webobjects name = "customcss" />
 	</head>
-	<body>
+	
 	<webobjects name="wrapper"></webobjects>
 <h1>HappyWritter</h1>
 <webobject name = "menu"></webobject>
-<hr>
+<hr class="my-4">
 <webobject name = "pruefeObEsFehlerHat">
-<button class="btn btn-info" type="button"><webobject name = "checkout">Check Out</webobject></button>
+<webobject name = "checkout">Check Out</webobject>
 </webobject>
+<webobject name = "zurueck">Zurück</webobject>
 <p class="mb-0">Ihre Bestellung:</p>
 <webobject name = "pruefeObEsFehlerHat">
 <table class="table table-hover">
   <thead>
-    <tr>
-      <th scope="col">Artikel</th>
-      <th scope="col">Preis</th>
+    <tr class="table-dark">
+      <th scope="row">Artikel</th>
+      <th scope="row">Preis</th>
     </tr>
   </thead>
   <tbody>
@@ -26,9 +28,13 @@
       <th scope="row"><webobject name = "bestelltePositionArtikel"></webobject></th>
       <td><webobject name = "bestelltePositionPreis"></webobject></td>
     </tr>
+    <tr class="table-success">
+      <th scope="row">Total</th>
+      <td><webobject name = "bestelltePositionPreis"></webobject></td>
+    </tr>
     </tbody>
     </table>
 </webobject>
 <webobjects name="footer"></webobjects>
-	</body>
+	
 </html>

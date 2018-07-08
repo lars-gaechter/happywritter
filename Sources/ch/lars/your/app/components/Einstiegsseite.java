@@ -98,4 +98,9 @@ public class Einstiegsseite extends BaseComponent {
 		}
 	}
 
+	public Main zurueck() {
+		Main nextPage = pageWithName(Main.class);
+		return nextPage;
+	}
+
 }

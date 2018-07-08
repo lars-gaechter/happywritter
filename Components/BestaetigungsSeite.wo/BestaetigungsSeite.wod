@@ -1,36 +1,70 @@
 css : ERXStyleSheet {
 	filename = "css/bootstrap.css";
 }
+customcss : ERXStyleSheet {
+    filename = "css/style.css";
+}
 wrapper : Kopf {
 	
 }
 footer : Fuss {
 	
 }
+form : WOForm {
+    
+}
 
-vorname : WOString {
+vorname : WOTextField {
 	value = session.vornameNeuerKunde;
+	id = "inputvorname";
+    class="form-control-plaintext";
+    placeholder="Vorname";
+    readonly="";
 }
 
 
-nachname : WOString {
+nachname : WOTextField {
 	value = nachname;
+	   id = "inputnachname";
+    class="form-control-plaintext";
+    placeholder="Nachname";
+    readonly=""; 
 }
 
-strasse : WOString {
+strasse : WOTextField {
 	value = session.strasseNeuerKunde;
+	id = "inputstrasse";
+    class="form-control-plaintext";
+    placeholder="Strasse";
+    readonly="";
 }
-plz : WOString {
+plz : WOTextField {
 	value = session.plzNeuerKunde;
+	 id = "inputplz";
+    class="form-control-plaintext";
+    placeholder="PLZ";
+    readonly="";
 }
-ort : WOString {
+ort : WOTextField {
 	value = session.ortNeuerKunde;
+	 id = "inputort";
+    class="form-control-plaintext";
+    placeholder="Ort";
+    readonly="";
 }
-telefon : WOString {
+telefon : WOTextField {
 	value = session.telNeuerKunde;
+       id = "inputtel";
+    class="form-control-plaintext";
+    placeholder="Telefonnummer";
+    readonly="";
 }
-bemerkungen : WOString {
+bemerkungen : WOTextField {
 	value = session.bemerkungenNeuerBestellung;
+	 id = "inputbemerkungen";
+    class="form-control-plaintext";
+    row = 3;
+    readonly="";
 }
 kundeseit : WOString {
 	value = session.kundeSeitNeuerKunde;

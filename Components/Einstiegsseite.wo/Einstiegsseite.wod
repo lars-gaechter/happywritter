@@ -19,6 +19,9 @@ menu : WOActiveImage {
 css : ERXStyleSheet {
 	filename = "css/bootstrap.css";
 }
+customcss : ERXStyleSheet {
+    filename = "css/style.css";
+}
 
 wrapper : Kopf {
 	
@@ -29,6 +32,11 @@ footer : Fuss {
 
 checkout : WOHyperlink {
 	action = checkout;
+	class="btn btn-info";
+}
+zurueck : WOHyperlink {
+    action = zurueck;
+    class="btn btn-warning"
 }
 
 bestelltePositionArtikel : WOString {

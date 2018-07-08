@@ -41,6 +41,11 @@ public class Admin extends BaseComponent {
 		//return application.anmelden(getBenutzername(), getPasswort());
 		return application().anmelden(getBenutzername(), getPasswort());
 	}
+
+	public Main zurueck() {
+		Main nextPage = pageWithName(Main.class);
+		return nextPage;
+	}
     
     
 }

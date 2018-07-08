@@ -1,11 +1,4 @@
-//artikelList : WORepetition {
-	//<!--<webobject name = "artikelList"></webobject>-->
-	
-//}
 
-//checkout : WOHyperlink {
-//	action = detail;
-//}
 
 adminLogin : WOHyperlink {
 	action = adminLogin;
@@ -13,20 +6,11 @@ adminLogin : WOHyperlink {
 startShop : WOHyperlink {
 	action = startShop;
 }
-
-//menu : WOImage {
-	//filename = "img/Menu.jpg";
-	//alt = "etuiholzschachtel";
-	//action = detail;
-//}
-
-//bestellList : WORepetition {
-	//<!--<webobject name = "bestellList"></webobject>>-->
-	
-//}
-
 css : ERXStyleSheet {
 	filename = "css/bootstrap.css";
+}
+customcss : ERXStyleSheet {
+    filename = "css/style.css";
 }
 
 wrapper : Kopf {

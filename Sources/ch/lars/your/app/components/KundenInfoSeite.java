@@ -97,43 +97,85 @@ public class KundenInfoSeite extends BaseComponent {
 	}
 	
 	public boolean kundeFormValidation() {
-		if(session().getNachnameNeuerKunde() == null) {
-			setCheckEmpty("Nachname");
-			setaBoolean(true);
-			return false;
-		} 
-		if(session().getVornameNeuerKunde() == null) {
-			setCheckEmpty("Vorname");
-			setaBoolean(true);
-			return false;
-		} 
-		if(session().getStrasseNeuerKunde() == null) {
-			setCheckEmpty("Strasse");
-			setaBoolean(true);
-			return false;
-		} 
-		if(session().getPlzNeuerKunde() == null) {
-			setCheckEmpty("PLZ");
-			setaBoolean(true);
-			return false;
-		} 
-		if(session().getOrtNeuerKunde() == null) {
-			setCheckEmpty("Ort");
-			setaBoolean(true);
-			return false;
-		} 
-		if(session().getTelNeuerKunde() == null) {
-			setCheckEmpty("Telefon");
-			setaBoolean(true);
-			return false;
-		} 
-		if(session().getBemerkungenNeuerBestellung() == null) {
-			setCheckEmpty("Bemerkung");
+		if((session().getNachnameNeuerKunde() == null)) {
+			setCheckEmpty("Nachname ist leer!");
 			setaBoolean(true);
 			return false;
 		} else {
-			setCheckEmpty("");
-			return true;
+			if(session().getNachnameNeuerKunde().length()>50) {
+				setCheckEmpty("Nachname ist zu lange!");
+				setaBoolean(true);
+				return false;
+			}
+		}
+		if(session().getVornameNeuerKunde() == null) {
+			setCheckEmpty("Vorname ist leer!");
+			setaBoolean(true);
+			return false;
+		} else {
+			if(session().getVornameNeuerKunde().length()>50) {
+				setCheckEmpty("Vorname ist zu lange!");
+				setaBoolean(true);
+				return false;
+			}
+		}
+		if(session().getStrasseNeuerKunde() == null) {
+			setCheckEmpty("Strasse ist leer!");
+			setaBoolean(true);
+			return false;
+		} else {
+			if(session().getStrasseNeuerKunde().length()>50) {
+				setCheckEmpty("Strasse ist zu lange!");
+				setaBoolean(true);
+				return false;
+			}
+		}
+		if(session().getPlzNeuerKunde() == null) {
+			setCheckEmpty("PLZ ist leer!");
+			setaBoolean(true);
+			return false;
+		} else {
+			if(session().getPlzNeuerKunde().length()>50) {
+				setCheckEmpty("PLZ ist zu lange!");
+				setaBoolean(true);
+				return false;
+			}
+		}
+		if(session().getOrtNeuerKunde() == null) {
+			setCheckEmpty("Ort ist leer!");
+			setaBoolean(true);
+			return false;
+		} else {
+			if(session().getOrtNeuerKunde().length()>50) {
+				setCheckEmpty("Ort ist zu lange!");
+				setaBoolean(true);
+				return false;
+			}
+		}
+		if(session().getTelNeuerKunde() == null) {
+			setCheckEmpty("Telefon ist leer!");
+			setaBoolean(true);
+			return false;
+		} else {
+			if(session().getTelNeuerKunde().length()>50) {
+				setCheckEmpty("Telefon ist zu lange!");
+				setaBoolean(true);
+				return false;
+			}
+		}
+		if(session().getBemerkungenNeuerBestellung() == null) {
+			setCheckEmpty("Bemerkung ist leer!");
+			setaBoolean(true);
+			return false;
+		} else {
+			if(session().getBemerkungenNeuerBestellung().length()>50) {
+				setCheckEmpty("Bemerkung ist zu lange!");
+				setaBoolean(true);
+				return false;
+			} else {
+				setCheckEmpty("");
+				return true;
+			}
 		}
 	}
 
@@ -145,7 +187,7 @@ public class KundenInfoSeite extends BaseComponent {
 			setaBoolean(true);
 			return "";
 		} else {
-			return "Das Feld "+checkEmpty+" ist leer!";
+			return "Das Feld "+checkEmpty;
 		}
 	}
 

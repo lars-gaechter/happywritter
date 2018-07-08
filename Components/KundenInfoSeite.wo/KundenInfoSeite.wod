@@ -1,8 +1,10 @@
 css : ERXStyleSheet {
 	filename = "css/bootstrap.css";
 }
+customcss : ERXStyleSheet {
+    filename = "css/style.css";
+}
 form : WOForm {
-	
 }
 vorname : WOTextField {
 	value = vorname;
@@ -57,10 +59,6 @@ bemerkungen : WOText {
 }
 kundeSeit : WOTextField{
 	value = kundeseit;
-}
-submit : WOSubmitButton {
-	action = null;
-	value = "submit";
 }
 abbrechen : WOHyperlink {
 	action = abbrechen;

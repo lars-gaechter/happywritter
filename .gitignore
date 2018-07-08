@@ -12,3 +12,6 @@ bin/
 #java
 *.class
 *.jar
+
+#doc
+EOModelDoc

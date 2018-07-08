@@ -7,9 +7,15 @@ footer : Fuss {
 css : ERXStyleSheet {
 	filename = "css/bootstrap.css";
 }
-
+customcss : ERXStyleSheet {
+    filename = "css/style.css";
+}
 loginForm : WOForm {
 	
+}
+zurueck : WOHyperlink {
+    action = zurueck;
+    class="btn btn-warning"
 }
 
 benutzername : WOTextField {

@@ -1,42 +1,74 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="de">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>HappyWritter</title>
 	<webobjects name = "css" />
+	<webobjects name = "customcss" />
 </head>
-<body>
+
 <webobjects name = "wrapper"></webobjects>
 <h1>Bitte kontrollieren Sie Ihre Angaben</h1>
- Nachname 
-<webobject name = "nachname"></webobject>
-    <br>
-    Vorname 
-    <webobject name = "vorname"></webobject>
+                <webobject name = "form">
+   <div class="form-group row">  
+     <label for="inputnachname" class="col-sm-2 col-form-label">Nachname</label>
+     <div class="col-sm-10">
+<webobjects name = "nachname" ></webobjects>
+</div>
+</div>
+       <div class="form-group row">  
+     <label for="inputvorname" class="col-sm-2 col-form-label">Vorname</label>
+     <div class="col-sm-10">
+ <webobjects name = "vorname" ></webobjects>
+</div>
+</div>
+        <div class="form-group row">  
+     <label for="inputstrasse" class="col-sm-2 col-form-label">Strasse</label>
+     <div class="col-sm-10">
+        <webobjects name = "strasse" ></webobjects>
+        </div>
+</div>       
+        <div class="form-group row">  
+     <label for="inputplz" class="col-sm-2 col-form-label">PLZ</label>
+     <div class="col-sm-10">
+        <webobjects name = "plz" ></webobjects>
+        </div>
+</div>
 
-    <br>
-        Strasse 
-<webobject name = "strasse"></webobject>
-    <br>
-        PLZ 
-<webobject name = "plz"></webobject>
-    <br>
-        Ort 
-<webobject name = "ort"></webobject>
-    <br>
-            Telefon 
-<webobject name = "telefon"></webobject>
-    <br>
-                Bemerkungen 
-                <webobject name = "bemerkungen"></webobject>
-    <br>
-                <div style="display: none;"><webobject name = "kundeseit"></webobject></div>
+
+         
+        <div class="form-group row">  
+     <label for="inputort" class="col-sm-2 col-form-label">Ort</label>
+     <div class="col-sm-10">
+        <webobjects name = "ort" ></webobjects>
+        </div>
+</div>
+
+   
+             
+            <div class="form-group row">  
+     <label for="inputtel" class="col-sm-2 col-form-label">Telefon</label>
+     <div class="col-sm-10">
+            <webobjects name = "telefon" ></webobjects>
+            </div>
+</div>
+
+    
+                 
+                <div class="form-group row">  
+     <label for="inputbemerkungen" class="col-sm-2 col-form-label">Bemerkungen</label>
+     <div class="col-sm-10">
+                <webobjects name = "bemerkungen" ></webobjects>
+                </div>
+</div>
+    
+    
+                <div><webobjects name = "kundeseit" ></webobjects></div>
+                </webobject>
 
     	 <webobject name = "confirm">Bestätigen</webobject>
     	 <webobject name = "zurueck">Zurück</webobject>
 	 <webobject name = "abbrechen">Abbrechen</webobject>
 <webobjects name = "footer"></webobjects>
-</body>
+
 </html>

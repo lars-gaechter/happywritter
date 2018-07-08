@@ -7,7 +7,7 @@ import ch.lars.your.app.Application;
 import com.webobjects.appserver.WOComponent;
 import com.webobjects.appserver.WOActionResults;
 
-public class Admin extends WOComponent {
+public class Admin extends BaseComponent {
 	
 	Application application;
 
@@ -18,6 +18,7 @@ public class Admin extends WOComponent {
         super(context);
         
         application = (Application) Application.application();
+        
     }
 
 	public String getBenutzername() {
@@ -37,7 +38,8 @@ public class Admin extends WOComponent {
 	}
 
 	public WOActionResults anmelden() {
-		return application.anmelden(getBenutzername(), getPasswort());
+		//return application.anmelden(getBenutzername(), getPasswort());
+		return application().anmelden(getBenutzername(), getPasswort());
 	}
     
     

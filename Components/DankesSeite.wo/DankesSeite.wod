@@ -10,3 +10,8 @@ footer : Fuss {
 dankeImg : WOImage {
 	filename = "img/logo.jpg";
 }
+
+startseite : WOHyperlink {
+    action = startseite;
+    class="btn btn-success"
+}

@@ -3,6 +3,8 @@ package ch.lars.your.app.components;
 import com.webobjects.appserver.WOContext;
 import com.webobjects.eocontrol.EOQualifier;
 import com.webobjects.foundation.NSArray;
+import com.webobjects.foundation.NSMutableArray;
+
 import java.math.BigDecimal;
 
 import ch.lars.your.app.Application;
@@ -22,6 +24,8 @@ public class AdminPage extends BaseComponent {
 	private String bestelltekonfiguration;
 	private String bestellposition;
 	private String kunden;
+	private int anzahlKunden, anzahlBestellungen, anzahlInhalte, anzahlKonfiguration, anzahlBestellteKonf,
+	anzahlBestellposition, anzahlArtikel;
 
 	/**
 	 * Bei erstellen eines Objektes wird eine neue Session gestartet.
@@ -90,16 +94,18 @@ public class AdminPage extends BaseComponent {
 	 * fetch all artikel records from table artikel and returns in NSArray
 	 * @return
 	 */
-	public NSArray<ch.lars.your.app.eomodel.Artikel> artikel() {
-		return ch.lars.your.app.eomodel.Artikel.fetchAllArtikels(session().defaultEditingContext());
+	public NSArray<Artikel> artikel() {
+		setAnzahlArtikel(Artikel.fetchAllArtikels(session().defaultEditingContext()).count());
+		return Artikel.fetchAllArtikels(session().defaultEditingContext());
 	}
 	
 	/**
 	 * fetch all Inhalt records from table Inhalt and returns in NSArray
 	 * @return
 	 */
-	public NSArray<ch.lars.your.app.eomodel.Inhalt> inhalt() {
-		return ch.lars.your.app.eomodel.Inhalt.fetchAllInhalts(session().defaultEditingContext());
+	public NSArray<Inhalt> inhalt() {
+		setAnzahlInhalte(Inhalt.fetchAllInhalts(session().defaultEditingContext()).count());
+		return Inhalt.fetchAllInhalts(session().defaultEditingContext());
 	}
 	/**
 	 * 
@@ -120,6 +126,7 @@ public class AdminPage extends BaseComponent {
 		//System.out.println(z.fetchArtikel(session().defaultEditingContext(), Inhalt.ID_KEY));
 		//System.out.println(Konfiguration.id());
 		//return z.inhalts(qualifier);
+		setAnzahlKonfiguration(Konfiguration.fetchAllKonfigurations(session().defaultEditingContext()).count());
 		return Konfiguration.fetchAllKonfigurations(session().defaultEditingContext());
 	}
 	
@@ -154,6 +161,7 @@ public class AdminPage extends BaseComponent {
 	 * @return the kunden
 	 */
 	public NSArray<Kunde> kunde() {
+		setAnzahlKunden(Kunde.fetchAllKundes(session().defaultEditingContext()).count());
 		return Kunde.fetchAllKundes(session().defaultEditingContext());
 	}
 
@@ -170,6 +178,7 @@ public class AdminPage extends BaseComponent {
 	 * @return the bestellung
 	 */
 	public NSArray<Bestellung> bestellung() {
+		setAnzahlBestellungen(Bestellung.fetchAllBestellungs(session().defaultEditingContext()).count());
 		return Bestellung.fetchAllBestellungs(session().defaultEditingContext());
 	}
 
@@ -186,6 +195,7 @@ public class AdminPage extends BaseComponent {
 	 * @return the bestelltekonfiguration
 	 */
 	public NSArray<BestellteKonfiguration> bestelltekonfiguration() {
+		setAnzahlBestellteKonf(BestellteKonfiguration.fetchAllBestellteKonfigurations(session().defaultEditingContext()).count());
 		return BestellteKonfiguration.fetchAllBestellteKonfigurations(session().defaultEditingContext());
 	}
 
@@ -202,6 +212,7 @@ public class AdminPage extends BaseComponent {
 	 * @return the bestellposition
 	 */
 	public NSArray<BestellPosition> bestellposition() {
+		setAnzahlBestellposition(BestellPosition.fetchAllBestellPositions(session().defaultEditingContext()).count());
 		return BestellPosition.fetchAllBestellPositions(session().defaultEditingContext());
 	}
 
@@ -332,6 +343,80 @@ public class AdminPage extends BaseComponent {
 		session().defaultEditingContext().insertObject(aKonfiguration);
 		session().defaultEditingContext().saveChanges();
 	}
+
+
+
+	public int getAnzahlKunden() {
+		return anzahlKunden;
+	}
+
+
+	public void setAnzahlKunden(int anzahlKunden) {
+		this.anzahlKunden = anzahlKunden;
+	}
+
+
+	public int getAnzahlBestellungen() {
+		return anzahlBestellungen;
+	}
+
+
+	public void setAnzahlBestellungen(int anzahlBestellungen) {
+		this.anzahlBestellungen = anzahlBestellungen;
+	}
+
+
+	public int getAnzahlInhalte() {
+		return anzahlInhalte;
+	}
+
+
+	public void setAnzahlInhalte(int anzahlInhalte) {
+		this.anzahlInhalte = anzahlInhalte;
+	}
+
+
+	public int getAnzahlKonfiguration() {
+		return anzahlKonfiguration;
+	}
+
+
+	public void setAnzahlKonfiguration(int anzahlKonfiguration) {
+		this.anzahlKonfiguration = anzahlKonfiguration;
+	}
+
+
+	public int getAnzahlBestellteKonf() {
+			return anzahlBestellteKonf;
+	}
+
+
+	public void setAnzahlBestellteKonf(int anzahlBestellteKonf) {
+		this.anzahlBestellteKonf = anzahlBestellteKonf;
+	}
+
+
+	public int getAnzahlBestellposition() {
+		return anzahlBestellposition;
+	}
+
+
+	public void setAnzahlBestellposition(int anzahlBestellposition) {
+		this.anzahlBestellposition = anzahlBestellposition;
+	}
+
+
+	public int getAnzahlArtikel() {
+		return anzahlArtikel;
+	}
+
+
+	public void setAnzahlArtikel(int anzahlArtikel) {
+		this.anzahlArtikel = anzahlArtikel;
+	}
+	
+	
+	
 	
 
 }

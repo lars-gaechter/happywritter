@@ -21,8 +21,8 @@ public class BestaetigungsSeite extends BaseComponent {
     }
 
 	public Main abbrechen() {
-		Main nextPage = pageWithName(Main.class);
 		session().terminate();
+		Main nextPage = pageWithName(Main.class);
 		return nextPage;
 	}
 	
@@ -76,18 +76,18 @@ public class BestaetigungsSeite extends BaseComponent {
 		bestellPosition.setBestellungID(23123);
 		//bestellPosition.set
 		
-		if(session().getArtikelBezeichnung() == "") {	
-		} else {
-			if(session().getArtikelBezeichnung() == "Etui") {
+		if(session().getArtikelBezeichnung() == "Etui") {
 				bestellPosition.setArtikelID(1);
 				artikel.setBezeichnung("Etui");
 				artikel.setPreis(null);
-			}else {
-				bestellPosition.setArtikelID(2);
-				artikel.setBezeichnung("Schachtel");
-				artikel.setPreis(null);
 			}
-		}
+		if(session().getArtikelBezeichnung() == "Schachtel") {
+					bestellPosition.setArtikelID(2);
+					artikel.setBezeichnung("Schachtel");
+					artikel.setPreis(null);
+				} 
+			
+		
 		
 		
 		
@@ -104,7 +104,6 @@ public class BestaetigungsSeite extends BaseComponent {
 		//Commit
 		session().defaultEditingContext().saveChanges();
 		//System.out.println("was in der session ist = "+session().getNachnameNeuerKunde());
-		
 		
 		DankesSeite nextPage = pageWithName(DankesSeite.class);
 		return nextPage;

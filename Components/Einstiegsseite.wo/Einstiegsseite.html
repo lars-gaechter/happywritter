@@ -9,9 +9,26 @@
 <h1>HappyWritter</h1>
 <webobject name = "menu"></webobject>
 <hr>
+<webobject name = "pruefeObEsFehlerHat">
 <button class="btn btn-info" type="button"><webobject name = "checkout">Check Out</webobject></button>
+</webobject>
 <p class="mb-0">Ihre Bestellung:</p>
-<webobject name = "bestelltePositionArtikelMitPreis"></webobject>
+<webobject name = "pruefeObEsFehlerHat">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Artikel</th>
+      <th scope="col">Preis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-active">
+      <th scope="row"><webobject name = "bestelltePositionArtikel"></webobject></th>
+      <td><webobject name = "bestelltePositionPreis"></webobject></td>
+    </tr>
+    </tbody>
+    </table>
+</webobject>
 <webobjects name="footer"></webobjects>
 	</body>
 </html>

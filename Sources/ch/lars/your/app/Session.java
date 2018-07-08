@@ -16,6 +16,7 @@ public class Session extends ERXSession {
 	private String artikelBezeichnung = "";
 	private String nameVonInhalt = "";
 	private java.math.BigDecimal perisVonInhalt = null;
+	private String ArtikelIcon = null;
 	/*
 	private Kunde 	vornameNeuerKunde = null,
 					nachnameNeuerKunde = null, 
@@ -187,6 +188,16 @@ public class Session extends ERXSession {
 	public void addArtikelZuBestellung() {
 		
 	}
+
+	public String getArtikelIcon() {
+		return ArtikelIcon;
+	}
+
+	public void setArtikelIcon(String artikelIcon) {
+		ArtikelIcon = artikelIcon;
+	}
+	
+	
 	
 	
 	

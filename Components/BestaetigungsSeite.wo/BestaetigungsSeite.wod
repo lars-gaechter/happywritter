@@ -38,10 +38,13 @@ kundeseit : WOString {
 
 abbrechen : WOHyperlink {
 	action = abbrechen;
+	class="btn btn-success"
 }
 confirm : WOHyperlink {
 	action = confirm;
+	class="btn btn-danger"
 }
 zurueck : WOHyperlink {
 	action = zurueck;
+	class="btn btn-warning"
 }

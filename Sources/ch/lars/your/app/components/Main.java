@@ -2,6 +2,8 @@ package ch.lars.your.app.components;
 
 import com.webobjects.appserver.WOContext;
 
+import ch.lars.your.app.Application;
+
 public class Main extends BaseComponent {
 
 	public Main(WOContext context) {

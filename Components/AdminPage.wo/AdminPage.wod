@@ -19,28 +19,36 @@ footer : Fuss {
 }
 artikel : WOSimpleArrayDisplay {
 	list = artikel;
+	numberToDisplay = anzahlArtikel;
 }
 inhalt : WOSimpleArrayDisplay {
 	list = inhalt;
+	numberToDisplay = anzahlInhalte;
 }
 konfiguration : WOSimpleArrayDisplay {
 	list = konfiguration;
+	numberToDisplay = anzahlKonfiguration;
 }
 //test : WOSimpleArrayDisplay {
 //	list = testArtikelKonfiguration;
 //}
 kunde : WOSimpleArrayDisplay {
 	list = kunde;
+	numberToDisplay = anzahlKunden;
 }
 bestellung : WOSimpleArrayDisplay {
 	list = bestellung;
+	numberToDisplay = anzahlBestellungen;
 }
 bestelltekonfiguration : WOSimpleArrayDisplay {
 	list = bestelltekonfiguration;
+	numberToDisplay = anzahlBestellteKonf;
 }
 
 bestellposition : WOSimpleArrayDisplay {
 	list = bestellposition;
+	numberToDisplay = anzahlBestellposition;
+	
 }
 form : WOForm {
 	multipleSubmit=true;

@@ -1,4 +1,7 @@
+pruefeObEsFehlerHat : WOConditional {
+condition=istMinEinArtikelBestaetigt;
 
+}
 
 menu : WOActiveImage {
 	framework = "app";
@@ -25,11 +28,14 @@ footer : Fuss {
 }
 
 checkout : WOHyperlink {
-	action = detail;
+	action = checkout;
 }
 
-bestelltePositionArtikelMitPreis : WOString {
-	value = "";
+bestelltePositionArtikel : WOString {
+	value = bestelltePositionArtikel;
+}
+bestelltePositionPreis : WOString {
+    value = bestelltePositionPreis;
 }
 
 //etui : WOHyperlink {

@@ -10,18 +10,30 @@ footer : Fuss {
 artikelName : WOString {
 	value = artikelName;
 }
-//artikelIcon : WOImage {
-//	filename = artikelIcon;
-//}
-//preis : WOString {
-//	value = preis;
-//}
+artikelIcon : WOImage {
+	filename = artikelIcon;
+}
+preis : WOString {
+	value = preis;
+}
 
 
 form : WOForm {
+	multipleSubmit=true;
+}
+bestaetigen : WOSubmitButton {
+	action = confirm;
+	value = "Bestätigen";
+	class="btn btn-info";
 	
 }
-confirm : WOSubmitButton {
-	action = confirm;
-	value = "Save";
+nichtspeichern : WOSubmitButton {
+	action = nichtUebernehmen;
+	value = "Nicht bestätigen";
+	class="btn btn-warning"
+}
+abbruch : WOSubmitButton {
+	action = abbruch;
+	value = "Abbrechen";
+	class="btn btn-success"
 }

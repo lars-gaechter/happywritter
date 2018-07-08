@@ -11,40 +11,78 @@
 <webobjects name = "wrapper" ></webobjects>
 <h1>Bitte füllen Sie Ihre Angaben ein</h1>
 
+<webobjects name = "pruefeObEsFehlerHat" >
+<div class="alert alert-dismissible alert-danger">
+<webobjects name = "meldung"/>
+</div>
+</webobjects>
+
+
+
 <webobject name = "form">
-    
-    Nachname 
+   <div class="form-group row">  
+     <label for="inputnachname" class="col-sm-2 col-form-label">Nachname</label>
+     <div class="col-sm-10">
 <webobjects name = "nachname" ></webobjects>
+</div>
+</div>
     <br>
-    Vorname 
+       <div class="form-group row">  
+     <label for="inputvorname" class="col-sm-2 col-form-label">Vorname</label>
+     <div class="col-sm-10">
  <webobjects name = "vorname" ></webobjects>
-
+</div>
+</div>
     <br>
-        Strasse 
+        <div class="form-group row">  
+     <label for="inputstrasse" class="col-sm-2 col-form-label">Strasse</label>
+     <div class="col-sm-10">
         <webobjects name = "strasse" ></webobjects>
+        </div>
+</div>
 
     <br>
-        PLZ 
+         
+        <div class="form-group row">  
+     <label for="inputplz" class="col-sm-2 col-form-label">PLZ</label>
+     <div class="col-sm-10">
         <webobjects name = "plz" ></webobjects>
+        </div>
+</div>
 
     <br>
-        Ort 
+         
+        <div class="form-group row">  
+     <label for="inputort" class="col-sm-2 col-form-label">Ort</label>
+     <div class="col-sm-10">
         <webobjects name = "ort" ></webobjects>
+        </div>
+</div>
 
     <br>
-            Telefon 
+             
+            <div class="form-group row">  
+     <label for="inputtel" class="col-sm-2 col-form-label">Telefon</label>
+     <div class="col-sm-10">
             <webobjects name = "telefon" ></webobjects>
+            </div>
+</div>
 
     <br>
-                Bemerkungen 
+                 
+                <div class="form-group row">  
+     <label for="inputbemerkungen" class="col-sm-2 col-form-label">Bemerkungen</label>
+     <div class="col-sm-10">
                 <webobjects name = "bemerkungen" ></webobjects>
+                </div>
+</div>
     <br>
     
                 <div style="display: none;"><webobjects name = "kundeSeit" ></webobjects></div>
 	     	 <webobject name = "confirm"></webobject>
-    	 <button class="btn btn-warning" type="button"><webobject name = "zurueck">Zurück</webobject></button>
+    	 <webobject name = "zurueck">Nicht bestätigen</webobject>
+    	 <webobject name = "abbrechen">Abbrechen</webobject>
     	   </webobject>
-	 <button class="btn btn-success" type="button"><webobject name = "abbrechen">Abbrechen</webobject></button>
     
 <webobjects name = "footer" ></webobjects>
 </body>

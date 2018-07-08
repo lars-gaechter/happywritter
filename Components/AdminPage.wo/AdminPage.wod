@@ -1,83 +1,82 @@
 vollername : WOString {
-	value = vollerName;
+    value = vollerName;
 }
 angemeldetAls : WOConditional {
-	condition = angemeldet;
+    condition = angemeldet;
 }
 abmelden : WOHyperlink {
-	action = abmelden;
+    action = abmelden;
 }
 css : ERXStyleSheet {
-	filename = "css/bootstrap.css";
+    filename = "css/bootstrap.css";
 }
 customcss : ERXStyleSheet {
     filename = "css/style.css";
 }
 
 wrapper : Kopf {
-	
+    
 }
 footer : Fuss {
-	
+    
 }
 artikel : WOSimpleArrayDisplay {
-	list = artikel;
-	numberToDisplay = anzahlArtikel;
+    list = artikel;
+    numberToDisplay = anzahlArtikel;
 }
 inhalt : WOSimpleArrayDisplay {
-	list = inhalt;
-	numberToDisplay = anzahlInhalte;
+    list = inhalt;
+    numberToDisplay = anzahlInhalte;
 }
 konfiguration : WOSimpleArrayDisplay {
-	list = konfiguration;
-	numberToDisplay = anzahlKonfiguration;
+    list = konfiguration;
+    numberToDisplay = anzahlKonfiguration;
 }
-//test : WOSimpleArrayDisplay {
-//	list = testArtikelKonfiguration;
-//}
 kunde : WOSimpleArrayDisplay {
-	list = kunde;
-	numberToDisplay = anzahlKunden;
+    list = kunde;
+    numberToDisplay = anzahlKunden;
 }
 bestellung : WOSimpleArrayDisplay {
-	list = bestellung;
-	numberToDisplay = anzahlBestellungen;
+    list = bestellung;
+    numberToDisplay = anzahlBestellungen;
 }
 bestelltekonfiguration : WOSimpleArrayDisplay {
-	list = bestelltekonfiguration;
-	numberToDisplay = anzahlBestellteKonf;
+    list = bestelltekonfiguration;
+    numberToDisplay = anzahlBestellteKonf;
 }
 
 bestellposition : WOSimpleArrayDisplay {
-	list = bestellposition;
-	numberToDisplay = anzahlBestellposition;
-	
+    list = bestellposition;
+    numberToDisplay = anzahlBestellposition;
+    
 }
 form : WOForm {
-	multipleSubmit=true;
-	
-}
-formzwei : WOForm {
-	
+    multipleSubmit=true;
+    
 }
 name : WOTextField {
-	value = nameInhalt;
+    value = nameInhalt;
 }
 
 preis : WOTextField {
-	value = preisInhalt;
+    value = preisInhalt;
+    maxlength="30";
+    type="number";
+    min="1"; 
+    step="any";
 }
 erstellen : WOSubmitButton {
-	action = erstelleNeuerInhalt;
-	value = "Erstellen";
+    action = erstelleNeuerInhalt;
+    value = "Erstellen";
 }
 erstellenBeziehung : WOSubmitButton {
-	action = erstelleBeziehungArtikelInhalt;
-	value = "Erstellen";
+    action = erstelleBeziehungArtikelInhalt;
+    value = "Erstellen";
+    type="button";
 }
 artikelBeziehung : WOTextField {
-	value = artikelFuerBeziehung;
+    value = artikelFuerBeziehung;
 }
 inhaltBeziehung : WOTextField {
-	value = inhaltFuerBeziehung;
+    value = inhaltFuerBeziehung;
 }

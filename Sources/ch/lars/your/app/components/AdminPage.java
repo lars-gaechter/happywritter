@@ -1,13 +1,11 @@
 package ch.lars.your.app.components;
 
 import com.webobjects.appserver.WOContext;
-import com.webobjects.eocontrol.EOQualifier;
 import com.webobjects.foundation.NSArray;
-import com.webobjects.foundation.NSMutableArray;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
-import ch.lars.your.app.Application;
 import ch.lars.your.app.Benutzer;
 import ch.lars.your.app.Session;
 import ch.lars.your.app.components.Main;
@@ -19,11 +17,6 @@ import com.webobjects.appserver.WOComponent;
 public class AdminPage extends BaseComponent {
 	private Benutzer angemeldeterBenutzer;
 	private Session sitzung;
-	private Application application;
-	private String bestellung;
-	private String bestelltekonfiguration;
-	private String bestellposition;
-	private String kunden;
 	private int anzahlKunden, anzahlBestellungen, anzahlInhalte, anzahlKonfiguration, anzahlBestellteKonf,
 	anzahlBestellposition, anzahlArtikel;
 
@@ -34,9 +27,6 @@ public class AdminPage extends BaseComponent {
 	 */
 	public AdminPage(WOContext context) {
 		super(context);
-
-		sitzung = (Session) session();
-		application = (Application) Application.application();
 	}
 
 
@@ -72,7 +62,6 @@ public class AdminPage extends BaseComponent {
 	 */
 	public Main abmelden() {
 		angemeldeterBenutzer = null;
-		sitzung.terminate();
 		Main nextPage = pageWithName(Main.class);
 		return nextPage;
 	}
@@ -112,49 +101,10 @@ public class AdminPage extends BaseComponent {
 	 * @return
 	 */
 	public NSArray<Konfiguration> konfiguration() {
-		//ch.lars.your.app.eomodel.Artikel.
-		/*
-		ch.lars.your.app.eomodel.Artikel z = new ch.lars.your.app.eomodel.Artikel();
-		ERXKey<ch.lars.your.app.eomodel.Inhalt> test = new ERXKey<ch.lars.your.app.eomodel.Inhalt>("1");
-		EOQualifier qualifier = ch.lars.your.app.eomodel.Artikel.INHALTS.eq(test);
-		System.out.println("estestestest");
-		System.out.println(test);
-		System.out.println("estestestest");
-		System.out.println(z.inhalts(qualifier));
-		System.out.println("estestestest");
-		*/
-		//System.out.println(z.fetchArtikel(session().defaultEditingContext(), Inhalt.ID_KEY));
-		//System.out.println(Konfiguration.id());
-		//return z.inhalts(qualifier);
 		setAnzahlKonfiguration(Konfiguration.fetchAllKonfigurations(session().defaultEditingContext()).count());
 		return Konfiguration.fetchAllKonfigurations(session().defaultEditingContext());
 	}
 	
-	public void testArtikelKonfiguration(){
-		/*
-		EOQualifier qualifier = ch.lars.your.app.eomodel.Konfiguration.ARTIKEL_ID.eq(Konfiguration.ARTIKEL_ID);
-		ERXFetchSpecification<Konfiguration> fetSpc = new ERXFetchSpecification<Konfiguration>(Konfiguration.ENTITY_NAME);
-		ERXFetchSpecification<ch.lars.your.app.eomodel.Artikel> fetSpcA = new ERXFetchSpecification<ch.lars.your.app.eomodel.Artikel>(ch.lars.your.app.eomodel.Artikel.ENTITY_NAME);
-		ERXFetchSpecification<Inhalt> fetSpcI = new ERXFetchSpecification<Inhalt>(Inhalt.ENTITY_NAME);
-		session().defaultEditingContext().objectsWithFetchSpecification(fetSpc);
-		session().defaultEditingContext().objectsWithFetchSpecification(fetSpcA);
-		session().defaultEditingContext().objectsWithFetchSpecification(fetSpcI);
-		Konfiguration.fetchSpec();
-		//Konfiguration.fetch
-		System.out.println("tatataatata");
-		System.out.println("tatataatata"+Konfiguration.fetchKonfiguration(session().defaultEditingContext(), qualifier).toLongString()+"tatataatata");
-		//return Konfiguration.objectsWithFetchSpecification(Konfiguration.fetchArtikelByNameandInhaltByName(session().defaultEditingContext(), 1));
-		EOQualifier quali = ch.lars.your.app.eomodel.Konfiguration.ARTIKEL_ID.eq(ch.lars.your.app.eomodel.Artikel.ID);
-		*/
-		
-		//EOQualifier qualifier = ch.lars.your.app.eomodel.Artikel.ID.eq(3);
-		//ERXFetchSpecification<ch.lars.your.app.eomodel.Artikel> fs = new ERXFetchSpecification<ch.lars.your.app.eomodel.Artikel>(ch.lars.your.app.eomodel.Artikel.ENTITY_NAME, qualifier, null);
-		//return Konfiguration.fetchArtikelByNameandInhaltByName(session().defaultEditingContext());
-		//return session().defaultEditingContext().objectsWithFetchSpecification(fs);
-		//EOQualifier qualifier = ch.lars.your.app.eomodel.Inhalt.ID.eq(ch.lars.your.app.eomodel.Artikel.ID);
-		//ERXFetchSpecification<ch.lars.your.app.eomodel.Inhalt> fs = new ERXFetchSpecification<ch.lars.your.app.eomodel.Inhalt>(ch.lars.your.app.eomodel.Artikel.ENTITY_NAME, qualifier, null);
-		//return session().defaultEditingContext().objectsWithFetchSpecification(fs);
-	}
 
 
 	/**
@@ -166,12 +116,7 @@ public class AdminPage extends BaseComponent {
 	}
 
 
-	/**
-	 * @param kunden the kunden to set
-	 */
-	public void setKunden(String kunden) {
-		this.kunden = kunden;
-	}
+
 
 
 	/**
@@ -183,12 +128,7 @@ public class AdminPage extends BaseComponent {
 	}
 
 
-	/**
-	 * @param bestellung the bestellung to set
-	 */
-	public void setBestellung(String bestellung) {
-		this.bestellung = bestellung;
-	}
+
 
 
 	/**
@@ -200,12 +140,7 @@ public class AdminPage extends BaseComponent {
 	}
 
 
-	/**
-	 * @param bestelltekonfiguration the bestelltekonfiguration to set
-	 */
-	public void setBestelltekonfiguration(String bestelltekonfiguration) {
-		this.bestelltekonfiguration = bestelltekonfiguration;
-	}
+
 
 
 	/**
@@ -218,11 +153,7 @@ public class AdminPage extends BaseComponent {
 
 
 	/**
-	 * @param bestellposition the bestellposition to set
-	 */
-	public void setBestellposition(String bestellposition) {
-		this.bestellposition = bestellposition;
-	}
+
 
 
 	/**
@@ -241,8 +172,14 @@ public class AdminPage extends BaseComponent {
 	 * @param preis the preis to set
 	 */
 	public void setPreisInhalt(String preis) {
-		BigDecimal apreis = new BigDecimal(preis);
-		session().setPerisVonInhalt(apreis);
+		
+		if(preis == null) {
+			session().setNameVonInhalt("");
+			session().setPerisVonInhalt(null);
+		} else {
+			BigDecimal apreis = new BigDecimal(preis);
+			session().setPerisVonInhalt(apreis);
+		}
 	}
 
 
@@ -258,7 +195,11 @@ public class AdminPage extends BaseComponent {
 	 * @param nameInhalt the nameInhalt to set
 	 */
 	public void setNameInhalt(String nameInhalt) {
-		session().setNameVonInhalt(nameInhalt);
+		if(nameInhalt == "") {
+			session().setNameVonInhalt("");
+		} else {
+			session().setNameVonInhalt(nameInhalt);
+		}
 	}
 
 	/**
@@ -266,11 +207,19 @@ public class AdminPage extends BaseComponent {
 	 */
 	public void erstelleNeuerInhalt() {
 		
-		Inhalt anInahlt = new Inhalt();
-		anInahlt.setName(session().getNameVonInhalt());
-		anInahlt.setPreis(session().getPerisVonInhalt());
-		session().defaultEditingContext().insertObject(anInahlt);
-		session().defaultEditingContext().saveChanges();
+		if(session().getNameVonInhalt()==null) {
+			
+		} else {
+			if(session().getNameVonInhalt().length()>50 || session().getNameVonInhalt()=="") {
+				
+			} else {
+				Inhalt anInahlt = new Inhalt();
+				anInahlt.setName(session().getNameVonInhalt());
+				anInahlt.setPreis(session().getPerisVonInhalt().setScale(4, RoundingMode.HALF_UP));
+				session().defaultEditingContext().insertObject(anInahlt);
+				session().defaultEditingContext().saveChanges();
+			}
+		}
 		
 	}
 
@@ -316,25 +265,13 @@ public class AdminPage extends BaseComponent {
 		session().setArtikelFuerBeziehung(anInhaltFuerBeziehung);
 	}
 
-
+	/**
+	 * Stellt Beziehung bzw. Zuweisungen von Artikeln und Inhälten her und könne vom Administrator festgelegt werden.
+	 * Der Inhalt diese Methode wurde wegen Abstürzen der Apllikation auskommentiert.
+	 */
 	public void erstelleBeziehungArtikelInhalt() {
-		Inhalt anInahlt = new Inhalt();
-		Artikel anArtikel = new Artikel();
+		/*
 		Konfiguration aKonfiguration = new Konfiguration();
-		//anInahlt.setId(session().getInhaltFuerBeziehung());
-		//anArtikel.setId(session().getArtikelFuerBeziehung());
-		//session().defaultEditingContext().insertObject(anInahlt);
-		//session().defaultEditingContext().insertObject(anArtikel);
-		//aKonfiguration.addObjectToBothSidesOfRelationshipWithKey(anArtikel, Konfiguration.ARTIKEL_ID_KEY);
-		//aKonfiguration.addObjectToBothSidesOfRelationshipWithKey(anInahlt, Konfiguration.INHALT_ID_KEY);
-		//aKonfiguration.setInhaltId(session().getInhaltFuerBeziehung());
-		//Integer inhalt = new Integer(session().getInhaltFuerBeziehung());
-		//aKonfiguration.setInhaltId(inhalt);
-		//Integer artikel = new Integer(session().getArtikelFuerBeziehung());
-		//aKonfiguration.setArtikelId(artikel);
-		//aKonfiguration.setInhaltId(1);
-		//aKonfiguration.setArtikelId(1);
-		//aKonfiguration.setArtikelId(session().getArtikelFuerBeziehung());
 		Integer artikel = session().getArtikelFuerBeziehung();
 		Integer inhalt = session().getInhaltFuerBeziehung();
 		aKonfiguration.setInhaltId(inhalt);
@@ -342,6 +279,7 @@ public class AdminPage extends BaseComponent {
 		
 		session().defaultEditingContext().insertObject(aKonfiguration);
 		session().defaultEditingContext().saveChanges();
+		*/
 	}
 
 

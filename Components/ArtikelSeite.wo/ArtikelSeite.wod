@@ -4,11 +4,14 @@ css : ERXStyleSheet {
 customcss : ERXStyleSheet {
     filename = "css/style.css";
 }
-header : Kopf {
-	
+githubImg : WOImage {
+    filename="img/GitHub-Mark-32px.png";
 }
-footer : Fuss {
-	
+githubLink : WOHyperlink {
+    href="https://github.com/Toolcrafting/happywritter.git"
+}
+githubText : WOString {
+    value = "Toolcrafting/happywritter";
 }
 artikelName : WOString {
 	value = artikelName;

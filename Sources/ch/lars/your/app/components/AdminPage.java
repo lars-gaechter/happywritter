@@ -2,28 +2,39 @@ package ch.lars.your.app.components;
 
 import com.webobjects.appserver.WOContext;
 import com.webobjects.foundation.NSArray;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-
 import ch.lars.your.app.Benutzer;
-import ch.lars.your.app.Session;
 import ch.lars.your.app.components.Main;
 import ch.lars.your.app.eomodel.*;
 
 
 import com.webobjects.appserver.WOComponent;
-
+/**
+ * AdminPage Seite ist für die Verwaltung der Datenbank für den Administrator
+ * Beinhaltet alle selektions oder kreations Methoden in der Datenbank
+ * @author Protoss
+ *
+ */
 public class AdminPage extends BaseComponent {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2616191579718915925L;
+	/**
+	 * Ein angemeldeter Benutzer
+	 */
 	private Benutzer angemeldeterBenutzer;
-	private Session sitzung;
+	/**
+	 * Anzahl Datensätze in den NSArrays werden in diesen gesetzt
+	 */
 	private int anzahlKunden, anzahlBestellungen, anzahlInhalte, anzahlKonfiguration, anzahlBestellteKonf,
 	anzahlBestellposition, anzahlArtikel;
 
 	/**
 	 * Bei erstellen eines Objektes wird eine neue Session gestartet.
 	 * 
-	 * @param context
+	 * @param context super
 	 */
 	public AdminPage(WOContext context) {
 		super(context);
@@ -50,15 +61,18 @@ public class AdminPage extends BaseComponent {
 	public Benutzer angemeldeterBenutzer() {
 		return angemeldeterBenutzer;
 	}
-
+	/**
+	 * Gibt den Benutzername Admin als String zurück
+	 * @return angemeldeter benutzer sein benutzername
+	 */
 	public String vollerName() {
 		return angemeldeterBenutzer.getBenutzername();
 	}
 
 	/**
-	 * Session wird ganz beendet
+	 * Benutzer wird abgemeldet und an die Main seite weitergeleitet.
 	 * 
-	 * @return
+	 * @return Main Seite
 	 */
 	public Main abmelden() {
 		angemeldeterBenutzer = null;
@@ -80,8 +94,8 @@ public class AdminPage extends BaseComponent {
 	}
 	
 	/**
-	 * fetch all artikel records from table artikel and returns in NSArray
-	 * @return
+	 * fetch all artikel records from table artikel and returns as NSArray
+	 * @return the Artikel Array from fetch all
 	 */
 	public NSArray<Artikel> artikel() {
 		setAnzahlArtikel(Artikel.fetchAllArtikels(session().defaultEditingContext()).count());
@@ -89,16 +103,16 @@ public class AdminPage extends BaseComponent {
 	}
 	
 	/**
-	 * fetch all Inhalt records from table Inhalt and returns in NSArray
-	 * @return
+	 * fetch all Inhalt records from table Inhalt and returns as NSArray
+	 * @return the Inhalt Array from fetch all
 	 */
 	public NSArray<Inhalt> inhalt() {
 		setAnzahlInhalte(Inhalt.fetchAllInhalts(session().defaultEditingContext()).count());
 		return Inhalt.fetchAllInhalts(session().defaultEditingContext());
 	}
 	/**
-	 * 
-	 * @return
+	 * fetch all Konfiguration records from table Konfiguration and returns as NSArray
+	 * @return the Konfiguration Array from fetch all
 	 */
 	public NSArray<Konfiguration> konfiguration() {
 		setAnzahlKonfiguration(Konfiguration.fetchAllKonfigurations(session().defaultEditingContext()).count());
@@ -108,7 +122,8 @@ public class AdminPage extends BaseComponent {
 
 
 	/**
-	 * @return the kunden
+	 * fetch all Kunden records from table Kunden and returns as NSArray
+	 * @return the Kunde Array from fetch all
 	 */
 	public NSArray<Kunde> kunde() {
 		setAnzahlKunden(Kunde.fetchAllKundes(session().defaultEditingContext()).count());
@@ -120,7 +135,8 @@ public class AdminPage extends BaseComponent {
 
 
 	/**
-	 * @return the bestellung
+	 * fetch all Bestellung records from table Bestellung and returns as NSArray
+	 * @return the Bestellung Array from fetch all
 	 */
 	public NSArray<Bestellung> bestellung() {
 		setAnzahlBestellungen(Bestellung.fetchAllBestellungs(session().defaultEditingContext()).count());
@@ -132,7 +148,8 @@ public class AdminPage extends BaseComponent {
 
 
 	/**
-	 * @return the bestelltekonfiguration
+	 * fetch all BestellteKonfiguration records from table BestellteKonfiguration and returns as NSArray
+	 * @return the BestellteKonfiguration Array from fetch all
 	 */
 	public NSArray<BestellteKonfiguration> bestelltekonfiguration() {
 		setAnzahlBestellteKonf(BestellteKonfiguration.fetchAllBestellteKonfigurations(session().defaultEditingContext()).count());
@@ -144,7 +161,8 @@ public class AdminPage extends BaseComponent {
 
 
 	/**
-	 * @return the bestellposition
+	 * fetch all BestellPosition records from table BestellPosition and returns as NSArray
+	 * @return the BestellteKonfiguration Array from fetch all
 	 */
 	public NSArray<BestellPosition> bestellposition() {
 		setAnzahlBestellposition(BestellPosition.fetchAllBestellPositions(session().defaultEditingContext()).count());

@@ -6,10 +6,13 @@ import com.webobjects.eocontrol.EOQualifier;
 import com.webobjects.foundation.NSMutableArray;
 import ch.lars.your.app.components.AdminPage;
 import er.extensions.appserver.ERXApplication;
-
+/**
+ * Application erbt von ERXApplication
+ * @author Protoss
+ *
+ */
 public class Application extends ERXApplication {
 	private EOQualifier qualifier = null;
-	//private String icon = null;
 	public EOQualifier getQualifier() {
 		return qualifier;
 	}
@@ -22,16 +25,17 @@ public class Application extends ERXApplication {
 	public static void main(String[] argv) {
 		ERXApplication.main(argv, Application.class);
 	}
-
+	/**
+	 * Session terminiert automatisch nach 30 Minuten
+	 * Ein Admin Benutzer wird zum Benutzer NSMutableArray hinzugefügt
+	 */
 	public Application() {
 		ERXApplication.log.info("Welcome to " + name() + " !");
-		/* ** put your initialization code in here ** */
 		setAllowsConcurrentRequestHandling(true);	
-		setSessionTimeOut(15 * 60);
+		setSessionTimeOut(30 * 60);
 		benutzerListe = new NSMutableArray<Benutzer>();
 		/* Standard Admin Benutzer vorerfasst */
-		//klapp42stuhl
-		benutzerListe.add(new Benutzer("admin", "admin"));
+		benutzerListe.add(new Benutzer("admin", "klapp42stuhl"));
 	}
 
 	public AdminPage anmelden(String benutzername, String passwort) {

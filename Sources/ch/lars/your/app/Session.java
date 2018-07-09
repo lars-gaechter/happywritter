@@ -1,33 +1,21 @@
 package ch.lars.your.app;
-
-import com.ibm.icu.math.BigDecimal;
-import com.webobjects.foundation.NSMutableArray;
-
 import ch.lars.your.app.eomodel.Artikel;
 import ch.lars.your.app.eomodel.Bestellung;
 import ch.lars.your.app.eomodel.Kunde;
 import er.extensions.appserver.ERXSession;
-
+/**
+ * Session welche den Kunden, Bestellung, Bestellposition und Artikel speichert
+ * @author Protoss
+ *
+ */
 public class Session extends ERXSession {
 	private static final long serialVersionUID = 1L;
-	private NSMutableArray<Bestellung> bestellungen = new NSMutableArray<Bestellung>();
 	private Integer artikelFuerBeziehung = null, inhaltFuerBeziehung = null;
 	private Artikel artikelArtikelSeite = null;
 	private String artikelBezeichnung = "";
 	private String nameVonInhalt = "";
 	private java.math.BigDecimal perisVonInhalt = null;
 	private String ArtikelIcon = null;
-	/*
-	private Kunde 	vornameNeuerKunde = null,
-					nachnameNeuerKunde = null, 
-					strasseNeuerKunde = null, 
-					ortNeuerKunde = null, 
-					plzNeuerKunde = null, 
-					telNeuerKunde = null, 
-					kundeSeitNeuerKunde = null;
-					
-	private Bestellung bemerkungenNeuerBestellung = null;
-	*/
 	private Kunde aKunde = null;
 	private String 	vornameNeuerKunde = null,
 			nachnameNeuerKunde = null, 
@@ -38,7 +26,9 @@ public class Session extends ERXSession {
 			kundeSeitNeuerKunde = null;
 	private Bestellung aBestellung = null;
 	private String bemerkungenNeuerBestellung = null;
-	
+	/**
+	 * Benutzt Cookies für Session und zeigt die Session ID nicht im URL an
+	 */
 	public Session() {
 		super();
 
@@ -53,7 +43,6 @@ public class Session extends ERXSession {
 	
 	@Override
 	public void terminate() {
-		System.out.println("Session terminating...");
 		super.terminate();
 	}
 	

@@ -1,28 +1,32 @@
 package ch.lars.your.app.components;
 
 import com.webobjects.appserver.WOContext;
-
-import ch.lars.your.app.Application;
-import ch.lars.your.app.Session;
-import ch.lars.your.app.eomodel.Artikel;
-import er.extensions.eof.ERXFetchSpecification;
-
 import java.math.RoundingMode;
-
-import com.ibm.icu.math.BigDecimal;
-import com.webobjects.appserver.WOActionResults;
-
+/**
+ * Artikel Seite
+ * @author Protoss
+ *
+ */
 public class ArtikelSeite extends BaseComponent {
-	
-	//private Session sitzung;
-	//private Application application;
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3112592732690084973L;
+
+
+	/**
+	 * Artikel Seite Konstruktor
+	 * @param context super
+	 */
 	public ArtikelSeite(WOContext context) {
 		super(context);
 	}
 	
 
-
+	/**
+	 * Gibt den Name eines Artikels aus der Session zurück
+	 * @return String Artikel Bezeichnung
+	 */
 	public String getArtikelName() {
 		return session().getArtikelArtikelSeite().bezeichnung();
 	}
@@ -44,16 +48,19 @@ public class ArtikelSeite extends BaseComponent {
 	}
 
 
-
+	/**
+	 * Geht ohne jegendliche änderung zur Einstiegsseite zurück
+	 * @return Seite Einstiegsseite
+	 */
 	public Einstiegsseite confirm() {
-		//Speichere Artikel mit allen Inhalten
-		
 		Einstiegsseite nextPage = pageWithName(Einstiegsseite.class);
 		return nextPage;
 	}
-	
+	/**
+	 * Löscht also speichert nicht Artikel in der Session von einem gleichen field in Session und geht zur Einstiegsseite zurück
+	 * @return seite Einstiegsseite
+	 */
 	public Einstiegsseite nichtUebernehmen() {
-		//Speichere keine Artikel mit allen Inhalten
 		session().setArtikelArtikelSeite(null);
 		session().setArtikelBezeichnung(null);
 		Einstiegsseite nextPage = pageWithName(Einstiegsseite.class);
@@ -61,7 +68,10 @@ public class ArtikelSeite extends BaseComponent {
 	}
 
 
-
+	/**
+	 * Terminiert die Session und geht zur Startseite zurück
+	 * @return Seite Main
+	 */
 	public Main abbruch() {
 		session().terminate();
 		Main nextPage = pageWithName(Main.class);
@@ -69,10 +79,4 @@ public class ArtikelSeite extends BaseComponent {
 	}
 
 
-
-
-
-
-
 }
-

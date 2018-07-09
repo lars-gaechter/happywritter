@@ -1,40 +1,46 @@
 package ch.lars.your.app.components;
 
 import com.webobjects.appserver.WOContext;
-import com.webobjects.eocontrol.EOQualifier;
-
-import ch.lars.your.app.Application;
-import ch.lars.your.app.Session;
 import ch.lars.your.app.components.Main;
 import ch.lars.your.app.eomodel.Artikel;
-
 import java.math.RoundingMode;
 
-import com.webobjects.appserver.WOActionResults;
 
+/**
+ * Einstiegsseite für den Online-Shop
+ * @author Protoss
+ *
+ */
 public class Einstiegsseite extends BaseComponent {
 	
-	private ArtikelSeite etuiBestellen;
-	private ArtikelSeite schachtelBestellen;
-	private Session sitzung;
-	private Application application;
-	private String bestellung;
-	private String bestelltePositionPreis;
-	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7586605316447939334L;
+	/**
+	 * Konstruktor Einstiegsseite
+	 * @param context super
+	 */
     public Einstiegsseite(WOContext context) {
         super(context);
         
-        sitzung = (Session) session();
-		application = (Application) Application.application();
-        
     }
-
+    /**
+     * Wenn der Kunde die Ware bezahlen möchte gibt es einen checkout welcher zum Kunden Formular fürt
+     * Auslöser vom aktiven Bild
+     * @return KundenInfoSeite Seite
+     */
 	public KundenInfoSeite checkout() {
 		KundenInfoSeite nextPage = pageWithName(KundenInfoSeite.class);
 		return nextPage;
 	}
 
-
+	/**
+	 * Setzt Bild und Name vom Artikel Etui mit der Bezeichnung aus der Datebank verglichen wird
+	 * Auslöser vom aktiven Bild
+	 * @return ArtikelSeite Seite
+	 */
 	public ArtikelSeite getEtuiBestellen() {
 		ArtikelSeite nextPage = pageWithName(ArtikelSeite.class);
 		Artikel anArtikel= Artikel.fetchArtikel(session().defaultEditingContext(), Artikel.BEZEICHNUNG.eq("Etui"));
@@ -44,7 +50,10 @@ public class Einstiegsseite extends BaseComponent {
 		return nextPage;
 	}
 
-
+	/**
+	 * Setzt Bild und Name vom Artikel Schachtel mit der Bezeichnung aus der Datebank verglichen wird
+	 * @return ArtikelSeite Seite
+	 */
 	public ArtikelSeite getSchachtelBestellen() {
 		ArtikelSeite nextPage = pageWithName(ArtikelSeite.class);
 		Artikel anArtikel = Artikel.fetchArtikel(session().defaultEditingContext(), Artikel.BEZEICHNUNG.eq("Schachtel"));
@@ -53,7 +62,10 @@ public class Einstiegsseite extends BaseComponent {
 		session().setArtikelIcon("img/Holzschachtel.jpg");
 		return nextPage;
 	}
-	
+	/**
+	 * Prüft ob der Kunde sich für einen Artikel entschieden hat
+	 * @return boolean flase or true
+	 */
 	public Boolean istMinEinArtikelBestaetigt() {
 		if(session().getArtikelBezeichnung() == null) {
 			return false;
@@ -97,7 +109,10 @@ public class Einstiegsseite extends BaseComponent {
 		}
 		}
 	}
-
+	/**
+	 * Wenn der Kunde zur Startseite zurück gehen möchte
+	 * @return Main Seite
+	 */
 	public Main zurueck() {
 		Main nextPage = pageWithName(Main.class);
 		return nextPage;

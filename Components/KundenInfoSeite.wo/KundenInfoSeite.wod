@@ -73,9 +73,12 @@ zurueck : WOHyperlink {
 	action = zurueck;
 	class="btn btn-warning"
 }
-wrapper : Kopf {
-	
+githubImg : WOImage {
+    filename="img/GitHub-Mark-32px.png";
 }
-footer : Fuss {
-	
+githubLink : WOHyperlink {
+    href="https://github.com/Toolcrafting/happywritter.git"
+}
+githubText : WOString {
+    value = "Toolcrafting/happywritter";
 }

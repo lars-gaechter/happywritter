@@ -1,9 +1,3 @@
-wrapper : Kopf {
-	
-}
-footer : Fuss {
-	
-}
 css : ERXStyleSheet {
 	filename = "css/bootstrap.css";
 }
@@ -29,4 +23,13 @@ passwort : WOPasswordField {
 anmeldenSubmit : WOSubmitButton {
 	action = anmelden;
 	value = "Anmelden";
+}
+githubImg : WOImage {
+    filename="img/GitHub-Mark-32px.png";
+}
+githubLink : WOHyperlink {
+    href="https://github.com/Toolcrafting/happywritter.git"
+}
+githubText : WOString {
+    value = "Toolcrafting/happywritter";
 }

@@ -2,28 +2,56 @@ package ch.lars.your.app.components;
 
 
 import com.webobjects.appserver.WOContext;
-
+/**
+ * KundenInfoSeite ist ein Formular, Kunde gibt seine Daten an und es wird validiert bevor es in der Session gespeichert wird
+ * @author Protoss
+ *
+ */
 public class KundenInfoSeite extends BaseComponent {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -129975512461412275L;
+	/**
+	 * Leerer String
+	 */
 	private String checkEmpty = "";
+	/**
+	 * Boolean standard false
+	 */
 	private Boolean aBoolean = false;
-
+	/**
+	 * Konstruktor KundenInfoSeite
+	 * @param context super
+	 */
 	public KundenInfoSeite(WOContext context) {
 		super(context);
 		
 		
     }
-
+	/**
+	 * Kompletter abbruch wärend der Kunde auf der KundenInfoSeite Seite ist
+	 * terminiert die Session und schickt den Kunden tur Startseite
+	 * @return Main Seite
+	 */
 	public Main abbrechen() {
 		session().terminate();
 		Main nextPage = pageWithName(Main.class);
 		return nextPage;
 	}
-
+	/**
+	 * Die tatsächliche Bestätigung vom Formular in der Session
+	 * Kunde wir an BestaetigungsSeite Seite weitergeleitet
+	 * @return BestaetigungsSeite Seite
+	 */
 	public BestaetigungsSeite confirmm() {
 		BestaetigungsSeite nextPage = pageWithName(BestaetigungsSeite.class);
 		return nextPage;
 	}
-	
+	/**
+	 * Bestätigung welche eine Validerung aufruft und dann erst die tatsächliche Bestätigung vom Formular in der Session
+	 * @return bestätigung oder null
+	 */
 	public BestaetigungsSeite confirm() {
 		if(kundeFormValidation()==true) {
 			return confirmm();
@@ -32,7 +60,10 @@ public class KundenInfoSeite extends BaseComponent {
 			 return null;
 		 }
 	}
-
+	/**
+	 * Geht eine Seite zurück zur Einstiegsseite Seite
+	 * @return Einstiegsseite Seite
+	 */
 	public Einstiegsseite zurueck() {
 		Einstiegsseite nextPage = pageWithName(Einstiegsseite.class);
 		return nextPage;
@@ -90,12 +121,17 @@ public class KundenInfoSeite extends BaseComponent {
 	}
 
 	/**
-	 * @param kundeseit the kundeseit to set
+	 * Datum, wann sich der Kunde registriert hat
+	 * @param kundeSeitNeuerKunde kundeseit Datum vom Kunde
 	 */
 	public void setKundeseit(String kundeSeitNeuerKunde) {
 		session().setKundeSeitNeuerKunde(kundeSeitNeuerKunde);
 	}
 	
+	/**
+	 * Validierung ob der benutzer nicht etwas leeres ausgefüllt hat oder etwas was zu lange ist um in der Datenbank zu speichern
+	 * @return boolean ob das Formular valide ist
+	 */
 	public boolean kundeFormValidation() {
 		if((session().getNachnameNeuerKunde() == null)) {
 			setCheckEmpty("Nachname ist leer!");
@@ -180,6 +216,7 @@ public class KundenInfoSeite extends BaseComponent {
 	}
 
 	/**
+	 * Prüfen ob checkEmpty leer ist
 	 * @return the checkEmpty
 	 */
 	public String checkEmpty() {
@@ -199,6 +236,7 @@ public class KundenInfoSeite extends BaseComponent {
 	}
 
 	/**
+	 * Ein Boolean welcher ein Boolen zurückgibt
 	 * @return the aBoolean
 	 */
 	public Boolean aBoolean() {
@@ -206,6 +244,7 @@ public class KundenInfoSeite extends BaseComponent {
 	}
 
 	/**
+	 * Setzen eines Boolean
 	 * @param aBoolean the aBoolean to set
 	 */
 	public void setaBoolean(Boolean aBoolean) {

@@ -20,9 +20,13 @@
       </div>
     <div class="col-md-6">
        Inhalt Tabelle
+       <br>
+       id, name, preis
       <webobject name = "inhalt"></webobject>
       <br>
       Neuer Inhalt erstellen
+      <br>
+      Name, Preis
       <webobject name = "form">
       Name
       <webobject name = "name"></webobject>
@@ -31,13 +35,13 @@
       <webobject name = "erstellen"></webobject>
       </webobject>
       Konfiguration Tabelle
+      <br>
+      artikelId, inhaltId
       <webobject name = "konfiguration"></webobject>
       <br>
             Konfiguration 
             <br>
-            Artikel hat null oder mehrere Inhalte
-            <br>
-            Inhalte gehört null oder mehreren Artikeln
+            artikelId, inhaltId 
       <webobject name = "form">
       Artikel
       <webobject name = "artikelBeziehung"></webobject>
@@ -48,19 +52,29 @@
     </div>
     <div class="col-md-6">
       Artikel Tabelle
+      <br>
+      bezeichnung, id, preis
       <webobject name = "artikel"></webobject>
       <br>
       Kunde Tabelle
+      <br>
+      id, kundeseit, nachname, ort, plz, strasse, tel, vorname
       <webobject name = "kunde"></webobject>
       <br>
                   Bestellung Tabelle
+                  <br>
+                  bemerkungen, datum, id, kundeID
       <webobject name = "bestellung"></webobject>
       <br>
             Bestelltekonfiguration Tabelle
+            <br>
+            bestellPositionId, inhaltId
             <webobject name = "bestelltekonfiguration"></webobject>
       
       <br>
             Bestellposition Tabelle
+            <br>
+            ArtikelID, BestellungID, id
       <webobject name = "bestellposition"></webobject>
       <br>
     </div>

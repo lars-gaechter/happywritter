@@ -101,28 +101,28 @@ Pro Bestell Position sind maximal ein Artikel möglich, so können auch existier
 \end{center}
 \end{figure}
 \subsection{Objekte und Verhalten}
-Auf Eigenschaften der Objekten gehe ich nicht mehr weiter ein, da diese schon im Datenbankmodell schon erwähnt wurden.\\
-Es stellt sich mehr die Frage, wie kennen sich die Objekten gegenseitig und was ist Ihr verhalten und dabei nicht an Datenbank zu denken war und ist für mich immer noch schwierig.
-Eine Datenbank speichert die Daten in einer Struktur, so dass diese möglichst effizient abgefragt und redundanzenvermeindent gespeichert wedren können wenn möglich.
-Ein Objekt selbst sagt nicht, ich bin ein Objekt einer Tabelle einer Datebank sonder ein Objekt einer Klasse und habe Verhalten, Eigenschaften und kenne übergreifend andere Objekte.
+Auf Eigenschaften von den Objekten gehe ich nicht mehr weiter ein, da diese schon im Datenbankmodell schon erwähnt wurden.\\
+Es stellt sich mehr die Frage, wie kennen sich die Objekte gegenseitig und was ist Ihr verhalten und dabei nicht an Datenbank zu denken war und ist für mich immer noch schwierig.
+Eine Datenbank speichert die Daten in einer Struktur, so dass diese möglichst effizient abgefragt und Redundanzen vermeidend gespeichert werden können wenn möglich.
+Ein Objekt selbst sagt nicht, ich bin ein Objekt einer Tabelle einer Datenbank sondern ein Objekt einer Klasse und habe Verhalten, Eigenschaften und kenne übergreifend andere Objekte.
 In der Datenbank ist es interessant diese Eingeschalten von einem Objekt zu speichern, wie sich dieses verhaltet ist der Datenbank völlig egal, was sind die Beziehungen von Daten ist gefragt.\\
 \\
-Verhalten der realitätsnahen Objekten, so wie jeder sie kennt.\\
-Jedes Objekt kennt sich selbst, aber nicht die anderen oder möchste andere höflich fragen wenn es etwas von jemand anderen (Objekt) etwas möchte.
+Verhalten der realitätsnahen Objekte, so wie jeder sie kennt.\\
+Jedes Objekt kennt sich selbst, aber nicht die anderen oder möchte andere höflich fragen, wenn es etwas von jemand anderen (Objekt) etwas möchte.
 Das Kunde Objekt möchte gerne etwas im Online-Shop bestellen, somit gibt der Kunde seine Eigenschaften an, welche von Ihm verlangt werden.
 Ein Bestellung Objekt möchte wissen, von welchem Kunden Objekt diese Bestellung angefordert wurde und wie viele Bestellpositionen für alle Artikel nötig sind.
 Das Beziehungsobjekt Bestellte Konfiguration kennt das Beziehungsobjekt Konfiguration nicht, kein Problem das Objekt Inhalt steht in Kontakt zu beiden Beziehungsobjekten
 und ist daher die Schnittstelle um zu vermitteln welche Beziehungen das Objekt Kunde Bestellte Konfiguration überhaupt anfordern darf.
-Indirekt sind alle Objekte wie Artikel, Inhalte mit den zwei Beziehungen dazwischen miteiander verknüpft und jeder weiss von einem anderen Objekt etwas.
+Indirekt sind alle Objekte wie Artikel, Inhalte mit den zwei Beziehungen dazwischen miteinander verknüpft und jeder weiss von einem anderen Objekt etwas.
 Da jedes Objekt Bestellposition nur ein Objekt Artikel sich merken kann, müssen pro Objekt Bestellung mehrere Objekt Bestellposition vermerkt werden können.
-Die tatsächliche Objekte Inhalt welche das Kunde Objekt angefordert hat, wedren im Objket Bestellte Konfiguration gespeichert und das Objekt Bestellte Konfiguration weiss vom Objekt Bestellposition zu welchem Objekt Artikel alle Objekte Inhalte gehören
-, da eine Bestellte Konfiguration sich mehrere Inhalte für eine Bestellposition (Bestellposition merkt sich ein Artikel) merken kann.\\
+Die tatsächliche Objekte Inhalt welche das Kunde Objekt angefordert hat, werden im Objekt Bestellte Konfiguration gespeichert und das Objekt Bestellte Konfiguration weiss vom Objekt Bestellposition zu welchem Objekt Artikel alle Objekte Inhalte gehören
+, da eine bestellte Konfiguration sich mehrere Inhalte für eine Bestellposition (Bestellposition merkt sich ein Artikel) merken kann.\\
 \\
 Verhalten von nichts realitätsnahen Objekten, welche oft das System und deren Steuerung sind.\\
-Es gibt noch die Session, Apllikation und die Datenbank,
-welche zu bestimmten Zeitpunkten während des betribes sich Daten merken oder mehrere Vorgänge durchlaufen müssen, um Daten vom Benutzer in einer Struktur welche die Objkete in sich tragen zu merken und am schluss in einer Datenbank zu speichern.
-Da es ein Online-Shop ist empfielt es sich die zu speicherden Daten und Interaktionen des Benutzers in einer Session zu speichern, da meherere Kunden in der Realität eine solche Anfrage auf den Server starten.
-Man sollte den Kunde nicht im Online-Shop verwirren und ihm den Kauf und alle nötigen Vorgängen welche er durchgehen muss, möglichst leicht vorlegen und ihm die nahezu hundert prozentige Kontrolle über sein Interesse an seiner Bestellung geben.
+Es gibt noch die Session, Applikation und die Datenbank,
+welche zu bestimmten Zeitpunkten während des Betriebs sich Daten merken oder mehrere Vorgänge durchlaufen müssen, um Daten vom Benutzer in einer Struktur, welche die Objekte in sich tragen zu merken und am Schluss in einer Datenbank zu speichern.
+Da es ein Online-Shop ist empfiehlt es sich die zu speichernden Daten und Interaktionen des Benutzers in einer Session zu speichern, da mehrere Kunden in der Realität eine solche Anfrage auf den Server starten.
+Man sollte den Kunden nicht im Online-Shop verwirren und ihm den Kauf und alle nötigen Vorgänge, welche er durchgehen muss, möglichst leicht vorlegen und ihm die nahezu hundert prozentige Kontrolle über sein Interesse an seiner Bestellung geben.
 Somit wäre es dem Kunden möglich, unkompliziert einzukaufen und jederzeit Änderungen alter Einstellungen vorzunehmen.
 \section{Projektordnerstruktur}
 \subsection{Kurzbeschreibung}

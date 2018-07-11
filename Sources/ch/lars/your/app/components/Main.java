@@ -34,4 +34,28 @@ public class Main extends BaseComponent {
 		Einstiegsseite nextPage = pageWithName(Einstiegsseite.class);
 		return nextPage;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

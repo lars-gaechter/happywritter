@@ -1,12 +1,7 @@
 {
     attributes = (
         {allowsNull = N; name = id; prototypeName = id; }, 
-        {
-            allowsNull = Y; 
-            columnName = kundeseit; 
-            name = kundeseit; 
-            prototypeName = javaLocalDate; 
-        }, 
+        {columnName = kundeseit; name = kundeseit; prototypeName = date; }, 
         {
             allowsNull = N; 
             columnName = nachname; 

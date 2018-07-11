@@ -19,14 +19,10 @@ public abstract class _Konfiguration extends  ERXGenericRecord {
   public static final String ENTITY_NAME = "Konfiguration";
 
   // Attribute Keys
-  public static final ERXKey<Integer> ARTIKEL_ID = new ERXKey<Integer>("artikelId", Type.Attribute);
-  public static final ERXKey<Integer> INHALT_ID = new ERXKey<Integer>("inhaltId", Type.Attribute);
 
   // Relationship Keys
 
   // Attributes
-  public static final String ARTIKEL_ID_KEY = ARTIKEL_ID.key();
-  public static final String INHALT_ID_KEY = INHALT_ID.key();
 
   // Relationships
 
@@ -40,31 +36,9 @@ public abstract class _Konfiguration extends  ERXGenericRecord {
     return localInstance;
   }
 
-  public Integer artikelId() {
-    return (Integer) storedValueForKey(_Konfiguration.ARTIKEL_ID_KEY);
-  }
 
-  public void setArtikelId(Integer value) {
-    log.debug( "updating artikelId from {} to {}", artikelId(), value);
-    takeStoredValueForKey(value, _Konfiguration.ARTIKEL_ID_KEY);
-  }
-
-  public Integer inhaltId() {
-    return (Integer) storedValueForKey(_Konfiguration.INHALT_ID_KEY);
-  }
-
-  public void setInhaltId(Integer value) {
-    log.debug( "updating inhaltId from {} to {}", inhaltId(), value);
-    takeStoredValueForKey(value, _Konfiguration.INHALT_ID_KEY);
-  }
-
-
-  public static Konfiguration createKonfiguration(EOEditingContext editingContext, Integer artikelId
-, Integer inhaltId
-) {
+  public static Konfiguration createKonfiguration(EOEditingContext editingContext) {
     Konfiguration eo = (Konfiguration) EOUtilities.createAndInsertInstance(editingContext, _Konfiguration.ENTITY_NAME);
-    eo.setArtikelId(artikelId);
-    eo.setInhaltId(inhaltId);
     return eo;
   }
 

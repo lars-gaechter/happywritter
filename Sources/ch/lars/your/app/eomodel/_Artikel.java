@@ -20,7 +20,6 @@ public abstract class _Artikel extends  ERXGenericRecord {
 
   // Attribute Keys
   public static final ERXKey<String> BEZEICHNUNG = new ERXKey<String>("bezeichnung", Type.Attribute);
-  public static final ERXKey<Integer> ID = new ERXKey<Integer>("id", Type.Attribute);
   public static final ERXKey<java.math.BigDecimal> PREIS = new ERXKey<java.math.BigDecimal>("preis", Type.Attribute);
 
   // Relationship Keys
@@ -29,7 +28,6 @@ public abstract class _Artikel extends  ERXGenericRecord {
 
   // Attributes
   public static final String BEZEICHNUNG_KEY = BEZEICHNUNG.key();
-  public static final String ID_KEY = ID.key();
   public static final String PREIS_KEY = PREIS.key();
 
   // Relationships
@@ -53,15 +51,6 @@ public abstract class _Artikel extends  ERXGenericRecord {
   public void setBezeichnung(String value) {
     log.debug( "updating bezeichnung from {} to {}", bezeichnung(), value);
     takeStoredValueForKey(value, _Artikel.BEZEICHNUNG_KEY);
-  }
-
-  public Integer id() {
-    return (Integer) storedValueForKey(_Artikel.ID_KEY);
-  }
-
-  public void setId(Integer value) {
-    log.debug( "updating id from {} to {}", id(), value);
-    takeStoredValueForKey(value, _Artikel.ID_KEY);
   }
 
   public java.math.BigDecimal preis() {
@@ -226,11 +215,9 @@ public abstract class _Artikel extends  ERXGenericRecord {
 
 
   public static Artikel createArtikel(EOEditingContext editingContext, String bezeichnung
-, Integer id
 ) {
     Artikel eo = (Artikel) EOUtilities.createAndInsertInstance(editingContext, _Artikel.ENTITY_NAME);
     eo.setBezeichnung(bezeichnung);
-    eo.setId(id);
     return eo;
   }
 

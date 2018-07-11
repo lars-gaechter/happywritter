@@ -10,10 +10,20 @@
 <div class="container">
 <div class="jumbotron shadow-lg p-3 mb-5 bg-white rounded">
 <h1>Bestellung: <webobjects name="artikelName"></webobjects></h1>
-<webobject name = "artikelIcon"></webobject>
+<webobject name = "form">
+<div class="row">
+      <div class="col-md-6">
+      <webobject name = "artikelIcon"></webobject>
 <br>
 <webobject name = "preis"></webobject>
-<webobject name = "form">
+      </div>
+      <div class="col-md-6">
+      <webobject name = "inhalte">
+            <webobject name = "inhaltBezeichnung"/>
+            <webobject name = "inhaltPreis"/>
+        </webobject>
+      </div>
+      </div>
 <webobjects name = "bestaetigen"></webobjects>
 <webobjects name = "nichtspeichern"></webobjects>
 <webobjects name = "abbruch"></webobjects>
@@ -25,6 +35,7 @@
 <webobject name = "githubImg"></webobject>
 <webobject name = "githubText"></webobject>
 </webobject>
+
 </div>
 </footer>
 </div>

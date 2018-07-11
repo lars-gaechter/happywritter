@@ -1,6 +1,12 @@
 package ch.lars.your.app.components;
 
+import com.webobjects.appserver.WOComponent;
 import com.webobjects.appserver.WOContext;
+import com.webobjects.foundation.NSMutableArray;
+
+import er.extensions.eof.ERXEOControlUtilities;
+import ch.lars.your.app.eomodel.*;
+
 import java.math.RoundingMode;
 /**
  * Artikel Seite
@@ -12,6 +18,11 @@ public class ArtikelSeite extends BaseComponent {
 	 * 
 	 */
 	private static final long serialVersionUID = -3112592732690084973L;
+	
+	
+	private Artikel artikelJetzt;
+	private Inhalt inhaltAnzahl;
+	private NSMutableArray<Inhalt> ausgewaehlerInhalt;
 
 
 	/**
@@ -52,10 +63,27 @@ public class ArtikelSeite extends BaseComponent {
 	 * Geht ohne jegendliche änderung zur Einstiegsseite zurück
 	 * @return Seite Einstiegsseite
 	 */
-	public Einstiegsseite confirm() {
+	public Einstiegsseite confirmm() {
 		Einstiegsseite nextPage = pageWithName(Einstiegsseite.class);
 		return nextPage;
 	}
+	public final WOComponent confirm() {
+		BestellPosition ware = ERXEOControlUtilities.createAndInsertObject(session().defaultEditingContext(),
+				BestellPosition.class);
+		
+		ware.setArtikel(artikelJetzt);
+		//lambda
+		
+		ausgewaehlerInhalt.forEach(i -> ware.addToInhalts(i));
+		
+		session().getArikelInhaltKombination().add(ware);
+		
+		return pageWithName(Einstiegsseite.class);
+	}
+	
+	
+	
+	
 	/**
 	 * Löscht also speichert nicht Artikel in der Session von einem gleichen field in Session und geht zur Einstiegsseite zurück
 	 * @return seite Einstiegsseite
@@ -78,5 +106,38 @@ public class ArtikelSeite extends BaseComponent {
 		return nextPage;
 	}
 
+
+	public Artikel getArtikelJetzt() {
+		return artikelJetzt;
+	}
+
+
+	public void setArtikelJetzt(Artikel artikelJetzt) {
+		this.artikelJetzt = artikelJetzt;
+	}
+
+
+	public Inhalt getInhaltAnzahl() {
+		return inhaltAnzahl;
+	}
+
+
+	public void setInhaltAnzahl(Inhalt inhaltAnzahl) {
+		this.inhaltAnzahl = inhaltAnzahl;
+	}
+
+
+	public NSMutableArray<Inhalt> getAusgewaehlerInhalt() {
+		return ausgewaehlerInhalt;
+	}
+
+
+	public void setAusgewaehlerInhalt(NSMutableArray<Inhalt> ausgewaehlerInhalt) {
+		this.ausgewaehlerInhalt = ausgewaehlerInhalt;
+	}
+	
+	
+
+	
 
 }

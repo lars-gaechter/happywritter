@@ -19,9 +19,6 @@ public abstract class _BestellPosition extends  ERXGenericRecord {
   public static final String ENTITY_NAME = "BestellPosition";
 
   // Attribute Keys
-  public static final ERXKey<Integer> ARTIKEL_ID = new ERXKey<Integer>("artikelID", Type.Attribute);
-  public static final ERXKey<Integer> BESTELLUNG_ID = new ERXKey<Integer>("bestellungID", Type.Attribute);
-  public static final ERXKey<Integer> ID = new ERXKey<Integer>("id", Type.Attribute);
 
   // Relationship Keys
   public static final ERXKey<ch.lars.your.app.eomodel.Artikel> ARTIKEL = new ERXKey<ch.lars.your.app.eomodel.Artikel>("artikel", Type.ToOneRelationship);
@@ -29,9 +26,6 @@ public abstract class _BestellPosition extends  ERXGenericRecord {
   public static final ERXKey<ch.lars.your.app.eomodel.Inhalt> INHALTS = new ERXKey<ch.lars.your.app.eomodel.Inhalt>("inhalts", Type.ToManyRelationship);
 
   // Attributes
-  public static final String ARTIKEL_ID_KEY = ARTIKEL_ID.key();
-  public static final String BESTELLUNG_ID_KEY = BESTELLUNG_ID.key();
-  public static final String ID_KEY = ID.key();
 
   // Relationships
   public static final String ARTIKEL_KEY = ARTIKEL.key();
@@ -46,33 +40,6 @@ public abstract class _BestellPosition extends  ERXGenericRecord {
       throw new IllegalStateException("You attempted to localInstance " + this + ", which has not yet committed.");
     }
     return localInstance;
-  }
-
-  public Integer artikelID() {
-    return (Integer) storedValueForKey(_BestellPosition.ARTIKEL_ID_KEY);
-  }
-
-  public void setArtikelID(Integer value) {
-    log.debug( "updating artikelID from {} to {}", artikelID(), value);
-    takeStoredValueForKey(value, _BestellPosition.ARTIKEL_ID_KEY);
-  }
-
-  public Integer bestellungID() {
-    return (Integer) storedValueForKey(_BestellPosition.BESTELLUNG_ID_KEY);
-  }
-
-  public void setBestellungID(Integer value) {
-    log.debug( "updating bestellungID from {} to {}", bestellungID(), value);
-    takeStoredValueForKey(value, _BestellPosition.BESTELLUNG_ID_KEY);
-  }
-
-  public Integer id() {
-    return (Integer) storedValueForKey(_BestellPosition.ID_KEY);
-  }
-
-  public void setId(Integer value) {
-    log.debug( "updating id from {} to {}", id(), value);
-    takeStoredValueForKey(value, _BestellPosition.ID_KEY);
   }
 
   public ch.lars.your.app.eomodel.Artikel artikel() {
@@ -188,12 +155,8 @@ public abstract class _BestellPosition extends  ERXGenericRecord {
   }
 
 
-  public static BestellPosition createBestellPosition(EOEditingContext editingContext, Integer bestellungID
-, Integer id
-, ch.lars.your.app.eomodel.Bestellung bestellung) {
+  public static BestellPosition createBestellPosition(EOEditingContext editingContext, ch.lars.your.app.eomodel.Bestellung bestellung) {
     BestellPosition eo = (BestellPosition) EOUtilities.createAndInsertInstance(editingContext, _BestellPosition.ENTITY_NAME);
-    eo.setBestellungID(bestellungID);
-    eo.setId(id);
     eo.setBestellungRelationship(bestellung);
     return eo;
   }

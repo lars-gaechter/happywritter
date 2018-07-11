@@ -1,7 +1,9 @@
 package ch.lars.your.app.components;
 
+import com.webobjects.appserver.WOComponent;
 import com.webobjects.appserver.WOContext;
-import ch.lars.your.app.eomodel.Artikel;
+import com.webobjects.foundation.NSMutableArray;
+import com.webobjects.foundation.NSTimestamp;
 import ch.lars.your.app.eomodel.BestellPosition;
 import ch.lars.your.app.eomodel.Bestellung;
 import ch.lars.your.app.eomodel.Kunde;
@@ -12,7 +14,8 @@ import ch.lars.your.app.eomodel.Kunde;
  */
 public class BestaetigungsSeite extends BaseComponent {
 	
-
+	private Kunde kunde;
+	private Bestellung bestellung;
 	/**
 	 * 
 	 */
@@ -49,43 +52,28 @@ public class BestaetigungsSeite extends BaseComponent {
 	 * Kunde, Bestellung und Bestellposition wird in der Datenbank gespeichert
 	 * @return DankesSeite Seite
 	 */
-	public DankesSeite confirm() {
-		//Create all needed objects
-		Kunde kunde = new Kunde();
-		Bestellung bestellung = new Bestellung();
-		BestellPosition bestellPosition = new BestellPosition();
-		Artikel artikel = new Artikel();
-		//Set FK from PK Kunde into Bestellung
-		bestellung.addObjectToBothSidesOfRelationshipWithKey(kunde, Bestellung.KUNDE_KEY);
-		//Kunde data from session set
-		kunde.setOrt(session().getOrtNeuerKunde());
-		kunde.setPlz(session().getPlzNeuerKunde());
-		kunde.setStrasse(session().getStrasseNeuerKunde());
-		kunde.setTel(session().getTelNeuerKunde());
-		kunde.setVorname(session().getVornameNeuerKunde());
-		kunde.setNachname(session().getNachnameNeuerKunde());
-		//Bestellung data from session set
-		bestellung.setBemerkungen(session().getBemerkungenNeuerBestellung());
-		bestellPosition.addObjectToBothSidesOfRelationshipWithKey(bestellung, BestellPosition.BESTELLUNG_KEY);
-		bestellPosition.setBestellungID(23123);
-		if(session().getArtikelBezeichnung() == "Etui") {
-				bestellPosition.setArtikelID(1);
-				artikel.setBezeichnung("Etui");
-				artikel.setPreis(null);
-			}
-		if(session().getArtikelBezeichnung() == "Schachtel") {
-					bestellPosition.setArtikelID(2);
-					artikel.setBezeichnung("Schachtel");
-					artikel.setPreis(null);
+	public final WOComponent commit() {
+		
+		
+		// verbinde bestellung mit den waren im warenkorb;
+				NSMutableArray<BestellPosition> warenkorb = session().getArikelInhaltKombination();
+				System.out.println(warenkorb);
+				warenkorb.forEach(ware -> ware.setBestellung(bestellung));
+				// speichere es auf die datenbank
+				System.out.println("kennsch"+bestellung);
+				NSTimestamp now = new NSTimestamp();
+				System.out.println("new" + now);
+				kunde.setKundeseit(now);
+				bestellung.setDatum(now);
+				// speichere die finalen kunden und bestellungs daten
+				bestellung.setKundeRelationship(kunde);;
+				try {
+					session().defaultEditingContext().saveChanges();
+				} catch (Error | Exception e) {
+					System.out.println(e);
+					session().terminate();
 				}
-		//Insert object in Database
-		session().defaultEditingContext().insertObject(kunde);
-		session().defaultEditingContext().insertObject(bestellung);
-		session().defaultEditingContext().insertObject(bestellPosition);
-		//Commit
-		session().defaultEditingContext().saveChanges();
-		DankesSeite nextPage = pageWithName(DankesSeite.class);
-		return nextPage;
+				return pageWithName(DankesSeite.class);
 	}
 
 	/**
@@ -99,4 +87,18 @@ public class BestaetigungsSeite extends BaseComponent {
 			return session().getNachnameNeuerKunde();
 		}
 	}
+	public Kunde getKunde() {
+		return kunde;
+	}
+	public void setKunde(Kunde kunde) {
+		this.kunde = kunde;
+	}
+	public Bestellung getBestellung() {
+		return bestellung;
+	}
+	public void setBestellung(Bestellung bestellung) {
+		this.bestellung = bestellung;
+	}
+	
+	
 }

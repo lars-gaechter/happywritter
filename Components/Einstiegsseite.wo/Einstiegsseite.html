@@ -17,26 +17,50 @@
 </webobject>
 <webobject name = "zurueck">Zurück</webobject>
 <p class="mb-0">Ihre Bestellung:</p>
-<webobject name = "pruefeObEsFehlerHat">
+ <webobject name = "nonEmptyWarenkorb">
 <table class="table table-hover">
   <thead>
     <tr class="table-dark">
-      <th scope="row">Artikel</th>
-      <th scope="row">Preis</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="table-active">
-      <th scope="row"><webobject name = "bestelltePositionArtikel"></webobject></th>
-      <td><webobject name = "bestelltePositionPreis"></webobject></td>
-    </tr>
-    <tr class="table-success">
-      <th scope="row">Total</th>
-      <td><webobject name = "bestelltePositionPreis"></webobject></td>
-    </tr>
-    </tbody>
-    </table>
-</webobject>
+              <th scope = "row">Artikel</th>
+              <th scope = "row">Inhalt</th>
+              <th scope = "row">Preis</th>
+              <th scope = "row"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <webobject name = "artikel">
+              <tr class="table-info">
+                <td><webobject name = "artikelName" /></td>
+                <td></td>
+                <td><webobject name = "artikelPreis" /></td>
+                <td>
+                  <webobject name = "artikelLoeschen">lösche Artikel
+                    <span class = "fas fa-times"></span>
+                  </webobject>
+                </td>
+              </tr>
+              <webobject name = "inhalte">
+                <tr class="table-success">
+                  <td></td>
+                  <td> <webobject name = "inhaltName" /></td>
+                  <td><webobject name = "inhaltPreis" /></td>
+                  <td> 
+                   <webobject name = "inhaltLoeschen">lösche Inhalt
+                    <span class = "fas fa-times"></span>
+                  </webobject>
+                  </td>
+                </tr>
+              </webobject>
+            </webobject>
+            <tr>
+              <th>Total</th>
+              <th />
+              <th><webobject name = "totalPreis" /></th>
+              <th> </th>
+            </tr>
+          </tbody>
+        </table>
+      </webobject>
 </div>
 <footer>
 <div class="jumbotron shadow-lg p-3 mb-5 bg-white rounded">

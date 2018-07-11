@@ -1,22 +1,29 @@
 package ch.lars.your.app;
+import com.webobjects.foundation.NSMutableArray;
+
 import ch.lars.your.app.eomodel.Artikel;
 import ch.lars.your.app.eomodel.Bestellung;
 import ch.lars.your.app.eomodel.Kunde;
 import er.extensions.appserver.ERXSession;
+import ch.lars.your.app.eomodel.*;
 /**
  * Session welche den Kunden, Bestellung, Bestellposition und Artikel speichert
  * @author Protoss
  *
  */
 public class Session extends ERXSession {
-	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 885803331277758615L;
 	private Integer artikelFuerBeziehung = null, inhaltFuerBeziehung = null;
 	private Artikel artikelArtikelSeite = null;
 	private String artikelBezeichnung = "";
 	private String nameVonInhalt = "";
 	private java.math.BigDecimal perisVonInhalt = null;
 	private String ArtikelIcon = null;
-	private Kunde aKunde = null;
+	private Kunde aKunde;
 	private String 	vornameNeuerKunde = null,
 			nachnameNeuerKunde = null, 
 			strasseNeuerKunde = null, 
@@ -26,6 +33,16 @@ public class Session extends ERXSession {
 			kundeSeitNeuerKunde = null;
 	private Bestellung aBestellung = null;
 	private String bemerkungenNeuerBestellung = null;
+	
+	
+	private NSMutableArray<BestellPosition> arikelInhaltKombination = new NSMutableArray<>();
+	private NSMutableArray<Inhalt> inhalteVonArtikel;
+	private NSMutableArray<Artikel> artikel;
+	
+	
+	
+	
+	
 	/**
 	 * Benutzt Cookies für Session und zeigt die Session ID nicht im URL an
 	 */
@@ -34,6 +51,7 @@ public class Session extends ERXSession {
 
 		setStoresIDsInCookies(true);
 		setStoresIDsInURLs(false);
+		
 	}
 	
 	@Override
@@ -119,7 +137,7 @@ public class Session extends ERXSession {
 	}
 
 	public Kunde getaKunde() {
-		return aKunde;
+		return this.aKunde;
 	}
 
 	public void setaKunde(Kunde aKunde) {
@@ -184,6 +202,30 @@ public class Session extends ERXSession {
 
 	public void setArtikelIcon(String artikelIcon) {
 		ArtikelIcon = artikelIcon;
+	}
+
+	public NSMutableArray<BestellPosition> getArikelInhaltKombination() {
+		return arikelInhaltKombination;
+	}
+
+	public void setArikelInhaltKombination(NSMutableArray<BestellPosition> arikelInhaltKombination) {
+		this.arikelInhaltKombination = arikelInhaltKombination;
+	}
+
+	public NSMutableArray<Inhalt> getInhalteVonArtikel() {
+		return inhalteVonArtikel;
+	}
+
+	public void setInhalteVonArtikel(NSMutableArray<Inhalt> inhalteVonArtikel) {
+		this.inhalteVonArtikel = inhalteVonArtikel;
+	}
+
+	public NSMutableArray<Artikel> getArtikel() {
+		return artikel;
+	}
+
+	public void setArtikel(NSMutableArray<Artikel> artikel) {
+		this.artikel = artikel;
 	}
 	
 	

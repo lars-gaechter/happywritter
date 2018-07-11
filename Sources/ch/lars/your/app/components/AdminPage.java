@@ -2,14 +2,16 @@ package ch.lars.your.app.components;
 
 import com.webobjects.appserver.WOContext;
 import com.webobjects.foundation.NSArray;
+import com.webobjects.foundation.NSMutableArray;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import ch.lars.your.app.Benutzer;
 import ch.lars.your.app.components.Main;
 import ch.lars.your.app.eomodel.*;
 
-
 import com.webobjects.appserver.WOComponent;
+import com.webobjects.appserver.WOActionResults;
 /**
  * AdminPage Seite ist für die Verwaltung der Datenbank für den Administrator
  * Beinhaltet alle selektions oder kreations Methoden in der Datenbank
@@ -30,6 +32,8 @@ public class AdminPage extends BaseComponent {
 	 */
 	private int anzahlKunden, anzahlBestellungen, anzahlInhalte, anzahlKonfiguration, anzahlBestellteKonf,
 	anzahlBestellposition, anzahlArtikel;
+	
+	private Inhalt inhalteAnzahl;
 
 	/**
 	 * Bei erstellen eines Objektes wird eine neue Session gestartet.
@@ -370,6 +374,31 @@ public class AdminPage extends BaseComponent {
 	public void setAnzahlArtikel(int anzahlArtikel) {
 		this.anzahlArtikel = anzahlArtikel;
 	}
+
+
+	public Inhalt getInhalteAnzahl() {
+		return inhalteAnzahl;
+	}
+
+
+	public void setInhalteAnzahl(Inhalt inhalteAnzahl) {
+		this.inhalteAnzahl = inhalteAnzahl;
+	}
+
+
+	public WOActionResults inhaltLoeschen() {
+		inhalteAnzahl.delete();
+		NSMutableArray<Inhalt> inhalte = session().getInhalteVonArtikel();
+		inhalte.remove(inhalteAnzahl);
+		return null;
+	}
+
+
+	public WOActionResults inhaltUpdate() {
+		return null;
+	}
+	
+	
 	
 	
 	

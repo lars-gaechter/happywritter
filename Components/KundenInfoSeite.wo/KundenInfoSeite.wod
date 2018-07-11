@@ -7,14 +7,15 @@ customcss : ERXStyleSheet {
 form : WOForm {
 }
 vorname : WOTextField {
-	value = vorname;
+	//value = session.aKunde.vorname;
+	value = kunde.vorname;
 	id = "inputvorname";
 	class="form-control";
 	placeholder="Vorname";
 }
 
 nachname : WOTextField {
-	value = nachname;
+	value = kunde.nachname;
 	id = "inputnachname";
 	class="form-control";
 	placeholder="Nachname";
@@ -28,37 +29,37 @@ condition=aBoolean;
 }
 
 strasse : WOTextField {
-	value = strasse;
+	value = kunde.strasse;
 	id = "inputstrasse";
 	class="form-control";
 	placeholder="Strasse";
 }
 plz : WOTextField {
-	value = plz;
+	value = kunde.plz;
 	   id = "inputplz";
     class="form-control";
     placeholder="PLZ";
 }
 ort : WOTextField {
-	value = ort;
+	value = kunde.ort;
 	   id = "inputort";
     class="form-control";
     placeholder="Ort";
 }
 telefon : WOTextField {
-	value = tel;
+	value = kunde.tel;
 	   id = "inputtel";
     class="form-control";
     placeholder="Telefonnummer";
 }
 bemerkungen : WOText {
-	value = bemerkungen;
+	value = bestellung.bemerkungen;
 	   id = "inputbemerkungen";
     class="form-control";
     row = 3;
 }
 kundeSeit : WOTextField{
-	value = kundeseit;
+	value = kunde.kundeseit;
 }
 abbrechen : WOHyperlink {
 	action = abbrechen;

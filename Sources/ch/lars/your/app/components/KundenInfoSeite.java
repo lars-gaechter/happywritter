@@ -2,6 +2,9 @@ package ch.lars.your.app.components;
 
 
 import com.webobjects.appserver.WOContext;
+
+import ch.lars.your.app.eomodel.*;
+import er.extensions.eof.ERXEOControlUtilities;
 /**
  * KundenInfoSeite ist ein Formular, Kunde gibt seine Daten an und es wird validiert bevor es in der Session gespeichert wird
  * @author Protoss
@@ -24,8 +27,20 @@ public class KundenInfoSeite extends BaseComponent {
 	 * Konstruktor KundenInfoSeite
 	 * @param context super
 	 */
+	
+	
+	
+	private Kunde kunde;
+
+	private Bestellung bestellung;
+	
+	
+	
 	public KundenInfoSeite(WOContext context) {
 		super(context);
+		//session().setaKunde(ERXEOControlUtilities.createAndInsertObject(session().defaultEditingContext(), Kunde.class));
+		kunde = ERXEOControlUtilities.createAndInsertObject(session().defaultEditingContext(), Kunde.class);
+		bestellung =  ERXEOControlUtilities.createAndInsertObject(session().defaultEditingContext(), Bestellung.class);
 		
 		
     }
@@ -46,6 +61,8 @@ public class KundenInfoSeite extends BaseComponent {
 	 */
 	public BestaetigungsSeite confirmm() {
 		BestaetigungsSeite nextPage = pageWithName(BestaetigungsSeite.class);
+		nextPage.setKunde(kunde);
+		nextPage.setBestellung(bestellung);
 		return nextPage;
 	}
 	/**
@@ -53,7 +70,7 @@ public class KundenInfoSeite extends BaseComponent {
 	 * @return bestätigung oder null
 	 */
 	public BestaetigungsSeite confirm() {
-		if(kundeFormValidation()==true) {
+		if(kundeFormValidation()==false) {
 			return confirmm();
 		}
 		 else {
@@ -250,6 +267,21 @@ public class KundenInfoSeite extends BaseComponent {
 	public void setaBoolean(Boolean aBoolean) {
 		this.aBoolean = aBoolean;
 	}
+	public Kunde getKunde() {
+		return kunde;
+	}
+	public void setKunde(Kunde kunde) {
+		this.kunde = kunde;
+	}
+	public Bestellung getBestellung() {
+		return bestellung;
+	}
+	public void setBestellung(Bestellung bestellung) {
+		this.bestellung = bestellung;
+	}
+
+	
+	
 	
 	
 	

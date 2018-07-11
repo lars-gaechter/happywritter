@@ -19,7 +19,7 @@ public abstract class _Kunde extends  ERXGenericRecord {
   public static final String ENTITY_NAME = "Kunde";
 
   // Attribute Keys
-  public static final ERXKey<java.time.LocalDate> KUNDESEIT = new ERXKey<java.time.LocalDate>("kundeseit", Type.Attribute);
+  public static final ERXKey<NSTimestamp> KUNDESEIT = new ERXKey<NSTimestamp>("kundeseit", Type.Attribute);
   public static final ERXKey<String> NACHNAME = new ERXKey<String>("nachname", Type.Attribute);
   public static final ERXKey<String> ORT = new ERXKey<String>("ort", Type.Attribute);
   public static final ERXKey<String> PLZ = new ERXKey<String>("plz", Type.Attribute);
@@ -52,11 +52,11 @@ public abstract class _Kunde extends  ERXGenericRecord {
     return localInstance;
   }
 
-  public java.time.LocalDate kundeseit() {
-    return (java.time.LocalDate) storedValueForKey(_Kunde.KUNDESEIT_KEY);
+  public NSTimestamp kundeseit() {
+    return (NSTimestamp) storedValueForKey(_Kunde.KUNDESEIT_KEY);
   }
 
-  public void setKundeseit(java.time.LocalDate value) {
+  public void setKundeseit(NSTimestamp value) {
     log.debug( "updating kundeseit from {} to {}", kundeseit(), value);
     takeStoredValueForKey(value, _Kunde.KUNDESEIT_KEY);
   }
@@ -201,7 +201,8 @@ public abstract class _Kunde extends  ERXGenericRecord {
   }
 
 
-  public static Kunde createKunde(EOEditingContext editingContext, String nachname
+  public static Kunde createKunde(EOEditingContext editingContext, NSTimestamp kundeseit
+, String nachname
 , String ort
 , String plz
 , String strasse
@@ -209,6 +210,7 @@ public abstract class _Kunde extends  ERXGenericRecord {
 , String vorname
 ) {
     Kunde eo = (Kunde) EOUtilities.createAndInsertInstance(editingContext, _Kunde.ENTITY_NAME);
+    eo.setKundeseit(kundeseit);
     eo.setNachname(nachname);
     eo.setOrt(ort);
     eo.setPlz(plz);

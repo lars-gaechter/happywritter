@@ -6,7 +6,7 @@
     ); 
     attributesUsedForLocking = (id, name, preis); 
     className = "ch.lars.your.app.eomodel.Inhalt"; 
-    classProperties = (artikels, bestellPositions, id, name, preis); 
+    classProperties = (artikels, bestellPositions, name, preis); 
     externalName = Inhalt; 
     fetchSpecificationDictionary = {}; 
     name = Inhalt; 

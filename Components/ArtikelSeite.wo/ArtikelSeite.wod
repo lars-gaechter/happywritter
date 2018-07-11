@@ -16,6 +16,20 @@ githubText : WOString {
 artikelName : WOString {
 	value = artikelName;
 }
+
+
+inhalte : WOCheckboxMatrix {
+    list = artikelJetzt.inhalts;
+    item = inhaltAnzahl;
+    selections = ausgewaehlerInhalt;
+}
+
+inhaltBezeichnung : WOString {
+  value = inhaltAnzahl.name;
+}
+inhaltPreis : WOString {
+  value = inhaltAnzahl.preis;
+}
 artikelIcon : WOImage {
 	filename = artikelIcon;
 }

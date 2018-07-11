@@ -10,7 +10,6 @@
     ); 
     attributesUsedForLocking = (artikelId, inhaltId); 
     className = "ch.lars.your.app.eomodel.Konfiguration"; 
-    classProperties = (artikelId, inhaltId); 
     externalName = Konfiguration; 
     fetchSpecificationDictionary = {}; 
     name = Konfiguration; 

@@ -35,7 +35,7 @@ public class Application extends ERXApplication {
 		setSessionTimeOut(30 * 60);
 		benutzerListe = new NSMutableArray<Benutzer>();
 		/* Standard Admin Benutzer vorerfasst */
-		benutzerListe.add(new Benutzer("admin", "klapp42stuhl"));
+		benutzerListe.add(new Benutzer("admin", "admin"));
 	}
 
 	public AdminPage anmelden(String benutzername, String passwort) {

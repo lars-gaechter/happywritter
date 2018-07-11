@@ -53,26 +53,13 @@ public class BestaetigungsSeite extends BaseComponent {
 	 * @return DankesSeite Seite
 	 */
 	public final WOComponent commit() {
-		
-		
-		// verbinde bestellung mit den waren im warenkorb;
-				NSMutableArray<BestellPosition> warenkorb = session().getArikelInhaltKombination();
-				System.out.println(warenkorb);
-				warenkorb.forEach(ware -> ware.setBestellung(bestellung));
-				// speichere es auf die datenbank
-				System.out.println("kennsch"+bestellung);
+				NSMutableArray<BestellPosition> alleBestellPositionen = session().getArikelInhaltKombination();
+				alleBestellPositionen.forEach(allesVonDerBestellung -> allesVonDerBestellung.setBestellung(bestellung));
 				NSTimestamp now = new NSTimestamp();
-				System.out.println("new" + now);
 				kunde.setKundeseit(now);
 				bestellung.setDatum(now);
-				// speichere die finalen kunden und bestellungs daten
 				bestellung.setKundeRelationship(kunde);;
-				try {
-					session().defaultEditingContext().saveChanges();
-				} catch (Error | Exception e) {
-					System.out.println(e);
-					session().terminate();
-				}
+				session().defaultEditingContext().saveChanges();
 				return pageWithName(DankesSeite.class);
 	}
 

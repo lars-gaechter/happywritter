@@ -8,14 +8,15 @@ form : WOForm {
 }
 vorname : WOTextField {
 	//value = session.aKunde.vorname;
-	value = kunde.vorname;
+	//value = session.kunde.vorname;
+	value = session.vornameNeuerKunde;
 	id = "inputvorname";
 	class="form-control";
 	placeholder="Vorname";
 }
 
 nachname : WOTextField {
-	value = kunde.nachname;
+	value = session.nachnameNeuerKunde;
 	id = "inputnachname";
 	class="form-control";
 	placeholder="Nachname";
@@ -29,37 +30,37 @@ condition=aBoolean;
 }
 
 strasse : WOTextField {
-	value = kunde.strasse;
+	value = session.strasseNeuerKunde;
 	id = "inputstrasse";
 	class="form-control";
 	placeholder="Strasse";
 }
 plz : WOTextField {
-	value = kunde.plz;
+	value = session.plzNeuerKunde;
 	   id = "inputplz";
     class="form-control";
     placeholder="PLZ";
 }
 ort : WOTextField {
-	value = kunde.ort;
+	value = session.ortNeuerKunde;
 	   id = "inputort";
     class="form-control";
     placeholder="Ort";
 }
 telefon : WOTextField {
-	value = kunde.tel;
+	value = session.telNeuerKunde;
 	   id = "inputtel";
     class="form-control";
     placeholder="Telefonnummer";
 }
 bemerkungen : WOText {
-	value = bestellung.bemerkungen;
+	value = session.bemerkungenNeuerBestellung;
 	   id = "inputbemerkungen";
     class="form-control";
     row = 3;
 }
 kundeSeit : WOTextField{
-	value = kunde.kundeseit;
+	value = session.kunde.kundeseit;
 }
 abbrechen : WOHyperlink {
 	action = abbrechen;

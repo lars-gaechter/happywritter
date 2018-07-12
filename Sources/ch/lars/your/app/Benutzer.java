@@ -1,16 +1,22 @@
 package ch.lars.your.app;
+
 /**
  * Benutzer mit Login Daten als Eigenschaften
+ * 
  * @author Protoss
  *
  */
 public class Benutzer {
-	
+
 	private String benutzername, passwort;
+
 	/**
 	 * Benutzer Konstruktor
-	 * @param benutzername vom Admin
-	 * @param passwort vom Admin
+	 * 
+	 * @param benutzername
+	 *            vom Admin
+	 * @param passwort
+	 *            vom Admin
 	 */
 	public Benutzer(String benutzername, String passwort) {
 		super();
@@ -33,7 +39,5 @@ public class Benutzer {
 	public void setPasswort(String passwort) {
 		this.passwort = passwort;
 	}
-	
-	
 
 }

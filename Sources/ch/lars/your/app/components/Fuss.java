@@ -2,8 +2,10 @@ package ch.lars.your.app.components;
 
 import com.webobjects.appserver.WOContext;
 import com.webobjects.appserver.WOComponent;
+
 /**
  * Stellt Fuss von anderen WOComponenten dar.
+ * 
  * @author Protoss
  *
  */
@@ -15,9 +17,11 @@ public class Fuss extends WOComponent {
 
 	/**
 	 * Fuss Konstruktor
-	 * @param context super
+	 * 
+	 * @param context
+	 *            super
 	 */
-    public Fuss(WOContext context) {
-        super(context);
-    }
+	public Fuss(WOContext context) {
+		super(context);
+	}
 }

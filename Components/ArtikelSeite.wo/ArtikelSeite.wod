@@ -19,16 +19,16 @@ artikelName : WOString {
 
 
 inhalte : WOCheckboxMatrix {
-    list = artikelJetzt.inhalts;
-    item = inhaltAnzahl;
-    selections = ausgewaehlerInhalt;
+    list = session.artikelJetzt.inhalts;
+    item = session.inhaltAnzahl;
+    selections = session.ausgewaehlerInhalt;
 }
 
 inhaltBezeichnung : WOString {
-  value = inhaltAnzahl.name;
+  value = session.inhaltAnzahl.name;
 }
 inhaltPreis : WOString {
-  value = inhaltAnzahl.preis;
+  value = session.inhaltAnzahl.preis;
 }
 artikelIcon : WOImage {
 	filename = artikelIcon;

@@ -27,7 +27,7 @@ vorname : WOTextField {
 
 
 nachname : WOTextField {
-	value = nachname;
+	value = session.nachnameNeuerKunde;
 	   id = "inputnachname";
     class="form-control-plaintext";
     placeholder="Nachname";

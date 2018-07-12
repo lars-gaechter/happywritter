@@ -6,8 +6,10 @@ import er.extensions.components.ERXComponent;
 
 import ch.lars.your.app.Application;
 import ch.lars.your.app.Session;
+
 /**
  * BaseComponent erbt von ERXComponent
+ * 
  * @author Protoss
  *
  */
@@ -19,19 +21,21 @@ public class BaseComponent extends ERXComponent {
 
 	/**
 	 * BaseComponent Konstruktor
-	 * @param context super
+	 * 
+	 * @param context
+	 *            super
 	 */
 	public BaseComponent(WOContext context) {
 		super(context);
 	}
-	
+
 	@Override
 	public Application application() {
-		return (Application)super.application();
+		return (Application) super.application();
 	}
-	
+
 	@Override
 	public Session session() {
-		return (Session)super.session();
+		return (Session) super.session();
 	}
 }

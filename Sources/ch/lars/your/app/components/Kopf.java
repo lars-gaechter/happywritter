@@ -2,8 +2,10 @@ package ch.lars.your.app.components;
 
 import com.webobjects.appserver.WOContext;
 import com.webobjects.appserver.WOComponent;
+
 /**
  * Stellt Kopf von anderen WOComponenten dar.
+ * 
  * @author Protoss
  *
  */
@@ -15,9 +17,11 @@ public class Kopf extends WOComponent {
 
 	/**
 	 * Kopf Konstruktor
-	 * @param context super
+	 * 
+	 * @param context
+	 *            super
 	 */
-    public Kopf(WOContext context) {
-        super(context);
-    }
+	public Kopf(WOContext context) {
+		super(context);
+	}
 }

@@ -1,13 +1,12 @@
 package ch.lars.your.app;
-import com.webobjects.foundation.NSMutableArray;
 
-import ch.lars.your.app.eomodel.Artikel;
-import ch.lars.your.app.eomodel.Bestellung;
-import ch.lars.your.app.eomodel.Kunde;
+import com.webobjects.foundation.NSMutableArray;
 import er.extensions.appserver.ERXSession;
 import ch.lars.your.app.eomodel.*;
+
 /**
  * Session welche den Kunden, Bestellung, Bestellposition und Artikel speichert
+ * 
  * @author Protoss
  *
  */
@@ -24,25 +23,24 @@ public class Session extends ERXSession {
 	private java.math.BigDecimal perisVonInhalt = null;
 	private String ArtikelIcon = null;
 	private Kunde aKunde;
-	private String 	vornameNeuerKunde = null,
-			nachnameNeuerKunde = null, 
-			strasseNeuerKunde = null, 
-			ortNeuerKunde = null, 
-			plzNeuerKunde = null, 
-			telNeuerKunde = null, 
-			kundeSeitNeuerKunde = null;
+	private String vornameNeuerKunde = null, nachnameNeuerKunde = null, strasseNeuerKunde = null, ortNeuerKunde = null,
+			plzNeuerKunde = null, telNeuerKunde = null, kundeSeitNeuerKunde = null;
 	private Bestellung aBestellung = null;
 	private String bemerkungenNeuerBestellung = null;
-	
-	
+
+	private Kunde kunde;
+	private Bestellung bestellung;
+	private BestellPosition ware = new BestellPosition();
 	private NSMutableArray<BestellPosition> arikelInhaltKombination = new NSMutableArray<>();
 	private NSMutableArray<Inhalt> inhalteVonArtikel;
+
+	private NSMutableArray<Inhalt> ausgewaehlerInhalt;
+	private Artikel artikelJetzt;
 	private NSMutableArray<Artikel> artikel;
-	
-	
-	
-	
-	
+	private Inhalt inhaltAnzahl;
+	private BestellPosition arikelInhaltKombinationAnzahl;
+	private Inhalt inhalt;
+
 	/**
 	 * Benutzt Cookies für Session und zeigt die Session ID nicht im URL an
 	 */
@@ -51,19 +49,19 @@ public class Session extends ERXSession {
 
 		setStoresIDsInCookies(true);
 		setStoresIDsInURLs(false);
-		
+
 	}
-	
+
 	@Override
 	public Application application() {
-		return (Application)super.application();
+		return (Application) super.application();
 	}
-	
+
 	@Override
 	public void terminate() {
 		super.terminate();
 	}
-	
+
 	public Artikel getArtikelArtikelSeite() {
 		return artikelArtikelSeite;
 	}
@@ -74,10 +72,12 @@ public class Session extends ERXSession {
 
 	public String getVornameNeuerKunde() {
 		return vornameNeuerKunde;
+
 	}
 
 	public void setVornameNeuerKunde(String vornameNeuerKunde) {
 		this.vornameNeuerKunde = vornameNeuerKunde;
+		kunde.setVorname(vornameNeuerKunde);
 	}
 
 	public String getNachnameNeuerKunde() {
@@ -86,6 +86,7 @@ public class Session extends ERXSession {
 
 	public void setNachnameNeuerKunde(String nachnameNeuerKunde) {
 		this.nachnameNeuerKunde = nachnameNeuerKunde;
+		kunde.setNachname(nachnameNeuerKunde);
 	}
 
 	public String getStrasseNeuerKunde() {
@@ -94,6 +95,7 @@ public class Session extends ERXSession {
 
 	public void setStrasseNeuerKunde(String strasseNeuerKunde) {
 		this.strasseNeuerKunde = strasseNeuerKunde;
+		kunde.setStrasse(strasseNeuerKunde);
 	}
 
 	public String getOrtNeuerKunde() {
@@ -102,6 +104,7 @@ public class Session extends ERXSession {
 
 	public void setOrtNeuerKunde(String ortNeuerKunde) {
 		this.ortNeuerKunde = ortNeuerKunde;
+		kunde.setOrt(ortNeuerKunde);
 	}
 
 	public String getPlzNeuerKunde() {
@@ -110,6 +113,7 @@ public class Session extends ERXSession {
 
 	public void setPlzNeuerKunde(String plzNeuerKunde) {
 		this.plzNeuerKunde = plzNeuerKunde;
+		kunde.setPlz(plzNeuerKunde);
 	}
 
 	public String getTelNeuerKunde() {
@@ -118,6 +122,7 @@ public class Session extends ERXSession {
 
 	public void setTelNeuerKunde(String telNeuerKunde) {
 		this.telNeuerKunde = telNeuerKunde;
+		kunde.setTel(telNeuerKunde);
 	}
 
 	public String getKundeSeitNeuerKunde() {
@@ -134,6 +139,7 @@ public class Session extends ERXSession {
 
 	public void setBemerkungenNeuerBestellung(String bemerkungenNeuerBestellung) {
 		this.bemerkungenNeuerBestellung = bemerkungenNeuerBestellung;
+		bestellung.setBemerkungen(bemerkungenNeuerBestellung);
 	}
 
 	public Kunde getaKunde() {
@@ -151,7 +157,7 @@ public class Session extends ERXSession {
 	public void setaBestellung(Bestellung aBestellung) {
 		this.aBestellung = aBestellung;
 	}
-	
+
 	public String getArtikelBezeichnung() {
 		return artikelBezeichnung;
 	}
@@ -191,9 +197,9 @@ public class Session extends ERXSession {
 	public void setInhaltFuerBeziehung(Integer inhaltFuerBeziehung) {
 		this.inhaltFuerBeziehung = inhaltFuerBeziehung;
 	}
-	
+
 	public void addArtikelZuBestellung() {
-		
+
 	}
 
 	public String getArtikelIcon() {
@@ -227,12 +233,70 @@ public class Session extends ERXSession {
 	public void setArtikel(NSMutableArray<Artikel> artikel) {
 		this.artikel = artikel;
 	}
+
+	public Kunde getKunde() {
+		return kunde;
+	}
+
+	public void setKunde(Kunde kunde) {
+		this.kunde = kunde;
+	}
+
+	public Bestellung getBestellung() {
+		return bestellung;
+	}
+
+	public void setBestellung(Bestellung bestellung) {
+		this.bestellung = bestellung;
+	}
+
+	public Artikel getArtikelJetzt() {
+		return artikelJetzt;
+	}
+
+	public void setArtikelJetzt(Artikel artikelJetzt) {
+		this.artikelJetzt = artikelJetzt;
+	}
+
+	public BestellPosition getWare() {
+		return ware;
+	}
+
+	public void setWare(BestellPosition ware) {
+		this.ware = ware;
+	}
+
+	public NSMutableArray<Inhalt> getAusgewaehlerInhalt() {
+		return ausgewaehlerInhalt;
+	}
+
+	public void setAusgewaehlerInhalt(NSMutableArray<Inhalt> ausgewaehlerInhalt) {
+		this.ausgewaehlerInhalt = ausgewaehlerInhalt;
+	}
+
+	public Inhalt getInhaltAnzahl() {
+		return inhaltAnzahl;
+	}
+
+	public void setInhaltAnzahl(Inhalt inhaltAnzahl) {
+		this.inhaltAnzahl = inhaltAnzahl;
+	}
+
+	public BestellPosition getArikelInhaltKombinationAnzahl() {
+		return arikelInhaltKombinationAnzahl;
+	}
+
+	public void setArikelInhaltKombinationAnzahl(BestellPosition arikelInhaltKombinationAnzahl) {
+		this.arikelInhaltKombinationAnzahl = arikelInhaltKombinationAnzahl;
+	}
+
+	public Inhalt getInhalt() {
+		return inhalt;
+	}
+
+	public void setInhalt(Inhalt inhalt) {
+		this.inhalt = inhalt;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
+
 }

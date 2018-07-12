@@ -49,16 +49,16 @@ nonEmptyWarenkorb : WOConditional {
 
 artikel : WORepetition {
     list = session.arikelInhaltKombination;
-    item = arikelInhaltKombinationAnzahl;
+    item = session.arikelInhaltKombinationAnzahl;
 }
 artikelName : WOString {
     //value = wareLoopVar.artikel.bezeichnung;
-    value = arikelInhaltKombinationAnzahl.artikel.bezeichnung;
+    value = session.arikelInhaltKombinationAnzahl.artikel.bezeichnung;
 }
 
 artikelPreis : WOString {
     //value = wareLoopVar.artikel.preis;
-    value = arikelInhaltKombinationAnzahl.artikel.preis;
+    value = session.arikelInhaltKombinationAnzahl.artikel.preis;
 }
 
 artikelLoeschen : WOHyperlink {
@@ -73,16 +73,16 @@ inhaltLoeschen : WOHyperlink {
 }
 
 inhalte : WORepetition {
-    list = arikelInhaltKombinationAnzahl.inhalts;
-    item = inhaltAnzahl;
+    list = session.arikelInhaltKombinationAnzahl.inhalts;
+    item = session.inhaltAnzahl;
 }
 
 inhaltName : WOString {
-    value = inhaltAnzahl.name;
+    value = session.inhaltAnzahl.name;
 }
 
 inhaltPreis : WOString {
-    value = inhaltAnzahl.preis;
+    value = session.inhaltAnzahl.preis;
 }
 
 totalPreis : WOString {

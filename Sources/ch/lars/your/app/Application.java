@@ -20,7 +20,6 @@ public class Application extends ERXApplication {
 		this.qualifier = qualifier;
 	}
 
-
 	public static void main(String[] argv) {
 		ERXApplication.main(argv, Application.class);
 	}

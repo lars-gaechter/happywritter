@@ -77,7 +77,9 @@ public class Einstiegsseite extends BaseComponent {
 	}
 
 	/**
-	 * Prüft ob der Kunde sich für einen Artikel entschieden hat
+	 * Prüft ob der Kunde sich für mindestens einen Artikel entschieden hat
+	 * 
+	 * Überprüfen ob die Liste aus allen ARtiken leer ist
 	 * 
 	 * @return boolean flase or true
 	 */
@@ -91,6 +93,7 @@ public class Einstiegsseite extends BaseComponent {
 				return false;
 			}
 		}
+		
 
 	}
 
@@ -111,11 +114,11 @@ public class Einstiegsseite extends BaseComponent {
 	 * @return Artikel Seite welcher gleich dem String im param war
 	 */
 	private final WOComponent getPageWithArticle(String bezeichnung) {
-		ArtikelSeite page = pageWithName(ArtikelSeite.class);
+		ArtikelSeite nextPage = pageWithName(ArtikelSeite.class);
 		Artikel artikel = Artikel.fetchArtikel(session().defaultEditingContext(),
 				Artikel.BEZEICHNUNG.like(bezeichnung));
 		session().setArtikelJetzt(artikel);
-		return page;
+		return nextPage;
 	}
 
 	/**

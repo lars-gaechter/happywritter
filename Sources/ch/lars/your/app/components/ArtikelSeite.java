@@ -70,7 +70,7 @@ public class ArtikelSeite extends BaseComponent {
 
 		session().getWare().setArtikel(session().getArtikelJetzt());
 		// lambda
-
+		//Der bestellen Konfiguration vom Kunden wird der Schlüssel von den ausgewählten Inhalten zugewiessen 
 		session().getAusgewaehlerInhalt().forEach(i -> session().getWare().addToInhalts(i));
 		session().getArikelInhaltKombination().add(session().getWare());
 

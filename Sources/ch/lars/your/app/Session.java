@@ -16,29 +16,45 @@ public class Session extends ERXSession {
 	 * 
 	 */
 	private static final long serialVersionUID = 885803331277758615L;
+	//Admin Artikel und Beziehung zu den Inhalten
 	private Integer artikelFuerBeziehung = null, inhaltFuerBeziehung = null;
 	private Artikel artikelArtikelSeite = null;
+	
+	//Name vom Artikel
 	private String artikelBezeichnung = "";
+	//Name vom Inhalt
 	private String nameVonInhalt = "";
+	//Preis von einem Inhalt
 	private java.math.BigDecimal perisVonInhalt = null;
+	//Das Bild vom Artikel
 	private String ArtikelIcon = null;
-	private Kunde aKunde;
+	//Eingaben im Kunde Formular als Strings für Kundeinformationen
 	private String vornameNeuerKunde = null, nachnameNeuerKunde = null, strasseNeuerKunde = null, ortNeuerKunde = null,
 			plzNeuerKunde = null, telNeuerKunde = null, kundeSeitNeuerKunde = null;
-	private Bestellung aBestellung = null;
+	//Eingaben im Kunde Formular als Strings für Bestellunginformation
 	private String bemerkungenNeuerBestellung = null;
-
+	
+	//Ein Kunde pro Bestellung
 	private Kunde kunde;
+	//Eine Bestellung pro Kunde
 	private Bestellung bestellung;
+	//Eine BestellPosition
 	private BestellPosition ware = new BestellPosition();
+	//BestellPosition von einer Bestellung des Kunden
 	private NSMutableArray<BestellPosition> arikelInhaltKombination = new NSMutableArray<>();
+	//Ein Liste aller Inhalte aus der Administrator Konfiguration
 	private NSMutableArray<Inhalt> inhalteVonArtikel;
-
+	//Ein Liste aller Inhalte aus der bestellten Konfiguration welche der Kunde ausgewählt hat
 	private NSMutableArray<Inhalt> ausgewaehlerInhalt;
+	//Während der Detailansicht eines Artikels
 	private Artikel artikelJetzt;
+	//Ein Liste aller Artikeln welche der Kunde möchte
 	private NSMutableArray<Artikel> artikel;
+	//Anzal von Inhalten der Liste für die Iteration
 	private Inhalt inhaltAnzahl;
+	//Anzal von Bestell Positionen der Liste für die Iteration
 	private BestellPosition arikelInhaltKombinationAnzahl;
+	//Wenn ein Inhlat Objekt einzeln benötigt wird
 	private Inhalt inhalt;
 
 	/**
@@ -140,22 +156,6 @@ public class Session extends ERXSession {
 	public void setBemerkungenNeuerBestellung(String bemerkungenNeuerBestellung) {
 		this.bemerkungenNeuerBestellung = bemerkungenNeuerBestellung;
 		bestellung.setBemerkungen(bemerkungenNeuerBestellung);
-	}
-
-	public Kunde getaKunde() {
-		return this.aKunde;
-	}
-
-	public void setaKunde(Kunde aKunde) {
-		this.aKunde = aKunde;
-	}
-
-	public Bestellung getaBestellung() {
-		return aBestellung;
-	}
-
-	public void setaBestellung(Bestellung aBestellung) {
-		this.aBestellung = aBestellung;
 	}
 
 	public String getArtikelBezeichnung() {
@@ -297,6 +297,5 @@ public class Session extends ERXSession {
 	public void setInhalt(Inhalt inhalt) {
 		this.inhalt = inhalt;
 	}
-	
 
 }

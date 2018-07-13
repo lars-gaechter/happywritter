@@ -382,7 +382,7 @@ public class AdminPage extends BaseComponent {
 	public WOActionResults inhaltUpdate() {
 		return null;
 	}
-	
+
 	public AdminPage anmelden(String benutzername, String passwort) {
 		Iterator<Benutzer> it = benutzerListe.iterator();
 
